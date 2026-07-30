@@ -1,0 +1,8 @@
+name: mergerfs-2.40.2
+version: '0'
+source:
+  url: https://gitlab.freedesktop.org/mergerfs-2.40.2/mergerfs-2.40.2/-/archive/0/mergerfs-2.40.2.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install

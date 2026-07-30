@@ -1,0 +1,8 @@
+name: selinux-podman-2.20250618_p1
+version: '0'
+source:
+  url: https://gitlab.freedesktop.org/selinux-podman-2.20250618_p1/selinux-podman-2.20250618_p1/-/archive/0/patchbundle-selinux-base-policy-2.20250618-r1.tar.bz2
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install

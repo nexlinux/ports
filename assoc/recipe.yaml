@@ -1,0 +1,8 @@
+name: assoc-1.0.2
+version: '0'
+source:
+  url: https://gitlab.freedesktop.org/assoc-1.0.2/assoc-1.0.2/-/archive/0/assoc-1.0.2.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install

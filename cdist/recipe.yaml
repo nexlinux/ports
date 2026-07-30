@@ -1,0 +1,8 @@
+name: cdist-7.0.0-r1
+version: '0'
+source:
+  url: https://gitlab.freedesktop.org/cdist-7.0.0-r1/cdist-7.0.0-r1/-/archive/0/cdist-7.0.0.ug.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install

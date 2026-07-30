@@ -1,0 +1,8 @@
+name: xerces-c-3.2.5
+version: '0'
+source:
+  url: https://gitlab.freedesktop.org/xerces-c-3.2.5/xerces-c-3.2.5/-/archive/0/xerces-c-3.2.5.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install

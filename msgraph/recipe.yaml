@@ -1,0 +1,8 @@
+name: msgraph-0.3.3
+version: '0'
+source:
+  url: https://gitlab.freedesktop.org/msgraph-0.3.3/msgraph-0.3.3/-/archive/0/msgraph-0.2.3.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install

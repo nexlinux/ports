@@ -1,0 +1,8 @@
+name: coinor-clp-1.17.6-r1
+version: '0'
+source:
+  url: https://gitlab.freedesktop.org/coinor-clp-1.17.6-r1/coinor-clp-1.17.6-r1/-/archive/0/coinor-clp-1.17.10.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install

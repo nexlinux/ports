@@ -1,0 +1,8 @@
+name: OpenNI2-9999
+version: '0'
+source:
+  url: https://gitlab.freedesktop.org/OpenNI2-9999/OpenNI2-9999/-/archive/0/OpenNI2-2.2_beta2.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install

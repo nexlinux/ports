@@ -1,0 +1,8 @@
+name: link-grammar-5.12.5
+version: '0'
+source:
+  url: https://gitlab.freedesktop.org/link-grammar-5.12.5/link-grammar-5.12.5/-/archive/0/link-grammar-5.12.5.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install

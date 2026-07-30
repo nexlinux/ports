@@ -1,0 +1,8 @@
+name: libevent-2.2.2
+version: '0'
+source:
+  url: https://gitlab.freedesktop.org/libevent-2.2.2/libevent-2.2.2/-/archive/0/libevent-2.1.12-stable.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install

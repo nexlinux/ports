@@ -1,0 +1,8 @@
+name: iml-1.0.5-r1
+version: '0'
+source:
+  url: https://gitlab.freedesktop.org/iml-1.0.5-r1/iml-1.0.5-r1/-/archive/0/iml-1.0.5.tar.bz2
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install

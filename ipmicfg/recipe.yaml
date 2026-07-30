@@ -1,0 +1,8 @@
+name: ipmicfg-1.37.0.250723
+version: '0'
+source:
+  url: https://gitlab.freedesktop.org/ipmicfg-1.37.0.250723/ipmicfg-1.37.0.250723/-/archive/0/IPMICFG_1.37.0_build.250723.zip
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install

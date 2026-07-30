@@ -1,0 +1,8 @@
+name: less-691
+version: '0'
+source:
+  url: https://gitlab.freedesktop.org/less-691/less-691/-/archive/0/less-643.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install

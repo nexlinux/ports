@@ -1,0 +1,8 @@
+name: paperwork-backend-2.2.5
+version: '0'
+source:
+  url: https://gitlab.freedesktop.org/paperwork-backend-2.2.5/paperwork-backend-2.2.5/-/archive/0/paperwork-2.2.5.tar.bz2
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install

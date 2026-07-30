@@ -1,0 +1,8 @@
+name: jack-example-tools
+version: '4'
+source:
+  url: https://gitlab.freedesktop.org/jack-example-tools/jack-example-tools/-/archive/4/jack-example-tools-4.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install

@@ -1,0 +1,8 @@
+name: gst-plugins-cdparanoia-1.24.13
+version: '0'
+source:
+  url: https://gitlab.freedesktop.org/gst-plugins-cdparanoia-1.24.13/gst-plugins-cdparanoia-1.24.13/-/archive/0/gst-plugins-base-1.24.13.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install

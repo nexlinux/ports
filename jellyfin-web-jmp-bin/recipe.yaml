@@ -1,0 +1,8 @@
+name: jellyfin-web-jmp-bin-10.8.9
+version: '0'
+source:
+  url: https://gitlab.freedesktop.org/jellyfin-web-jmp-bin-10.8.9/jellyfin-web-jmp-bin-10.8.9/-/archive/0/jellyfin-web-jmp-bin-10.8.0.zip
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install

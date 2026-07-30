@@ -1,0 +1,8 @@
+name: openpgp-keys-handbrake-20260208
+version: '0'
+source:
+  url: https://gitlab.freedesktop.org/openpgp-keys-handbrake-20260208/openpgp-keys-handbrake-20260208/-/archive/0/openpgp-keys-handbrake-ubuntu-20260208.asc
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install

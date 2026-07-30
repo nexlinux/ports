@@ -1,0 +1,8 @@
+name: libclastfm-0.5
+version: '0'
+source:
+  url: https://gitlab.freedesktop.org/libclastfm-0.5/libclastfm-0.5/-/archive/0/libclastfm-0.5.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install

@@ -1,0 +1,8 @@
+name: rt-sources-5.4.293_p98
+version: '0'
+source:
+  url: https://gitlab.freedesktop.org/rt-sources-5.4.293_p98/rt-sources-5.4.293_p98/-/archive/0/deblob-5.10
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install

@@ -1,0 +1,8 @@
+name: lld-24.0.0.9999
+version: '0'
+source:
+  url: https://gitlab.freedesktop.org/lld-24.0.0.9999/lld-24.0.0.9999/-/archive/0/llvm-project-0bf3638ddfe6e8bb3b79ebe8c2a918384a5df612.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install

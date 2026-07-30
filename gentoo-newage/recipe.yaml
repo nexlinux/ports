@@ -1,0 +1,8 @@
+name: gentoo-newage-0.1
+version: '0'
+source:
+  url: https://gitlab.freedesktop.org/gentoo-newage-0.1/gentoo-newage-0.1/-/archive/0/gentoo-newage-0.1.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install

@@ -1,0 +1,8 @@
+name: nuvox-07.1-r1
+version: '0'
+source:
+  url: https://gitlab.freedesktop.org/nuvox-07.1-r1/nuvox-07.1-r1/-/archive/0/nuvoX_07.1.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install

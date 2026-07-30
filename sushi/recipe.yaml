@@ -1,0 +1,8 @@
+name: sushi-46.0
+version: '0'
+source:
+  url: https://gitlab.freedesktop.org/sushi-46.0/sushi-46.0/-/archive/0/sushi-46.0.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install

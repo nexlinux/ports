@@ -1,0 +1,8 @@
+name: Net-SFTP-0.120.0
+version: '0'
+source:
+  url: https://gitlab.freedesktop.org/Net-SFTP-0.120.0/Net-SFTP-0.120.0/-/archive/0/Net-SFTP-0.12.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install

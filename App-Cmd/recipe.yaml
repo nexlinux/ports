@@ -1,0 +1,8 @@
+name: App-Cmd-0.337.0-r2
+version: '0'
+source:
+  url: https://gitlab.freedesktop.org/App-Cmd-0.337.0-r2/App-Cmd-0.337.0-r2/-/archive/0/App-Cmd-0.337.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install

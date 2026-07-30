@@ -1,0 +1,8 @@
+name: docbook-xml-dtd-4.3-r2
+version: '0'
+source:
+  url: https://gitlab.freedesktop.org/docbook-xml-dtd-4.3-r2/docbook-xml-dtd-4.3-r2/-/archive/0/docbkx412.zip
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install

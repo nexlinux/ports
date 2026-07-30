@@ -1,0 +1,8 @@
+name: firefox-140.13.0
+version: '0'
+source:
+  url: https://gitlab.freedesktop.org/firefox-140.13.0/firefox-140.13.0/-/archive/0/firefox-139-loong-patches-02.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install

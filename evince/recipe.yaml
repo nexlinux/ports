@@ -1,0 +1,8 @@
+name: evince-48.1
+version: '0'
+source:
+  url: https://gitlab.freedesktop.org/evince-48.1/evince-48.1/-/archive/0/evince-48.0.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
