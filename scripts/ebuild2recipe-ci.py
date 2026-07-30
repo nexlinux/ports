@@ -1,4 +1,4 @@
-# ebuild2recipe-ci.py — batch-конвертер для GitHub Actions (DEBUG VERSION)
+# ebuild2recipe-ci.py — batch-конвертер для GitHub Actions
 
 import sys, os, re, subprocess, tempfile, urllib.request, argparse, random
 
@@ -20,6 +20,7 @@ MIRRORS = {
     "rubygems": "https://rubygems.org/downloads",
     "mozilla": "https://archive.mozilla.org/pub",
     "rust-lang": "https://static.rust-lang.org/dist",
+    "gnu": "https://ftp.gnu.org/gnu",
 }
 
 TEMPLATES = {
@@ -46,8 +47,8 @@ def bash_expand(content, ebuild_dir):
             line = line.strip()
             if line and not line.startswith('set -e') and not line.startswith('inherit'):
                 return line
-    except Exception as e:
-        print(f"    [DEBUG] bash_expand error: {e}")
+    except:
+        pass
     return None
 
 def manual_expand(content, pn, pv, p):
@@ -57,7 +58,6 @@ def manual_expand(content, pn, pv, p):
         pattern = r"SRC_URI\s*=\s*'([^']*(?:\n[^']*)*)'"
         m = re.search(pattern, content, re.DOTALL)
     if not m:
-        print(f"    [DEBUG] No SRC_URI found in ebuild")
         return None
     uri = m.group(1)
     uri = uri.replace("${P}", p).replace("${PN}", pn).replace("${PV}", pv)
@@ -71,10 +71,10 @@ def manual_expand(content, pn, pv, p):
     for url in urls:
         if url.startswith("http"):
             return url
-    print(f"    [DEBUG] No http URL found in SRC_URI")
     return None
 
 def parse_manifest(manifest_path):
+    """Возвращает список (имя, размер), отсортированный по размеру (убывание)"""
     dists = []
     if not os.path.exists(manifest_path):
         return dists
@@ -82,28 +82,62 @@ def parse_manifest(manifest_path):
         for line in f:
             if line.startswith("DIST "):
                 parts = line.split()
-                if len(parts) >= 2:
-                    dists.append(parts[1])
+                if len(parts) >= 3:
+                    try:
+                        size = int(parts[2])
+                        dists.append((parts[1], size))
+                    except:
+                        dists.append((parts[1], 0))
+    # Сортируем по размеру — самый большой первый (это основной тарболл)
+    dists.sort(key=lambda x: x[1], reverse=True)
     return dists
 
 def guess_url_from_manifest(pn, pv, dists):
     if not dists:
         return None
-    fname = dists[0]
+    # Берём самый большой файл (основной тарболл), не патч
+    fname = dists[0][0]
     major = pv[:pv.rfind(".")] if "." in pv else pv
+    major2 = ".".join(pv.split(".")[:2]) if "." in pv else pv
+    
     guesses = [
+        # GNU
+        f"https://ftp.gnu.org/gnu/{pn}/{fname}",
+        f"https://ftp.gnu.org/gnu/{pn}/{pn}-{pv}.tar.gz",
+        f"https://ftp.gnu.org/gnu/{pn}/{pn}-{pv}.tar.xz",
+        # GitHub
         f"https://github.com/{pn}/{pn}/releases/download/v{pv}/{fname}",
         f"https://github.com/{pn}/{pn}/archive/refs/tags/v{pv}.tar.gz",
+        f"https://github.com/{pn}/{pn}/archive/refs/tags/{pv}.tar.gz",
+        # SourceForge
         f"https://downloads.sourceforge.net/{pn}/{fname}",
+        # XFCE
         f"https://archive.xfce.org/src/xfce/{pn}/{major}/{fname}",
+        f"https://archive.xfce.org/src/xfce/{pn}/{major2}/{fname}",
+        # GNOME
         f"https://download.gnome.org/sources/{pn}/{major}/{fname}",
+        f"https://download.gnome.org/sources/{pn}/{major2}/{fname}",
+        # KDE
         f"https://download.kde.org/stable/{pn}/{pv}/{fname}",
+        # Gentoo distfiles
         f"https://distfiles.gentoo.org/distfiles/{fname}",
+        # Freedesktop GitLab
         f"https://gitlab.freedesktop.org/{pn}/{pn}/-/archive/{pv}/{fname}",
+        # Mozilla
         f"https://archive.mozilla.org/pub/{pn}/releases/{pv}/source/{pn}-{pv}.source.tar.xz",
         f"https://archive.mozilla.org/pub/{pn}/releases/{pv}/source/{fname}",
+        # Rust
         f"https://static.rust-lang.org/dist/{fname}",
+        # Kernel
+        f"https://cdn.kernel.org/pub/linux/kernel/v{major[:1]}.x/{fname}",
+        # Apache
+        f"https://archive.apache.org/dist/{pn}/{fname}",
+        # PyPI
+        f"https://files.pythonhosted.org/packages/source/{pn[0]}/{pn}/{fname}",
+        # CPAN
+        f"https://cpan.metacpan.org/authors/id/{fname[:1]}/{fname[:2]}/{fname[:3]}/{fname}",
     ]
+    
     for g in guesses:
         try:
             req = urllib.request.Request(g, method='HEAD')
@@ -111,7 +145,6 @@ def guess_url_from_manifest(pn, pv, dists):
             return g
         except:
             continue
-    print(f"    [DEBUG] No URL guessed from manifest")
     return None
 
 def parse_deps(content, varname):
@@ -151,21 +184,41 @@ def detect_build_system(src_dir):
     return None
 
 def download_and_extract(url, dest):
-    archive = os.path.join(dest, "source.tar.gz")
+    # Определяем расширение из URL
+    ext = ".tar.gz"
+    if url.endswith(".tar.xz"):
+        ext = ".tar.xz"
+    elif url.endswith(".tar.bz2"):
+        ext = ".tar.bz2"
+    elif url.endswith(".zip"):
+        ext = ".zip"
+    elif url.endswith(".tar"):
+        ext = ".tar"
+    
+    archive = os.path.join(dest, f"source{ext}")
     try:
         urllib.request.urlretrieve(url, archive)
     except Exception as e:
-        print(f"    [DEBUG] Download failed: {e}")
         return None
+    
     if os.path.getsize(archive) < 1024:
-        print(f"    [DEBUG] Downloaded file too small")
         return None
-    for cmd in [["tar", "xf", archive, "-C", dest], ["tar", "xf", archive, "-C", dest, "--strip-components=1"]]:
+    
+    # Пробуем распаковать с правильным расширением
+    cmds = []
+    if ext == ".zip":
+        cmds = [["unzip", "-q", archive, "-d", dest]]
+    else:
+        cmds = [
+            ["tar", "xf", archive, "-C", dest],
+            ["tar", "xf", archive, "-C", dest, "--strip-components=1"],
+        ]
+    
+    for cmd in cmds:
         try:
             subprocess.run(cmd, check=True, capture_output=True)
             return dest
-        except Exception as e:
-            print(f"    [DEBUG] Extract failed: {e}")
+        except:
             continue
     return None
 
@@ -192,38 +245,26 @@ def convert_ebuild(ebuild_path):
     pn, pv = parse_ebuild_name(basename)
     p = f"{pn}-{pv}"
     
-    print(f"  [DEBUG] Processing: {pn} v{pv}")
-    
     if is_binary_ebuild(content, pn):
-        print(f"    [DEBUG] Skipping — binary package")
         return None
     
     ebuild_dir = os.path.dirname(ebuild_path)
     src_uri = bash_expand(content, ebuild_dir)
-    print(f"    [DEBUG] bash_expand result: {src_uri[:80] if src_uri else 'None'}...")
     if not src_uri or not src_uri.startswith("http"):
         src_uri = manual_expand(content, pn, pv, p)
-        print(f"    [DEBUG] manual_expand result: {src_uri[:80] if src_uri else 'None'}...")
     if not src_uri:
         dists = parse_manifest(os.path.join(ebuild_dir, "Manifest"))
-        print(f"    [DEBUG] Manifest dists: {dists[:3] if dists else 'None'}")
         src_uri = guess_url_from_manifest(pn, pv, dists)
-        print(f"    [DEBUG] guess_url result: {src_uri[:80] if src_uri else 'None'}...")
     
     if not src_uri:
-        print(f"    [DEBUG] No URL found, giving up")
         return None
     
-    print(f"    [DEBUG] Testing URL: {src_uri[:80]}...")
     with tempfile.TemporaryDirectory() as tmp:
         extracted = download_and_extract(src_uri, tmp)
         if not extracted:
-            print(f"    [DEBUG] Download/extract failed")
             return None
         build_type = detect_build_system(extracted)
-        print(f"    [DEBUG] Build system: {build_type}")
         if not build_type:
-            print(f"    [DEBUG] No build system detected")
             return None
     
     bdepend = parse_deps(content, 'BDEPEND')
@@ -258,36 +299,20 @@ def main():
     
     import yaml
     
-    print(f"[*] Output dir: {args.output}")
-    print(f"[*] Gentoo tree: {args.gentoo}")
-    
     existing = set()
     if os.path.exists(args.output):
         for d in os.listdir(args.output):
             if os.path.isdir(os.path.join(args.output, d)):
                 existing.add(d)
-        print(f"[*] Existing packages: {len(existing)}")
-        print(f"[*] First 10 existing: {list(existing)[:10]}")
-    else:
-        print(f"[*] Output dir does not exist, creating")
-        os.makedirs(args.output, exist_ok=True)
     
     all_ebuilds = []
     for root, dirs, files in os.walk(args.gentoo):
         for f in files:
             if f.endswith('.ebuild'):
                 all_ebuilds.append(os.path.join(root, f))
-    
-    print(f"[*] Total ebuilds found: {len(all_ebuilds)}")
     random.shuffle(all_ebuilds)
     
     converted = 0
-    skipped_existing = 0
-    skipped_binary = 0
-    skipped_nourl = 0
-    skipped_nodl = 0
-    skipped_nobuild = 0
-    
     for ebuild in all_ebuilds:
         if converted >= args.count:
             break
@@ -296,33 +321,14 @@ def main():
         pn, _ = parse_ebuild_name(basename)
         
         if pn in existing:
-            skipped_existing += 1
             continue
         
-        print(f"[*] Converting: {pn} ({os.path.relpath(ebuild, args.gentoo)})")
         try:
             recipe = convert_ebuild(ebuild)
         except Exception as e:
-            print(f"[!] Exception: {e}")
-            import traceback
-            traceback.print_exc()
             continue
         
         if not recipe:
-            # Подсчитаем причину
-            with open(ebuild) as f:
-                content = f.read()
-            if is_binary_ebuild(content, pn):
-                skipped_binary += 1
-            else:
-                # Проверим, дошли ли до URL
-                ebuild_dir = os.path.dirname(ebuild)
-                p = f"{pn}-{parse_ebuild_name(basename)[1]}"
-                uri = bash_expand(content, ebuild_dir) or manual_expand(content, pn, parse_ebuild_name(basename)[1], p)
-                if not uri:
-                    skipped_nourl += 1
-                else:
-                    skipped_nodl += 1
             continue
         
         out_dir = os.path.join(args.output, pn)
@@ -332,17 +338,11 @@ def main():
         with open(out_path, 'w') as f:
             yaml.dump(recipe, f, default_flow_style=False, sort_keys=False, allow_unicode=True)
         
-        print(f"[+] Saved: {pn}")
+        print(f"[+] {pn} ({recipe['source']['url'][:60]}...) [{recipe.get('build', ['?'])[0][:30]}]")
         converted += 1
         existing.add(pn)
     
-    print(f"\n[=== STATS ===]")
-    print(f"Converted:     {converted}")
-    print(f"Skip existing: {skipped_existing}")
-    print(f"Skip binary:   {skipped_binary}")
-    print(f"Skip no URL:   {skipped_nourl}")
-    print(f"Skip no dl:    {skipped_nodl}")
-    print(f"Skip no build: {skipped_nobuild}")
+    print(f"[+] Total: {converted}")
 
 if __name__ == '__main__':
     main()
