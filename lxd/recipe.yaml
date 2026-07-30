@@ -1,0 +1,32 @@
+name: lxd
+version: '6.3'
+source:
+  url: https://github.com/canonical/lxd/releases/download/lxd-6.3/lxd-6.3.tar.gz
+build:
+- go build -o lxd
+- mkdir -p $DESTDIR$PREFIX/bin
+- cp lxd $DESTDIR$PREFIX/bin/
+depends:
+  build:
+  - go-1
+  - gettext
+  - openpgp-keys-canonical
+  - lxd
+  - xz-utils
+  - lxc-5
+  - sqlite
+  - dqlite-1
+  - lzo
+  - xdelta-3
+  - dnsmasq
+  - libcap
+  - udev
+  runtime:
+  - nftables
+  - ebtables
+  - iptables
+  - iproute2
+  - fuse
+  - lxcfs-5
+  - squashfs-tools
+  - acl

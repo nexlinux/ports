@@ -1,0 +1,16 @@
+name: rich
+version: 14.3.4
+source:
+  url: https://github.com/Textualize/rich/archive/v14.3.4.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - attrs-21
+  - colorama
+  - markdown-it-py-2
+  - pygments-2
+  runtime:
+  - colorama
+  - markdown-it-py-2
+  - pygments-2

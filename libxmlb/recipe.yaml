@@ -1,0 +1,22 @@
+name: libxmlb
+version: 0.3.26
+source:
+  url: https://github.com/hughsie/libxmlb/releases/download/0.3.26/libxmlb-0.3.26.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - pkgconfig
+  - setuptools
+  - openpgp-keys-hughsie
+  - glib
+  - xz-utils
+  - snowball-stemmer
+  - zstd
+  runtime:
+  - glib
+  - xz-utils
+  - snowball-stemmer
+  - zstd

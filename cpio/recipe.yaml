@@ -1,0 +1,11 @@
+name: cpio
+version: '2.14'
+source:
+  url: https://ftp.gnu.org/gnu/cpio/cpio-2.14.tar.bz2
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - cpio

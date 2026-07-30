@@ -1,0 +1,27 @@
+name: aws-sam-translator
+version: 1.111.0
+source:
+  url: https://github.com/aws/serverless-application-model/archive/v1.111.0.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - mock
+  - parameterized
+  - boto3-2
+  - boto3-1
+  - jsonschema-4
+  - pydantic-3
+  - pydantic-2
+  - typing-extensions-5
+  - typing-extensions-4
+  - pyyaml
+  runtime:
+  - boto3-2
+  - boto3-1
+  - jsonschema-4
+  - pydantic-3
+  - pydantic-2
+  - typing-extensions-5
+  - typing-extensions-4
+  - pyyaml

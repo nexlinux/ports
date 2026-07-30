@@ -1,0 +1,36 @@
+name: liquidshell
+version: 1.10.0
+source:
+  url: https://download.kde.org/stable/stable/liquidshell/liquidshell-1.10.0.tar.xz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - qtbase-
+  - bluez-qt-
+  - karchive-
+  - kcmutils-
+  - kconfig-
+  - kconfigwidgets-
+  - kcoreaddons-
+  - kcrash-
+  - kdbusaddons-
+  - ki18n-
+  - kiconthemes-
+  - kio-
+  - kitemviews-
+  - knewstuff-
+  - knotifications-
+  - kservice-
+  - kwidgetsaddons-
+  - kwindowsystem-
+  - kxmlgui-
+  - networkmanager-qt-
+  - solid-
+  runtime:
+  - qttools-
+  - kded-
+  - dbus
+  - hicolor-icon-theme

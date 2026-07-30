@@ -1,0 +1,15 @@
+name: colordiff
+version: 1.0.21
+source:
+  url: https://www.colordiff.org/colordiff-1.0.21.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - openpgp-keys-colordiff
+  - perl
+  - diffutils
+  runtime:
+  - perl
+  - diffutils

@@ -1,0 +1,17 @@
+name: blueprint-compiler
+version: 0.20.4
+source:
+  url: https://download.gnome.org/sources/blueprint-compiler/0.20/blueprint-compiler-0.20.4.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - furo
+  - sphinx
+  - gtk
+  - libadwaita
+  - pygobject
+  runtime:
+  - pygobject

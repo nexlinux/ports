@@ -1,0 +1,20 @@
+name: nghttp2
+version: 1.68.0
+source:
+  url: https://github.com/nghttp2/nghttp2/releases/download/v1.68.0/nghttp2-1.68.0.tar.xz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - openpgp-keys-nghttp2
+  runtime:
+  - jansson-2
+  - jemalloc
+  - openssl-1
+  - libev-4
+  - c-ares
+  - zlib-1
+  - systemd-209
+  - libxml2-2

@@ -1,0 +1,49 @@
+name: geary
+version: 46.0-r1
+source:
+  url: https://download.gnome.org/sources/geary/46/geary-46.0.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - appstream-glib-0
+  - libxml2
+  - itstool
+  - gettext-0
+  - pkgconfig
+  - gnutls
+  - gtk+
+  - webkit-gtk
+  - gmime
+  - gcr
+  - libgee
+  - gsound
+  - gspell
+  - libhandy
+  - libsecret
+  - libsoup
+  - glib-2
+  - gtk+-3
+  - webkit-gtk-2
+  - gmime-3
+  - sqlite-3
+  - cairo
+  - enchant
+  - folks-0
+  - gcr-3
+  - libgee-0
+  - gnome-online-accounts
+  - gspell-1
+  - icu-60
+  - iso-codes
+  - json-glib-1
+  - libhandy-1
+  - libpeas-1
+  - libsecret-0
+  - snowball-stemmer
+  - libxml2-2
+  - ytnef-1
+  runtime:
+  - gsettings-desktop-schemas

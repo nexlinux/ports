@@ -1,0 +1,10 @@
+name: lttng-modules
+version: 2.13.23
+source:
+  url: https://lttng.org/files/lttng-modules/lttng-modules-2.13.23.tar.bz2
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - openpgp-keys-mathieudesnoyers

@@ -1,0 +1,14 @@
+name: ngtcp2
+version: 1.25.0
+source:
+  url: https://github.com/ngtcp2/ngtcp2/releases/download/v1.25.0/ngtcp2-1.25.0.tar.xz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - openpgp-keys-ngtcp2
+  runtime:
+  - gnutls-3
+  - openssl-3

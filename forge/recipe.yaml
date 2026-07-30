@@ -1,0 +1,31 @@
+name: forge
+version: 0.6.5
+source:
+  url: https://github.com/magit/forge/archive/refs/tags/v0.6.5.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - texinfo
+  - closql-2
+  - compat-30
+  - cond-let-1
+  - emacsql-4
+  - ghub-5
+  - llama-1
+  - magit-4
+  - markdown-mode-2
+  - transient-0
+  - yaml-1
+  runtime:
+  - closql-2
+  - compat-30
+  - cond-let-1
+  - emacsql-4
+  - ghub-5
+  - llama-1
+  - magit-4
+  - markdown-mode-2
+  - transient-0
+  - yaml-1

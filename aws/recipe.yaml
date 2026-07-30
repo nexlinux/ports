@@ -1,0 +1,32 @@
+name: aws
+version: 26.0.0
+source:
+  url: https://github.com/AdaCore/aws/archive/refs/tags/v26.0.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - sphinx
+  - sphinx-rtd-theme
+  - gnatcoll-core-25
+  - libgpr
+  - xmlada
+  - gnatcoll-core
+  - libadalang
+  - langkit
+  - gnatcoll-bindings
+  - gmp
+  - openssl
+  - templates-parser
+  runtime:
+  - gnatcoll-core-25
+  - libgpr
+  - xmlada
+  - gnatcoll-core
+  - libadalang
+  - langkit
+  - gnatcoll-bindings
+  - gmp
+  - openssl
+  - templates-parser

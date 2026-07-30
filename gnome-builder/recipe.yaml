@@ -1,0 +1,72 @@
+name: gnome-builder
+version: '49.1'
+source:
+  url: https://download.gnome.org/sources/gnome-builder/49/gnome-builder-49.1.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - sphinx
+  - sphinx-rtd-theme
+  - gi-docgen
+  - docbook-xml-dtd
+  - appstream-glib
+  - dbus
+  - desktop-file-utils
+  - gdbus-codegen-2
+  - glib-utils
+  - gettext-0
+  - pkgconfig
+  - glib-2
+  - gtk-4
+  - gtksourceview-5
+  - libadwaita-1
+  - libpanel-1
+  - json-glib-1
+  - jsonrpc-glib-3
+  - libdex-0
+  - libpeas-1
+  - libportal
+  - libyaml
+  - template-glib-3
+  - vte-0
+  - libxml2-2
+  - webkit-gtk-2
+  - cmark-0
+  - editorconfig-core-c
+  - ostree
+  - libsoup-3
+  - flatpak-1
+  - libgit2
+  - libgit2-glib-1
+  - clang
+  - libspelling-0
+  - sysprof-45
+  runtime:
+  - glib-2
+  - gtk-4
+  - gtksourceview-5
+  - libadwaita-1
+  - libpanel-1
+  - json-glib-1
+  - jsonrpc-glib-3
+  - libdex-0
+  - libpeas-1
+  - libportal
+  - libyaml
+  - template-glib-3
+  - vte-0
+  - libxml2-2
+  - webkit-gtk-2
+  - cmark-0
+  - editorconfig-core-c
+  - ostree
+  - libsoup-3
+  - flatpak-1
+  - libgit2
+  - libgit2-glib-1
+  - clang
+  - libspelling-0
+  - sysprof-45
