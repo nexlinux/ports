@@ -1,4 +1,4 @@
-workflow_yml = '''name: Daily Recipe Batch
+name: Daily Recipe Batch
 
 on:
   schedule:
@@ -7,7 +7,7 @@ on:
     inputs:
       count:
         description: 'Number of recipes to generate'
-        default: '10'
+        default: '30'
         required: true
 
 jobs:
