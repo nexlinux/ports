@@ -1,0 +1,59 @@
+workflow_yml = '''name: Daily Recipe Batch
+
+on:
+  schedule:
+    - cron: '0 3 * * *'  # 3:00 UTC каждый день
+  workflow_dispatch:
+    inputs:
+      count:
+        description: 'Number of recipes to generate'
+        default: '10'
+        required: true
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout shift repo
+        uses: actions/checkout@v4
+        with:
+          path: shift
+      
+      - name: Checkout ports repo
+        uses: actions/checkout@v4
+        with:
+          repository: nexlinux/ports
+          path: ports
+          token: ${{ secrets.PORTS_PAT }}
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: pip install pyyaml
+      
+      - name: Clone Gentoo tree
+        run: git clone --depth 1 https://github.com/gentoo/gentoo.git /tmp/gentoo-tree
+      
+      - name: Generate recipes
+        run: |
+          python3 shift/scripts/ebuild2recipe-ci.py \
+            --count ${{ github.event.inputs.count || '10' }} \
+            --gentoo /tmp/gentoo-tree \
+            --output ports/
+      
+      - name: Commit and push
+        run: |
+          cd ports
+          git config user.name "shift-bot"
+          git config user.email "bot@nex.shad1k1.online"
+          git add .
+          if ! git diff --cached --quiet; then
+            git commit -m "Auto: recipe batch $(date +%Y-%m-%d)"
+            git push
+            echo "[+] Pushed new recipes"
+          else
+            echo "[*] No new recipes generated"
+          fi
