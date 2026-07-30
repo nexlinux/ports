@@ -2,36 +2,35 @@ name: Daily Recipe Batch
 
 on:
   schedule:
-    - cron: '0 3 * * *'  # 3:00 UTC каждый день
+    - cron: '0 3 * * *'
   workflow_dispatch:
     inputs:
       count:
-        description: 'Number of recipes to generate'
+        description: 'Number of recipes'
         default: '30'
         required: true
 
 jobs:
   generate:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - name: Checkout shift repo
-        uses: actions/checkout@v4
-        with:
-          path: shift
-      
       - name: Checkout ports repo
         uses: actions/checkout@v4
+      
+      - name: Checkout shift repo (for scripts)
+        uses: actions/checkout@v4
         with:
-          repository: nexlinux/ports
-          path: ports
-          token: ${{ secrets.PORTS_PAT }}
+          repository: nexlinux/shift
+          path: shift
       
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
       
-      - name: Install dependencies
+      - name: Install deps
         run: pip install pyyaml
       
       - name: Clone Gentoo tree
@@ -42,11 +41,10 @@ jobs:
           python3 shift/scripts/ebuild2recipe-ci.py \
             --count ${{ github.event.inputs.count || '10' }} \
             --gentoo /tmp/gentoo-tree \
-            --output ports/
+            --output .
       
       - name: Commit and push
         run: |
-          cd ports
           git config user.name "shift-bot"
           git config user.email "bot@nex.shad1k1.online"
           git add .
@@ -55,5 +53,5 @@ jobs:
             git push
             echo "[+] Pushed new recipes"
           else
-            echo "[*] No new recipes generated"
+            echo "[*] No new recipes"
           fi
