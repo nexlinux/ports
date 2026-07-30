@@ -47,6 +47,7 @@ jobs:
         run: |
           git config user.name "shift-bot"
           git config user.email "bot@nex.shad1k1.online"
+          git pull origin main --no-rebase || true
           git add .
           if ! git diff --cached --quiet; then
             git commit -m "Auto: recipe batch $(date +%Y-%m-%d)"
