@@ -38,7 +38,7 @@ jobs:
       
       - name: Generate recipes
         run: |
-          python3 shift/scripts/ebuild2recipe-ci.py \
+          python3 scripts/ebuild2recipe-ci.py \
             --count ${{ github.event.inputs.count || '10' }} \
             --gentoo /tmp/gentoo-tree \
             --output .
