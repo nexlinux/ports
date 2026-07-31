@@ -1,0 +1,39 @@
+name: knot-resolver
+version: 5.7.6
+source:
+  url: https://knot-resolver.nic.cz/release/knot-resolver-5.7.6.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - pkgconfig
+  - openpgp-keys-knot-resolver-20251203
+  - knot-resolver
+  - lmdb
+  - libuv
+  - knot
+  - gnutls
+  - libcap-ng
+  - fstrm
+  - protobuf-c
+  - jemalloc
+  - libedit
+  - nghttp2
+  - selinux-knot
+  - systemd
+  runtime:
+  - knot-resolver
+  - lmdb
+  - libuv
+  - knot
+  - gnutls
+  - libcap-ng
+  - fstrm
+  - protobuf-c
+  - jemalloc
+  - libedit
+  - nghttp2
+  - selinux-knot
+  - systemd

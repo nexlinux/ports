@@ -1,0 +1,37 @@
+name: gramps
+version: 6.0.4
+source:
+  url: https://github.com/gramps-project/gramps/archive/v6.0.4.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - jsonschema
+  - lxml
+  - orjson
+  - pycairo
+  - pygobject-3
+  - pyicu
+  - gexiv2-0
+  - librsvg
+  - gtk+-3
+  - pango
+  - xdg-utils
+  - osm-gps-map-1
+  - gtkspell
+  - rcs
+  - graphviz
+  runtime:
+  - orjson
+  - pycairo
+  - pygobject-3
+  - pyicu
+  - gexiv2-0
+  - librsvg
+  - gtk+-3
+  - pango
+  - xdg-utils
+  - osm-gps-map-1
+  - gtkspell
+  - rcs
+  - graphviz

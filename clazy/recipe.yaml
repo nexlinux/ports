@@ -1,0 +1,20 @@
+name: clazy
+version: '1.15'
+source:
+  url: https://download.kde.org/stable/stable/clazy/1.15/src/clazy-1.15.tar.xz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - qtbase
+  - qtmultimedia
+  - qtnetworkauth
+  - qtscxml
+  - qtsvg
+  - clang
+  - llvm
+  runtime:
+  - clang
+  - llvm

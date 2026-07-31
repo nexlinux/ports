@@ -1,0 +1,12 @@
+name: vdr-fritzbox
+version: 1.5.8
+source:
+  url: https://github.com/jowi24/vdr-fritz/archive/refs/tags/1.5.8.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - libgcrypt
+  - boost
+  - vdr

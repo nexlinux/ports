@@ -1,0 +1,33 @@
+name: erlang
+version: 26.2.5.20
+source:
+  url: https://github.com/erlang/otp/archive/OTP-26.2.5.20.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - epmd
+  - ncurses
+  - zlib
+  - emacs-23
+  - jdk-1
+  - unixODBC
+  - lksctp-tools
+  - openssl-0
+  - systemd
+  - glib
+  - wxGTK
+  runtime:
+  - epmd
+  - ncurses
+  - zlib
+  - emacs-23
+  - jdk-1
+  - unixODBC
+  - lksctp-tools
+  - openssl-0
+  - systemd
+  - glib
+  - wxGTK

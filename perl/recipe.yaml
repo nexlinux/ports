@@ -1,0 +1,21 @@
+name: perl
+version: 5.44.0
+source:
+  url: https://github.com/arsv/perl-cross/releases/download/1.6.4/perl-cross-1.6.4.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - db
+  - gdbm-1
+  - bzip2
+  - zlib-1
+  - libcrypt
+  runtime:
+  - db
+  - gdbm-1
+  - bzip2
+  - zlib-1
+  - libcrypt

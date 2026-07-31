@@ -1,0 +1,15 @@
+name: systemtap
+version: '5.5'
+source:
+  url: https://sourceware.org/ftp/systemtap/releases/systemtap-5.5.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - openpgp-keys-fche
+  runtime:
+  - stapdev
+  - stapsys
+  - stapusr

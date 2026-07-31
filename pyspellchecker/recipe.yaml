@@ -1,0 +1,6 @@
+name: pyspellchecker
+version: 0.9.0
+source:
+  url: https://github.com/barrust/pyspellchecker/archive/refs/tags/v0.9.0.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX

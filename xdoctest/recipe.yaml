@@ -1,0 +1,12 @@
+name: xdoctest
+version: 1.3.2
+source:
+  url: https://github.com/Erotemic/xdoctest/archive/v1.3.2.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - nbformat-5
+  - pytest
+  runtime:
+  - pytest
