@@ -1,0 +1,14 @@
+name: pv
+version: 1.10.4
+source:
+  url: https://ivarch.com/s/pv-1.10.4.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - openpgp-keys-pv-20251012
+  - ncurses
+  runtime:
+  - ncurses

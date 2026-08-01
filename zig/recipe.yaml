@@ -1,0 +1,11 @@
+name: zig
+version: 0.14.1
+source:
+  url: https://ziglang.org/download/0.14.1/zig-0.14.1.tar.xz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - minisig-keys-zig-software-foundation

@@ -1,0 +1,27 @@
+name: scipy
+version: 1.17.1
+source:
+  url: https://github.com/scipy/scipy/archive/refs/tags/v1.17.1.tar.gz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - swig
+  - cython-3
+  - meson-python-0
+  - pybind11-2
+  - pytest-8
+  - meson-1
+  - patchelf
+  - pkgconfig
+  - unzip
+  - pythran-0
+  - pooch
+  - numpy-1
+  - qhull-2020
+  - cblas
+  - lapack-3
+  runtime:
+  - pillow

@@ -1,0 +1,24 @@
+name: kas
+version: '5.1'
+source:
+  url: https://github.com/siemens/kas/archive/refs/tags/5.1.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - python-gnupg
+  - git
+  - mercurial
+  - pyyaml-3
+  - distro-1
+  - jsonschema-2
+  - kconfiglib-14
+  - gitpython-3
+  - newt
+  runtime:
+  - pyyaml-3
+  - distro-1
+  - jsonschema-2
+  - kconfiglib-14
+  - gitpython-3
+  - newt

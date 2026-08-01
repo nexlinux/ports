@@ -1,0 +1,16 @@
+name: pasang-emas
+version: 6.3.0
+source:
+  url: https://downloads.sourceforge.net/pasang-emas/pasang-emas-6.3.0.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - itstool
+  - glib
+  - gtk+
+  runtime:
+  - glib
+  - gtk+

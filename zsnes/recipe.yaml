@@ -1,0 +1,25 @@
+name: zsnes
+version: 2.2.2
+source:
+  url: https://github.com/xyproto/zsnes/archive/refs/tags/2.2.2.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - nasm
+  - gcc
+  - pkgconfig
+  - zlib
+  - libglvnd
+  - libpng
+  - libsdl3
+  - libao
+  - pipewire
+  runtime:
+  - libglvnd
+  - libpng
+  - libsdl3
+  - zlib
+  - libao
+  - pipewire

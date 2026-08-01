@@ -1,0 +1,28 @@
+name: gspell
+version: 1.14.0-r1
+source:
+  url: https://download.gnome.org/sources/gspell/1.14/gspell-1.14.4.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - libxml2
+  - glib-utils
+  - gettext-0
+  - pkgconfig
+  - gtk-doc
+  - enchant
+  - myspell-en
+  - enchant-2
+  - glib-2
+  - gtk+-3
+  - icu
+  - gobject-introspection-1
+  runtime:
+  - enchant-2
+  - glib-2
+  - gtk+-3
+  - icu
+  - gobject-introspection-1

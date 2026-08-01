@@ -1,0 +1,10 @@
+name: p1_utils
+version: 1.0.28
+source:
+  url: https://github.com/processone/p1_utils/archive/1.0.28.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - erlang-17
