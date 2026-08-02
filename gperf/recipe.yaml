@@ -1,0 +1,8 @@
+name: gperf
+version: '3.3'
+source:
+  url: https://ftp.gnu.org/gnu/gperf/gperf-3.3.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install

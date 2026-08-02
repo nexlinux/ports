@@ -1,0 +1,33 @@
+name: rdma-core
+version: '63.0'
+source:
+  url: https://github.com/linux-rdma/rdma-core/releases/download/v63.0/rdma-core-63.0.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - pkgconfig
+  - perl
+  - libudev
+  - lttng-ust
+  - libnl
+  - systemd
+  - valgrind
+  runtime:
+  - infiniband-diags
+  - libibverbs
+  - librdmacm
+  - libibumad
+  - ibacm
+  - libibmad
+  - srptools
+  - infinipath-psm
+  - libcxgb3
+  - libcxgb4
+  - libmthca
+  - libmlx4
+  - libmlx5
+  - libocrdma
+  - libnes

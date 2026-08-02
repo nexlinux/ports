@@ -1,0 +1,22 @@
+name: cider
+version: 1.21.0
+source:
+  url: https://github.com/clojure-emacs/cider/archive/v1.21.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - clojure-mode
+  - parseedn
+  - queue
+  - sesman
+  - spinner
+  - transient
+  runtime:
+  - clojure-mode
+  - parseedn
+  - queue
+  - sesman
+  - spinner
+  - transient

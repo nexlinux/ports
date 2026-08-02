@@ -1,0 +1,12 @@
+name: mapbox-earcut
+version: 2.0.0
+source:
+  url: https://github.com/skogler/mapbox_earcut_python/archive/v2.0.0.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - nanobind-2
+  - numpy

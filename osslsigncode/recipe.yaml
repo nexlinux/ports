@@ -1,0 +1,16 @@
+name: osslsigncode
+version: '2.13'
+source:
+  url: https://github.com/mtrojnar/osslsigncode/archive/refs/tags/2.13.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - cryptography
+  - zlib
+  - openssl-3
+  runtime:
+  - zlib
+  - openssl-3

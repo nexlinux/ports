@@ -1,0 +1,20 @@
+name: gnatcoll-db
+version: 26.0.0
+source:
+  url: https://github.com/AdaCore/gnatcoll-db/archive/v26.0.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - sphinx
+  - sphinx-rtd-theme
+  - gnatcoll-core
+  - sqlite
+  - postgresql
+  - gnatcoll-bindings
+  runtime:
+  - gnatcoll-core
+  - sqlite
+  - postgresql
+  - gnatcoll-bindings
