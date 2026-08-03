@@ -1,0 +1,13 @@
+name: llvm-mingw64
+version: 13.0.0-r3
+source:
+  url: https://github.com/llvm/llvm-project/releases/download/llvmorg-21.1.0/llvm-project-21.1.0.src.tar.xz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - cmake
+  runtime:
+  - clang
+  - llvm
+  - lld

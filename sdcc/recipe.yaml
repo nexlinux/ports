@@ -1,0 +1,23 @@
+name: sdcc
+version: 4.5.0
+source:
+  url: https://sourceware.org/pub/binutils/releases/binutils-2.45.1.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - boost
+  - zlib
+  - gputils-0
+  - boehm-gc
+  - readline
+  - ncurses
+  runtime:
+  - boost
+  - zlib
+  - gputils-0
+  - boehm-gc
+  - readline
+  - ncurses

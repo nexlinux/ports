@@ -1,0 +1,46 @@
+name: openimageio
+version: 2.5.19.1
+source:
+  url: https://github.com/AcademySoftwareFoundation/OpenImageIO/archive/v2.5.19.1.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - unzip
+  - doxygen
+  - texlive-bibtexextra
+  - texlive-fontsextra
+  - texlive-fontutils
+  - texlive-latex
+  - texlive-latexextra
+  runtime:
+  - boost
+  - robin-map
+  - libfmt
+  - pugixml
+  - libheif-1
+  - libjpeg-turbo
+  - libpng
+  - libwebp-0
+  - imath-3
+  - opencolorio-2
+  - openexr-3
+  - tiff
+  - zlib
+  - dcmtk
+  - ffmpeg
+  - cfitsio
+  - giflib
+  - openjpeg-2
+  - opencv
+  - tbb
+  - openvdb
+  - ptex
+  - numpy
+  - pybind11
+  - libglvnd
+  - qtbase
+  - libraw
+  - freetype

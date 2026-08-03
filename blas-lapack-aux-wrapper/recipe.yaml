@@ -1,0 +1,15 @@
+name: blas-lapack-aux-wrapper
+version: '6'
+source:
+  url: https://dev.gentoo.org/~mgorny/dist/blas-lapack-aux-wrapper-6.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - lapack
+  - flexiblas-3
+  runtime:
+  - lapack
+  - flexiblas-3

@@ -1,0 +1,47 @@
+name: ogre
+version: 14.5.2
+source:
+  url: https://github.com/OGRECave/ogre/archive/refs/tags/v14.5.2.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - pkgconfig
+  - doxygen
+  - freetype
+  - zlib
+  - assimp
+  - bullet
+  - nvidia-cg-toolkit
+  - pugixml
+  - freeimage
+  - opengl
+  - glslang
+  - qtbase
+  - libsdl2
+  - vulkan-loader
+  - wayland
+  - libX11
+  - libXaw
+  - libXt
+  - libXrandr
+  runtime:
+  - freetype
+  - zlib
+  - assimp
+  - bullet
+  - nvidia-cg-toolkit
+  - pugixml
+  - freeimage
+  - opengl
+  - glslang
+  - qtbase
+  - libsdl2
+  - vulkan-loader
+  - wayland
+  - libX11
+  - libXaw
+  - libXt
+  - libXrandr

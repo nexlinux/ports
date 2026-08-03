@@ -1,0 +1,8 @@
+name: md4c
+version: 0.5.3
+source:
+  url: https://github.com/mity/md4c/archive/refs/tags/release-0.5.3.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
