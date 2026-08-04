@@ -1,0 +1,12 @@
+name: fast_xml
+version: 1.1.56
+source:
+  url: https://github.com/processone/fast_xml/archive/1.1.56.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - p1_utils-1
+  - expat

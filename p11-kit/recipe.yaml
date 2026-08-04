@@ -1,0 +1,25 @@
+name: p11-kit
+version: 0.26.2
+source:
+  url: https://github.com/p11-glue/p11-kit/releases/download/0.26.2/p11-kit-0.26.2.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - docbook-xsl-stylesheets
+  - libxslt
+  - pkgconfig
+  - gtk-doc
+  - gettext
+  - openpgp-keys-p11-kit
+  - ca-certificates
+  - libtasn1-3
+  - libffi
+  - systemd
+  runtime:
+  - ca-certificates
+  - libtasn1-3
+  - libffi
+  - systemd

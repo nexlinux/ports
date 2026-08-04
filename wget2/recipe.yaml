@@ -1,0 +1,45 @@
+name: wget2
+version: 2.2.1
+source:
+  url: https://ftp.gnu.org/gnu/wget/wget2-2.2.1.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - pkgconfig
+  - doxygen-1
+  - brotli
+  - bzip2
+  - libgcrypt
+  - gnutls
+  - openssl
+  - gpgme
+  - libassuan
+  - libgpg-error
+  - nghttp2
+  - libidn2
+  - lzlib
+  - xz-utils
+  - libpcre2
+  - libpsl
+  - attr
+  - zlib
+  runtime:
+  - brotli
+  - bzip2
+  - libgcrypt
+  - gnutls
+  - openssl
+  - gpgme
+  - libassuan
+  - libgpg-error
+  - nghttp2
+  - libidn2
+  - lzlib
+  - xz-utils
+  - libpcre2
+  - libpsl
+  - attr
+  - zlib

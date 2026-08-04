@@ -1,0 +1,24 @@
+name: parted
+version: '3.7'
+source:
+  url: https://ftp.gnu.org/gnu/parted/parted-3.7.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - gettext-0
+  - openpgp-keys-bcl-20260418
+  - pkgconfig
+  - e2fsprogs-1
+  - util-linux
+  - lvm2-2
+  - ncurses-5
+  - readline-5
+  runtime:
+  - e2fsprogs-1
+  - util-linux
+  - lvm2-2
+  - ncurses-5
+  - readline-5

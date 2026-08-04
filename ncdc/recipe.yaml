@@ -1,0 +1,29 @@
+name: ncdc
+version: '1.25'
+source:
+  url: https://dev.yorhel.nl/download/ncdc-1.25.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - perl
+  - makeheaders
+  - pkgconfig
+  - openpgp-keys-yorhel
+  - bzip2
+  - sqlite
+  - glib-2
+  - gnutls-3
+  - ncurses
+  - zlib
+  - libmaxminddb
+  runtime:
+  - bzip2
+  - sqlite
+  - glib-2
+  - gnutls-3
+  - ncurses
+  - zlib
+  - libmaxminddb

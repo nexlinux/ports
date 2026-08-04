@@ -1,0 +1,24 @@
+name: foot
+version: 1.23.0
+source:
+  url: https://codeberg.org/dnkl/foot/releases/download/1.23.0/foot-1.23.0.tar.gz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - scdoc
+  - wayland-scanner
+  - openpgp-keys-dnkl
+  - wayland
+  - fcft-3
+  - fontconfig
+  - libxkbcommon
+  - pixman
+  - libutf8proc
+  - fcft
+  runtime:
+  - foot-terminfo-
+  - ncurses-6
+  - libutempter
