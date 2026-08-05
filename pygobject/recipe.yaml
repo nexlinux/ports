@@ -1,0 +1,22 @@
+name: pygobject
+version: 3.56.3
+source:
+  url: https://download.gnome.org/sources/pygobject/3.56/pygobject-3.56.3.tar.gz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - pkgconfig
+  - glib-2
+  - gobject-introspection-1
+  - libffi
+  - pycairo-1
+  - cairo
+  runtime:
+  - glib-2
+  - gobject-introspection-1
+  - libffi
+  - pycairo-1
+  - cairo

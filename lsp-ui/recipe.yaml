@@ -1,0 +1,18 @@
+name: lsp-ui
+version: 9.0.0
+source:
+  url: https://github.com/emacs-lsp/lsp-ui/archive/9.0.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - dash
+  - flycheck
+  - lsp-mode
+  - markdown-mode
+  runtime:
+  - dash
+  - flycheck
+  - lsp-mode
+  - markdown-mode

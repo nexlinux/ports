@@ -1,0 +1,16 @@
+name: eschwartz-dev-scripts
+version: '2'
+source:
+  url: https://codeberg.org/eli-schwartz/eschwartz-dev-scripts/releases/download/2/eschwartz-dev-scripts-2.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - openpgp-keys-eschwartz-20250723-r1
+  - portage
+  - pkgcore
+  runtime:
+  - portage
+  - pkgcore

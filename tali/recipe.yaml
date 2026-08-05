@@ -1,0 +1,19 @@
+name: tali
+version: '40.9'
+source:
+  url: https://download.gnome.org/sources/tali/40/tali-40.9.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - appstream-glib
+  - itstool
+  - gettext-0
+  - pkgconfig
+  - glib
+  - gtk+-3
+  - libgnome-games-support
+  runtime:
+  - librsvg-2

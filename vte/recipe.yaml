@@ -1,0 +1,32 @@
+name: vte
+version: 0.82.2
+source:
+  url: https://download.gnome.org/sources/vte/0.82/vte-0.82.2.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - libxml2
+  - glib-utils
+  - gi-docgen
+  - gettext-0
+  - pkgconfig
+  - gtk-4
+  - cairo-1
+  - libfmt-11
+  - fast_float
+  - fribidi-1
+  - glib-2
+  - gnutls-3
+  - icu
+  - pango-1
+  - libpcre2-10
+  - simdutf-6
+  - systemd-220
+  - lz4-1
+  - gobject-introspection-1
+  - pango
+  runtime:
+  - vte-common-

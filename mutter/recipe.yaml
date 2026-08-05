@@ -1,0 +1,107 @@
+name: mutter
+version: 49.5-r1
+source:
+  url: https://download.gnome.org/sources/mutter/49/mutter-49.7.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - meson-1
+  - wayland-scanner
+  - gdbus-codegen
+  - glib-utils
+  - docutils
+  - gettext-0
+  - pkgconfig
+  - gi-docgen-2021
+  - python-dbusmock-0
+  - docbook-xml-dtd
+  - zenity
+  - xvfb-run
+  - linux-headers-4
+  - libxcvt
+  - bash-completion
+  - argcomplete
+  - graphene-1
+  - pango-1
+  - cairo-1
+  - pixman-0
+  - gtk-4
+  - fribidi-1
+  - gsettings-desktop-schemas-47_beta
+  - glib-2
+  - gnome-settings-daemon
+  - libxkbcommon-1
+  - at-spi2-core-2
+  - dbus
+  - colord-1
+  - lcms-2
+  - harfbuzz-2
+  - libei-1
+  - libdisplay-info-0
+  - glycin-2
+  - libadwaita
+  - gnome-desktop
+  - libcanberra-0
+  - libglvnd
+  - wayland-1
+  - wayland-protocols-1
+  - libdrm-2
+  - mesa
+  - libinput-1
+  - elogind
+  - xwayland-23
+  - egl-wayland
+  - libudev-232-r1
+  - libgudev-238
+  - systemd
+  - libwacom-0
+  - pipewire-1
+  - gobject-introspection-1
+  - gtk+-3
+  - umockdev-0
+  - sysprof-capture-3
+  - sysprof-3
+  runtime:
+  - graphene-1
+  - pango-1
+  - cairo-1
+  - pixman-0
+  - gtk-4
+  - fribidi-1
+  - gsettings-desktop-schemas-47_beta
+  - glib-2
+  - gnome-settings-daemon
+  - libxkbcommon-1
+  - at-spi2-core-2
+  - dbus
+  - colord-1
+  - lcms-2
+  - harfbuzz-2
+  - libei-1
+  - libdisplay-info-0
+  - glycin-2
+  - libadwaita
+  - gnome-desktop
+  - libcanberra-0
+  - libglvnd
+  - wayland-1
+  - wayland-protocols-1
+  - libdrm-2
+  - mesa
+  - libinput-1
+  - elogind
+  - xwayland-23
+  - egl-wayland
+  - libudev-232-r1
+  - libgudev-238
+  - systemd
+  - libwacom-0
+  - pipewire-1
+  - gobject-introspection-1
+  - gtk+-3
+  - umockdev-0
+  - sysprof-capture-3
+  - sysprof-3
