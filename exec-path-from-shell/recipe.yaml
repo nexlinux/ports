@@ -1,0 +1,7 @@
+name: exec-path-from-shell
+version: '2.3'
+source:
+  url: https://github.com/purcell/exec-path-from-shell/archive/2.3.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install

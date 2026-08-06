@@ -1,0 +1,21 @@
+name: vala
+version: 0.56.19
+source:
+  url: https://download.gnome.org/sources/vala/0.56/vala-0.56.19.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - libxslt
+  - lex
+  - pkgconfig
+  - yacc
+  - glib-2
+  - vala-common-
+  - graphviz-2
+  runtime:
+  - glib-2
+  - vala-common-
+  - graphviz-2

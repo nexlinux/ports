@@ -1,0 +1,41 @@
+name: eog-plugins
+version: 44.1-r1
+source:
+  url: https://download.gnome.org/sources/eog-plugins/44/eog-plugins-44.1.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - gettext-0
+  - pkgconfig
+  - glib-2
+  - libpeas-1
+  - eog-41
+  - libexif-0
+  - libchamplain
+  - clutter-1
+  - clutter-gtk-1
+  - glib
+  - libpeas
+  - pygobject
+  - gsettings-desktop-schemas
+  - eog
+  - gtk+
+  - pango
+  runtime:
+  - glib-2
+  - libpeas-1
+  - eog-41
+  - libexif-0
+  - libchamplain
+  - clutter-1
+  - clutter-gtk-1
+  - glib
+  - libpeas
+  - pygobject
+  - gsettings-desktop-schemas
+  - eog
+  - gtk+
+  - pango

@@ -1,0 +1,11 @@
+name: simple-websocket
+version: 1.1.0
+source:
+  url: https://github.com/miguelgrinberg/simple-websocket/archive/v1.1.0.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - wsproto
+  runtime:
+  - wsproto

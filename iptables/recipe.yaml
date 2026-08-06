@@ -1,0 +1,23 @@
+name: iptables
+version: 1.8.13
+source:
+  url: https://www.netfilter.org/projects/iptables/files/iptables-1.8.13.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - pkgconfig
+  - lex
+  - yacc
+  - openpgp-keys-netfilter
+  - libnetfilter_conntrack-1
+  - libnfnetlink
+  - libmnl-1
+  - libnftnl-1
+  - libpcap
+  runtime:
+  - ethertypes
+  - ebtables-2
+  - arptables-0

@@ -1,0 +1,16 @@
+name: ppx_stable_witness
+version: 0.16.0
+source:
+  url: https://github.com/janestreet/ppx_stable_witness/archive/v0.16.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - ocaml-4
+  - base
+  - ppxlib-0
+  runtime:
+  - ocaml-4
+  - base
+  - ppxlib-0
