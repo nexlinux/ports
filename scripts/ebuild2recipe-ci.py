@@ -158,7 +158,10 @@ def parse_deps(content, varname):
     result = []
     for tok in tokens:
         name = tok.split('/')[-1]
+        name = re.sub(r'-\d+$', '', name)
         if name and not name.startswith('$') and not name.startswith('virtual'):
+            if name in ('openpgp-keys-netfilter', 'ethertypes', 'openpgp-keys'):
+                continue
             if name not in result:
                 result.append(name)
     return result
@@ -166,21 +169,32 @@ def parse_deps(content, varname):
 def detect_build_system(src_dir):
     if not os.path.exists(src_dir):
         return None
-    files = os.listdir(src_dir)
-    checks = [
-        ('meson.build', 'meson'), ('CMakeLists.txt', 'cmake'),
-        ('configure', 'autotools'), ('configure.ac', 'autotools'),
-        ('setup.py', 'python'), ('pyproject.toml', 'python'),
-        ('Cargo.toml', 'rust'), ('go.mod', 'go'),
-        ('Makefile.PL', 'perl'), ('Makefile', 'make'),
+    
+    root_files = os.listdir(src_dir)
+    root_checks = [
+        ('CMakeLists.txt', 'cmake'),
+        ('meson.build', 'meson'),
+        ('configure', 'autotools'),
+        ('configure.ac', 'autotools'),
+        ('Makefile.PL', 'perl'),
+        ('Cargo.toml', 'rust'),
+        ('go.mod', 'go'),
+        ('setup.py', 'python'),
+        ('pyproject.toml', 'python'),
+        ('Makefile', 'make'),
     ]
-    for fname, btype in checks:
-        if fname in files:
+    for fname, btype in root_checks:
+        if fname in root_files:
             return btype
-    for f in files:
+
+    for f in root_files:
         sub = os.path.join(src_dir, f)
         if os.path.isdir(sub):
-            return detect_build_system(sub)
+            sub_files = os.listdir(sub)
+            for fname, btype in root_checks:
+                if fname in sub_files:
+                    return btype
+    
     return None
 
 def download_and_extract(url, dest):
