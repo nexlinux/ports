@@ -1,0 +1,12 @@
+name: pulsectl-asyncio
+version: 1.2.2
+source:
+  url: https://github.com/mhthies/pulsectl-asyncio/archive/v1.2.2.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - pulseaudio-daemon
+  - pulsectl
+  runtime:
+  - pulsectl

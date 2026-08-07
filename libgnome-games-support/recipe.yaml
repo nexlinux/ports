@@ -1,0 +1,19 @@
+name: libgnome-games-support
+version: 2.0.1
+source:
+  url: https://download.gnome.org/sources/libgnome-games-support/2.0/libgnome-games-support-2.0.2.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - gettext
+  - pkgconfig
+  - libgee
+  - glib
+  - gtk
+  runtime:
+  - libgee
+  - glib
+  - gtk

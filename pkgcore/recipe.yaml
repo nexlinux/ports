@@ -1,0 +1,13 @@
+name: pkgcore
+version: 0.12.36
+source:
+  url: https://github.com/pkgcore/pkgcore/archive/refs/tags/v0.12.36.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - flit-core
+  - git
+  - snakeoil
+  runtime:
+  - snakeoil

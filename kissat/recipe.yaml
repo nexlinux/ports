@@ -1,0 +1,13 @@
+name: kissat
+version: 4.0.4
+source:
+  url: https://github.com/arminbiere/kissat/archive/rel-4.0.4.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - kitty
+  runtime:
+  - kitty

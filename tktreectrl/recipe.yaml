@@ -1,0 +1,13 @@
+name: tktreectrl
+version: 2.5.1
+source:
+  url: https://github.com/tcltk-depot/tktreectrl/archive/refs/tags/v2.5.1.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - tk
+  runtime:
+  - tk

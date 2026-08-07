@@ -1,0 +1,26 @@
+name: tuba
+version: 0.10.3
+source:
+  url: https://github.com/GeopJr/Tuba/archive/v0.10.3.tar.gz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - gettext
+  - pkgconfig
+  - libsecret
+  - glib
+  - icu
+  - json-glib
+  - libgee
+  - libxml2
+  - gtk
+  - libadwaita
+  - gtksourceview
+  - libsoup
+  - gexiv2
+  - gstreamer
+  - libspelling
+  - webkit-gtk

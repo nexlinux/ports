@@ -1,0 +1,21 @@
+name: rocSPARSE
+version: 7.1.0
+source:
+  url: https://github.com/ROCm/rocSPARSE/archive/rocm-7.1.0.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - gtest
+  - cmake
+  - hip
+  - rocPRIM
+  - rocBLAS
+  - roctracer
+  runtime:
+  - hip
+  - rocPRIM
+  - rocBLAS
+  - roctracer
