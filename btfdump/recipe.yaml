@@ -1,0 +1,8 @@
+name: btfdump
+version: 0.0.4
+source:
+  url: https://github.com/anakryiko/btfdump/archive/v0.0.4.tar.gz
+build:
+- cargo build --release
+- mkdir -p $DESTDIR$PREFIX/bin
+- cp target/release/btfdump $DESTDIR$PREFIX/bin/

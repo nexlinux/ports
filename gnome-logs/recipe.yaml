@@ -1,0 +1,28 @@
+name: gnome-logs
+version: '49.0'
+source:
+  url: https://download.gnome.org/sources/gnome-logs/49/gnome-logs-49.0.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - glib-utils
+  - gettext
+  - docbook-xml-dtd
+  - libxml2
+  - libxslt
+  - itstool
+  - pkgconfig
+  - gsettings-desktop-schemas
+  - glib
+  - gtk
+  - libadwaita
+  - systemd
+  runtime:
+  - gsettings-desktop-schemas
+  - glib
+  - gtk
+  - libadwaita
+  - systemd

@@ -1,0 +1,19 @@
+name: iminuit
+version: 2.32.0
+source:
+  url: https://github.com/iminuit/iminuit/archive/refs/tags/v2.32.0.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - cython
+  - annotated-types
+  - ipython
+  - ipywidgets
+  - matplotlib
+  - scipy
+  - numpy
+  runtime:
+  - numpy

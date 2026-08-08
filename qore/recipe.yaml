@@ -1,0 +1,23 @@
+name: qore
+version: 1.19.2
+source:
+  url: https://github.com/qorelanguage/qore/archive/release-1.19.2.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - bison
+  - flex
+  - bzip2
+  - libpcre
+  - mpfr
+  - openssl
+  - zlib
+  runtime:
+  - bzip2
+  - libpcre
+  - mpfr
+  - openssl
+  - zlib

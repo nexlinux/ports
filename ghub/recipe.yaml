@@ -1,0 +1,19 @@
+name: ghub
+version: 5.2.2
+source:
+  url: https://github.com/magit/ghub/archive/v5.2.2.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - texinfo
+  - compat
+  - cond-let
+  - llama
+  - treepy
+  runtime:
+  - compat
+  - cond-let
+  - llama
+  - treepy
