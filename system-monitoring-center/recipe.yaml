@@ -1,0 +1,21 @@
+name: system-monitoring-center
+version: 3.4.1
+source:
+  url: https://github.com/hakandundar34coding/system-monitoring-center/archive/v3.4.1.tar.gz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - dmidecode
+  - hwdata
+  - pillow
+  - pycairo
+  - pygobject
+  runtime:
+  - dmidecode
+  - hwdata
+  - pillow
+  - pycairo
+  - pygobject

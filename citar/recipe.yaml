@@ -1,0 +1,14 @@
+name: citar
+version: 1.4.0
+source:
+  url: https://github.com/emacs-citar/citar/archive/v1.4.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - citeproc-el
+  - parsebib
+  runtime:
+  - citeproc-el
+  - parsebib

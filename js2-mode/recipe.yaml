@@ -1,0 +1,7 @@
+name: js2-mode
+version: '20231224'
+source:
+  url: https://github.com/mooz/js2-mode/archive/20231224.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install

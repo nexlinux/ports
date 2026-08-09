@@ -1,0 +1,23 @@
+name: scikit-build
+version: 0.19.0
+source:
+  url: https://github.com/scikit-build/scikit-build/archive/refs/tags/0.19.0.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - hatch-fancy-pypi-readme
+  - hatch-vcs
+  - build
+  - cython
+  - pip
+  - requests
+  - distro
+  - packaging
+  - setuptools
+  - wheel
+  runtime:
+  - distro
+  - packaging
+  - setuptools
+  - wheel

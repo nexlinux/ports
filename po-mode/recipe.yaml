@@ -1,0 +1,8 @@
+name: po-mode
+version: '0.26'
+source:
+  url: https://ftp.gnu.org/gnu/gettext/gettext-0.26.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install

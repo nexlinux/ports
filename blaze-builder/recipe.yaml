@@ -1,0 +1,14 @@
+name: blaze-builder
+version: 0.4.2.3
+source:
+  url: https://github.com/blaze-builder/blaze-builder/archive/refs/tags/v0.4.2.3.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - text
+  - ghc
+  runtime:
+  - text
+  - ghc

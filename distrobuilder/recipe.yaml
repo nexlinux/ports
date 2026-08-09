@@ -1,0 +1,22 @@
+name: distrobuilder
+version: '2.1'
+source:
+  url: https://linuxcontainers.org/downloads/distrobuilder/distrobuilder-2.1.tar.gz
+build:
+- go build -o distrobuilder
+- mkdir -p $DESTDIR$PREFIX/bin
+- cp distrobuilder $DESTDIR$PREFIX/bin/
+depends:
+  build:
+  - openpgp-keys-linuxcontainers
+  - gnupg
+  - debootstrap
+  - git
+  - rsync
+  - squashfs-tools
+  runtime:
+  - gnupg
+  - debootstrap
+  - git
+  - rsync
+  - squashfs-tools

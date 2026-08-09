@@ -1,0 +1,21 @@
+name: libmediaart
+version: 1.9.7
+source:
+  url: https://download.gnome.org/sources/libmediaart/1.9/libmediaart-1.9.7.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - pkgconfig
+  - gtk-doc
+  - glib
+  - gdk-pixbuf
+  - gobject-introspection
+  - qtbase
+  runtime:
+  - glib
+  - gdk-pixbuf
+  - gobject-introspection
+  - qtbase
