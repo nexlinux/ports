@@ -1,0 +1,11 @@
+name: shut-up
+version: 0.3.3
+source:
+  url: https://github.com/cask/shut-up/archive/v0.3.3.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - f
+  - s

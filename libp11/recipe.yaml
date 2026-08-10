@@ -1,0 +1,17 @@
+name: libp11
+version: 0.4.17
+source:
+  url: https://github.com/OpenSC/libp11/releases/download/libp11-0.4.17/libp11-0.4.17.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - pkgconfig
+  - doxygen
+  - opensc
+  - openpgp-keys-stunnel
+  - openssl
+  runtime:
+  - openssl

@@ -1,0 +1,12 @@
+name: lablgtk-sourceview
+version: 3.1.5
+source:
+  url: https://github.com/garrigue/lablgtk/archive/3.1.5.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - lablgtk-
+  - cairo2
+  - gtksourceview

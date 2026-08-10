@@ -1,0 +1,31 @@
+name: polari
+version: '46.0'
+source:
+  url: https://download.gnome.org/sources/polari/46/polari-46.0.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - appstream-glib
+  - libxml2
+  - itstool
+  - gettext
+  - pkgconfig
+  - json-glib
+  - gtk+
+  - gtk
+  - libadwaita
+  - glib
+  - telepathy-glib
+  - tinysparql
+  - gobject-introspection
+  - gjs
+  - gdk-pixbuf
+  - gspell
+  - pango
+  - libsecret
+  - libsoup
+  runtime:
+  - telepathy-idle

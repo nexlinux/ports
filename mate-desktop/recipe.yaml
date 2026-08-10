@@ -1,0 +1,25 @@
+name: mate-desktop
+version: 1.28.2
+source:
+  url: https://github.com/mate-desktop/mate-desktop/releases/download/v1.28.2/mate-desktop-1.28.2.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - docbook-xml-dtd
+  - iso-codes
+  - gtk-doc
+  - gtk-doc-am
+  - gettext
+  - gdk-pixbuf
+  - pkgconfig
+  - glib
+  - dconf
+  - cairo
+  - libX11
+  - libXrandr
+  - gtk+
+  - gobject-introspection
+  - startup-notification

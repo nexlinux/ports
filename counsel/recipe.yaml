@@ -1,0 +1,14 @@
+name: counsel
+version: 0.15.1
+source:
+  url: https://github.com/abo-abo/swiper/archive/0.15.1.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - ivy-
+  - swiper-
+  runtime:
+  - ivy-
+  - swiper-
