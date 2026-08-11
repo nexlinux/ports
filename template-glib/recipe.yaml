@@ -1,0 +1,19 @@
+name: template-glib
+version: 3.40.0
+source:
+  url: https://download.gnome.org/sources/template-glib/3.40/template-glib-3.40.0.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - glib-utils
+  - yacc
+  - lex
+  - gettext
+  - pkgconfig
+  - gi-docgen
+  - glib
+  runtime:
+  - glib

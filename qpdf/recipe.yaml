@@ -1,0 +1,24 @@
+name: qpdf
+version: 12.3.2
+source:
+  url: https://github.com/qpdf/qpdf/releases/download/v12.3.2/qpdf-12.3.2.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - perl
+  - unzip
+  - openpgp-keys-jberkenbilt
+  - libjpeg-turbo
+  - zlib
+  - gnutls
+  - openssl
+  - zopfli
+  runtime:
+  - libjpeg-turbo
+  - zlib
+  - gnutls
+  - openssl
+  - zopfli

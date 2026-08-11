@@ -1,0 +1,60 @@
+name: clutter
+version: 1.26.4-r2
+source:
+  url: https://download.gnome.org/sources/clutter/1.26/clutter-1.26.4.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - glib-utils
+  - gtk-doc-am
+  - gettext
+  - pkgconfig
+  - gtk-doc
+  - docbook-sgml-utils
+  - libxslt
+  - glib
+  - at-spi2-core
+  - json-glib
+  - cogl
+  - cairo
+  - pango
+  - opengl
+  - libdrm
+  - libinput
+  - libgudev
+  - libxkbcommon
+  - gtk+
+  - gobject-introspection
+  - fontconfig
+  - libX11
+  - libXext
+  - libXdamage
+  - libXi
+  - libXcomposite
+  - wayland
+  - gdk-pixbuf
+  runtime:
+  - glib
+  - at-spi2-core
+  - json-glib
+  - cogl
+  - cairo
+  - pango
+  - opengl
+  - libdrm
+  - libinput
+  - libgudev
+  - libxkbcommon
+  - gtk+
+  - gobject-introspection
+  - fontconfig
+  - libX11
+  - libXext
+  - libXdamage
+  - libXi
+  - libXcomposite
+  - wayland
+  - gdk-pixbuf

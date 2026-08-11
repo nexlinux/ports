@@ -1,0 +1,29 @@
+name: gupnp
+version: 1.6.10
+source:
+  url: https://download.gnome.org/sources/gupnp/1.6/gupnp-1.6.10.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - glib-utils
+  - gi-docgen
+  - libxslt
+  - docbook-xsl-stylesheets
+  - pkgconfig
+  - linux-headers
+  - gssdp
+  - libsoup
+  - glib
+  - libxml2
+  - util-linux
+  - gobject-introspection
+  runtime:
+  - glib
+  - gssdp
+  - libxml2
+  - libsoup
+  - util-linux
+  - gobject-introspection

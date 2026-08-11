@@ -1,0 +1,13 @@
+name: youtube-search-python
+version: 1.6.6-r3
+source:
+  url: https://files.pythonhosted.org/packages/source/y/youtube-search-python/youtube-search-python-1.6.6.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - httpx
+  - yt-dlp
+  runtime:
+  - httpx
+  - yt-dlp
