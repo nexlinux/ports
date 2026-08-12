@@ -1,0 +1,43 @@
+name: dnsdist
+version: 2.1.1
+source:
+  url: https://downloads.powerdns.com/releases/dnsdist-2.1.1.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - pyyaml
+  - pkgconfig
+  - dnsdist
+  - libbpf
+  - tinycdb
+  - libcap
+  - libedit
+  - libsodium
+  - fstrm
+  - nghttp2
+  - quiche
+  - lmdb
+  - re2
+  - net-snmp
+  - openssl
+  - systemd
+  - xdp-tools
+  runtime:
+  - dnsdist
+  - libbpf
+  - tinycdb
+  - libcap
+  - libedit
+  - libsodium
+  - fstrm
+  - nghttp2
+  - quiche
+  - lmdb
+  - re2
+  - net-snmp
+  - openssl
+  - systemd
+  - xdp-tools

@@ -1,0 +1,8 @@
+name: luau
+version: '0.707'
+source:
+  url: https://github.com/luau-lang/luau/archive/0.707.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build

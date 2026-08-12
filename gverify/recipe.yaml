@@ -1,0 +1,16 @@
+name: gverify
+version: '2'
+source:
+  url: https://github.com/projg2/gverify/archive/v2.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - gpg
+  - openpgp-keys-gentoo-auth
+  - git
+  runtime:
+  - gpg
+  - openpgp-keys-gentoo-auth
+  - git

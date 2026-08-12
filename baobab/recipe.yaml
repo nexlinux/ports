@@ -1,0 +1,20 @@
+name: baobab
+version: '49.1'
+source:
+  url: https://download.gnome.org/sources/baobab/49/baobab-49.1.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - libadwaita
+  - itstool
+  - gettext
+  - pkgconfig
+  - glib
+  - gtk
+  runtime:
+  - glib
+  - gtk
+  - libadwaita

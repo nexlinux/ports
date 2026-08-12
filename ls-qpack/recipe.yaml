@@ -1,0 +1,11 @@
+name: ls-qpack
+version: 2.6.1
+source:
+  url: https://github.com/litespeedtech/ls-qpack/archive/v2.6.1.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - xxhash

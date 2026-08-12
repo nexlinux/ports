@@ -1,0 +1,29 @@
+name: qemu
+version: 10.0.10
+source:
+  url: https://download.qemu.org/qemu-10.0.10.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - distlib
+  - perl
+  - meson
+  - gdbus-codegen
+  - ninja
+  - pkgconfig
+  - sphinx
+  - sphinx-rtd-theme
+  - gettext
+  - bc
+  - glib
+  - pycotap
+  - zlib
+  - systemtap
+  - attr
+  runtime:
+  - kvm
+  - selinux-qemu
+  - libselinux
