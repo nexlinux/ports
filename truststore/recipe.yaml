@@ -1,0 +1,18 @@
+name: truststore
+version: 0.10.4
+source:
+  url: https://github.com/sethmlarson/truststore/archive/v0.10.4.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - aiohttp
+  - httpx
+  - pyopenssl
+  - pytest
+  - pytest-asyncio
+  - pytest-httpserver
+  - pytest-rerunfailures
+  - requests
+  - trustme
+  - urllib3

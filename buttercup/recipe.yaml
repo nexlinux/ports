@@ -1,0 +1,7 @@
+name: buttercup
+version: '1.40'
+source:
+  url: https://github.com/jorgenschaefer/emacs-buttercup/archive/v1.40.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install

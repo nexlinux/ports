@@ -1,0 +1,41 @@
+name: goffice
+version: 0.10.61
+source:
+  url: https://download.gnome.org/sources/goffice/0.10/goffice-0.10.61.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - perl
+  - glib-utils
+  - intltool
+  - pkgconfig
+  - libspectre
+  - glib
+  - libxml2
+  - libxslt
+  - librsvg
+  - libgsf
+  - cairo
+  - gdk-pixbuf
+  - gtk+
+  - pango
+  - libXext
+  - libXrender
+  - gobject-introspection
+  runtime:
+  - libspectre
+  - glib
+  - libxml2
+  - libxslt
+  - librsvg
+  - libgsf
+  - cairo
+  - gdk-pixbuf
+  - gtk+
+  - pango
+  - libXext
+  - libXrender
+  - gobject-introspection

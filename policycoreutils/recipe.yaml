@@ -1,0 +1,19 @@
+name: policycoreutils
+version: '3.11'
+source:
+  url: https://dev.gentoo.org/~perfinion/distfiles/policycoreutils-extra-1.37.tar.bz2
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - gettext
+  - libselinux-
+  - libsemanage-
+  - libsepol-
+  - libcap-ng
+  - setools
+  - audit
+  - pam
+  runtime:
+  - pax-utils

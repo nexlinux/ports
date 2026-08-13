@@ -1,0 +1,22 @@
+name: folks
+version: 0.15.9-r4
+source:
+  url: https://download.gnome.org/sources/folks/0.15/folks-0.15.12.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - gettext
+  - pkgconfig
+  - evolution-data-server
+  - dbus
+  - python-dbusmock
+  - glib
+  - gobject-introspection
+  - libgee
+  - libxml2
+  - readline
+  runtime:
+  - bluez
