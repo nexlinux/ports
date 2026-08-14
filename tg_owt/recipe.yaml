@@ -1,0 +1,53 @@
+name: tg_owt
+version: 0_pre20250515-r2
+source:
+  url: https://gitlab.com/chromiumsrc/libyuv/-/archive/04821d1e7d60845525e8db55c7bcd41ef5be9406/libyuv-04821d1e7d60845525e8db55c7bcd41ef5be9406.tar.bz2
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - pkgconfig
+  - xorg-proto
+  - abseil-cpp
+  - openssl
+  - protobuf
+  - libjpeg-turbo
+  - libvpx
+  - openh264
+  - opus
+  - ffmpeg
+  - libsrtp
+  - crc32c
+  - glib
+  - pipewire
+  - libX11
+  - libXcomposite
+  - libXdamage
+  - libXext
+  - libXfixes
+  - libXrender
+  - libXrandr
+  - libXtst
+  runtime:
+  - abseil-cpp
+  - openssl
+  - protobuf
+  - libjpeg-turbo
+  - libvpx
+  - openh264
+  - opus
+  - ffmpeg
+  - libsrtp
+  - crc32c
+  - glib
+  - pipewire
+  - libX11
+  - libXcomposite
+  - libXdamage
+  - libXext
+  - libXfixes
+  - libXrender
+  - libXrandr
+  - libXtst

@@ -1,0 +1,15 @@
+name: xsimd
+version: 14.0.0
+source:
+  url: https://github.com/xtensor-stack/xsimd/archive/refs/tags/14.0.0.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - doxygen
+  - breathe
+  - sphinx
+  - sphinx-rtd-theme
+  - doctest

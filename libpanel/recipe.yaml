@@ -1,0 +1,20 @@
+name: libpanel
+version: 1.10.2
+source:
+  url: https://download.gnome.org/sources/libpanel/1.10/libpanel-1.10.4.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - gi-docgen
+  - glib
+  - gtk
+  - libadwaita
+  - gobject-introspection
+  runtime:
+  - glib
+  - gtk
+  - libadwaita
+  - gobject-introspection

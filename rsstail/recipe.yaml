@@ -1,0 +1,10 @@
+name: rsstail
+version: '2.2'
+source:
+  url: https://github.com/folkertvanheusden/rsstail/archive/v2.2.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - pkgconfig

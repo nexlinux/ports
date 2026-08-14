@@ -1,0 +1,19 @@
+name: d-spy
+version: '48.0'
+source:
+  url: https://download.gnome.org/sources/d-spy/48/d-spy-48.0.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - appstream-glib
+  - desktop-file-utils
+  - gettext
+  - pkgconfig
+  - glib
+  - gtk
+  - libadwaita
+  runtime:
+  - dbus
