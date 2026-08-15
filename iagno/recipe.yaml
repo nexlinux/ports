@@ -1,0 +1,24 @@
+name: iagno
+version: 3.38.1-r1
+source:
+  url: https://download.gnome.org/sources/iagno/3.38/iagno-3.38.1.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - appstream-glib
+  - libxml2
+  - itstool
+  - gettext
+  - pkgconfig
+  - gsound
+  - librsvg
+  - glib
+  - gtk+
+  runtime:
+  - glib
+  - gsound
+  - gtk+
+  - librsvg

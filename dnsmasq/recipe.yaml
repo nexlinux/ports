@@ -1,0 +1,16 @@
+name: dnsmasq
+version: '2.93'
+source:
+  url: https://thekelleys.org.uk/dnsmasq/dnsmasq-2.93.tar.xz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - xz-utils
+  - pkgconfig
+  - gettext
+  - openpgp-keys-simonkelley
+  runtime:
+  - nettle
+  - selinux-dnsmasq

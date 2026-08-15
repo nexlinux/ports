@@ -1,0 +1,6 @@
+name: htmlmin
+version: 0.1.13
+source:
+  url: https://github.com/wilhelmer/htmlmin/archive/v0.1.13.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX

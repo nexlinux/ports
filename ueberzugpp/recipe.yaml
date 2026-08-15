@@ -1,0 +1,45 @@
+name: ueberzugpp
+version: 2.9.10
+source:
+  url: https://github.com/jstkdng/ueberzugpp/archive/refs/tags/v2.9.10.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - wayland-scanner
+  - extra-cmake-modules
+  - tbb
+  - glib
+  - libfmt
+  - openssl
+  - spdlog
+  - chafa
+  - libsixel
+  - vips
+  - libxcb
+  - xcb-util-image
+  - xcb-util-errors
+  - dbus
+  - opencv
+  - libglvnd
+  - wayland
+  - ueberzug
+  runtime:
+  - tbb
+  - glib
+  - libfmt
+  - openssl
+  - spdlog
+  - chafa
+  - libsixel
+  - vips
+  - libxcb
+  - xcb-util-image
+  - xcb-util-errors
+  - dbus
+  - opencv
+  - libglvnd
+  - wayland
+  - ueberzug
