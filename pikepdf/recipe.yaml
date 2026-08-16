@@ -1,0 +1,25 @@
+name: pikepdf
+version: 10.10.0
+source:
+  url: https://github.com/pikepdf/pikepdf/archive/refs/tags/v10.10.0.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - nanobind
+  - setuptools
+  - setuptools-scm
+  - attrs
+  - numpy
+  - pillow
+  - psutil
+  - python-dateutil
+  - python-xmp-toolkit
+  - tiff
+  - qpdf
+  runtime:
+  - lxml
+  - packaging
+  - pillow

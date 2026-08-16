@@ -1,0 +1,7 @@
+name: sexplib0
+version: 0.16.0
+source:
+  url: https://github.com/janestreet/sexplib0/archive/v0.16.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install

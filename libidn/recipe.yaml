@@ -1,0 +1,14 @@
+name: libidn
+version: '1.44'
+source:
+  url: https://ftp.gnu.org/gnu/libidn/libidn-1.44.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - emacs
+  - gettext
+  - openpgp-keys-libidn
+  - libintl-0-r1

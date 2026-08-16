@@ -1,0 +1,23 @@
+name: biboumi
+version: 10.0_pre20260110
+source:
+  url: https://codeberg.org/poezio/biboumi/archive/bf958d0e34e7d8a39dccfcf3c64f72ef0db41f73.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - sphinx
+  - expat
+  - libiconv
+  - util-linux
+  - sqlite
+  - postgresql
+  - libidn
+  - udns
+  - botan
+  - libgcrypt
+  - systemd
+  runtime:
+  - biboumi

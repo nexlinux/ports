@@ -1,0 +1,68 @@
+name: calibre
+version: 8.9.0
+source:
+  url: https://download.calibre-ebook.com/8.9.0/calibre-8.9.0.tar.xz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - pyqt-builder
+  - sip
+  - pkgconfig
+  - rapydscript-ng
+  - openpgp-keys-kovidgoyal
+  - uchardet
+  - hunspell
+  - podofo
+  - poppler
+  - hyphen
+  - icu
+  - openssl
+  - snowball-stemmer
+  - apsw
+  - beautifulsoup4
+  - css-parser
+  - dnspython
+  - feedparser
+  - html2text
+  - html5-parser
+  - jeepney
+  - lxml
+  - lxml-html-clean
+  - markdown
+  - mechanize
+  - msgpack
+  - netifaces
+  - pillow
+  - psutil
+  - pychm
+  - pykakasi
+  - pygments
+  - python-dateutil
+  - pyqt6
+  - pyqt6-webengine
+  - regex
+  - xxhash
+  - zeroconf
+  - qtbase
+  - qtimageformats
+  - desktop-file-utils
+  - gtk-update-icon-cache
+  - liberation-fonts
+  - fontconfig
+  - freetype
+  - libmtp
+  - optipng
+  - ffmpeg
+  - libusb
+  - shared-mime-info
+  - xdg-utils
+  - fonttools
+  - usbmuxd
+  - libimobiledevice
+  - speech-dispatcher
+  - mathjax
+  - libudev
+  - unrardll
+  runtime:
+  - udisks

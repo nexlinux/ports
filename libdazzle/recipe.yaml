@@ -1,0 +1,23 @@
+name: libdazzle
+version: 3.44.0
+source:
+  url: https://download.gnome.org/sources/libdazzle/3.44/libdazzle-3.44.0.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - meson
+  - libxml2
+  - glib-utils
+  - gettext
+  - pkgconfig
+  - gtk-doc
+  - glib
+  - gtk+
+  - gobject-introspection
+  runtime:
+  - glib
+  - gtk+
+  - gobject-introspection

@@ -1,0 +1,57 @@
+name: gnome-panel
+version: 3.58.1
+source:
+  url: https://download.gnome.org/sources/gnome-panel/3.58/gnome-panel-3.58.1.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - docbook-xml-dtd
+  - gdbus-codegen
+  - glib-utils
+  - itstool
+  - gettext
+  - pkgconfig
+  - gnome-desktop
+  - gdk-pixbuf
+  - pango
+  - glib
+  - gtk+
+  - libwnck
+  - gnome-menus
+  - gsettings-desktop-schemas
+  - evolution-data-server
+  - elogind
+  - systemd
+  - cairo
+  - libgweather
+  - dconf
+  - libXrandr
+  - gdm
+  - libX11
+  - libXi
+  - geocode-glib
+  - polkit
+  runtime:
+  - gnome-desktop
+  - gdk-pixbuf
+  - pango
+  - glib
+  - gtk+
+  - libwnck
+  - gnome-menus
+  - gsettings-desktop-schemas
+  - evolution-data-server
+  - elogind
+  - systemd
+  - cairo
+  - libgweather
+  - dconf
+  - libXrandr
+  - gdm
+  - libX11
+  - libXi
+  - geocode-glib
+  - polkit
