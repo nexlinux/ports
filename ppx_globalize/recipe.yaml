@@ -1,0 +1,19 @@
+name: ppx_globalize
+version: 0.17.2
+source:
+  url: https://github.com/janestreet/ppx_globalize/archive/v0.17.2.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - dune
+  - ocaml
+  - base-
+  - ppxlib
+  - ppxlib_jane-
+  runtime:
+  - ocaml
+  - base-
+  - ppxlib
+  - ppxlib_jane-

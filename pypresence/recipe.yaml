@@ -1,0 +1,6 @@
+name: pypresence
+version: 4.6.2
+source:
+  url: https://github.com/qwertyquerty/pypresence/archive/refs/tags/v4.6.2.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX

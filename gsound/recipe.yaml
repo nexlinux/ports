@@ -1,0 +1,17 @@
+name: gsound
+version: 1.0.3
+source:
+  url: https://download.gnome.org/sources/gsound/1.0/gsound-1.0.3.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - pkgconfig
+  - gtk-doc
+  - docbook-xml-dtd
+  runtime:
+  - glib
+  - libcanberra
+  - gobject-introspection

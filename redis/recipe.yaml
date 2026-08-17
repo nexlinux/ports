@@ -1,0 +1,20 @@
+name: redis
+version: 8.4.4
+source:
+  url: https://github.com/redis/redis/archive/refs/tags/8.4.4.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - redis
+  - pkgconfig
+  - tcl
+  - tls
+  - jemalloc
+  - openssl
+  - systemd
+  - google-perftools
+  runtime:
+  - redis
+  - selinux-redis

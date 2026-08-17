@@ -1,0 +1,13 @@
+name: tclreadline
+version: 2.4.1
+source:
+  url: https://github.com/flightaware/tclreadline/archive/refs/tags/v2.4.1.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - tcl
+  - readline
+  - tk

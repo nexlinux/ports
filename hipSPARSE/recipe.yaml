@@ -1,0 +1,19 @@
+name: hipSPARSE
+version: 7.2.0
+source:
+  url: https://github.com/ROCm/rocm-libraries/releases/download/rocm-7.2.0/hipsparse.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - rocm-cmake
+  - gtest
+  - rocminfo
+  - hip
+  - rocSPARSE
+  runtime:
+  - rocminfo
+  - hip
+  - rocSPARSE

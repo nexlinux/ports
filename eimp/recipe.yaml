@@ -1,0 +1,17 @@
+name: eimp
+version: 1.0.26
+source:
+  url: https://github.com/processone/eimp/archive/1.0.26.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - erlang
+  - p1_utils
+  - gd
+  runtime:
+  - erlang
+  - p1_utils
+  - gd
