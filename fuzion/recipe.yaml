@@ -1,0 +1,15 @@
+name: fuzion
+version: '0.092'
+source:
+  url: https://github.com/tokiwa-software/fuzion/archive/refs/tags/v0.092.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - clang
+  - jre
+  - boehm-gc
+  runtime:
+  - jre
+  - boehm-gc

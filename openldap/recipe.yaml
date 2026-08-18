@@ -1,0 +1,30 @@
+name: openldap
+version: 2.5.20
+source:
+  url: https://openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.5.20.tgz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - ldap
+  - openpgp-keys-openldap
+  - util-linux
+  - openssl
+  - gnutls
+  - libgcrypt
+  - cyrus-sasl
+  - libltdl
+  - e2fsprogs
+  - lmdb-
+  - argon2
+  - libcrypt
+  - tcp-wrappers
+  - unixODBC
+  - libiodbc
+  - perl
+  - heimdal
+  - krb5
+  runtime:
+  - selinux-ldap

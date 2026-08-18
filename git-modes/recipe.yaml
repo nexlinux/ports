@@ -1,0 +1,12 @@
+name: git-modes
+version: 1.5.0
+source:
+  url: https://github.com/magit/git-modes/archive/v1.5.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - compat
+  runtime:
+  - compat

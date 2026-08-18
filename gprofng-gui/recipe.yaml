@@ -1,0 +1,14 @@
+name: gprofng-gui
+version: '2.0'
+source:
+  url: https://ftp.gnu.org/gnu/gprofng-gui/gprofng-gui-2.0.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - jdk
+  runtime:
+  - binutils
+  - jre

@@ -1,0 +1,24 @@
+name: libmanette
+version: 0.2.13
+source:
+  url: https://download.gnome.org/sources/libmanette/0.2/libmanette-0.2.13.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - gi-docgen
+  - vala
+  - pkgconfig
+  - glib
+  - libgudev
+  - libevdev
+  - hidapi
+  - gobject-introspection
+  runtime:
+  - glib
+  - libgudev
+  - libevdev
+  - hidapi
+  - gobject-introspection

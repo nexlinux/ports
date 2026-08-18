@@ -1,0 +1,62 @@
+name: buildbot
+version: 3.11.1
+source:
+  url: https://github.com/buildbot/buildbot/archive/refs/tags/v3.11.1.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - buildbot-pkg-
+  - buildbot-worker-
+  - buildbot-www-
+  - boto3
+  - lz4
+  - ldap3
+  - markdown
+  - moto
+  - parameterized
+  - pypugjs
+  - txrequests
+  - treq
+  - buildbot
+  - alembic
+  - autobahn
+  - croniter
+  - msgpack
+  - jinja2
+  - python-dateutil
+  - packaging
+  - pyjwt
+  - pyyaml
+  - sqlalchemy
+  - twisted
+  - txaio
+  - unidiff
+  - zope-interface
+  - pyopenssl
+  - service-identity
+  - idna
+  - docker
+  - requests
+  runtime:
+  - buildbot
+  - alembic
+  - autobahn
+  - croniter
+  - msgpack
+  - jinja2
+  - python-dateutil
+  - packaging
+  - pyjwt
+  - pyyaml
+  - sqlalchemy
+  - twisted
+  - txaio
+  - unidiff
+  - zope-interface
+  - pyopenssl
+  - service-identity
+  - idna
+  - txrequests
+  - docker
+  - requests
