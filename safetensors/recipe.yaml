@@ -1,0 +1,11 @@
+name: safetensors
+version: 0.7.0
+source:
+  url: https://github.com/huggingface/safetensors/archive/refs/tags/v0.7.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - setuptools-rust
+  - h5py

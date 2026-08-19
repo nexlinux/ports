@@ -1,0 +1,11 @@
+name: nanobind
+version: 2.15.0
+source:
+  url: https://github.com/wjakob/nanobind/archive/refs/tags/v2.15.0.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - robin-map

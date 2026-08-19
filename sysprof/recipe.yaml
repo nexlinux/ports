@@ -1,0 +1,45 @@
+name: sysprof
+version: 50.0-r1
+source:
+  url: https://download.gnome.org/sources/sysprof/50/sysprof-50.0.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - appstream-glib
+  - gdbus-codegen
+  - itstool
+  - gettext
+  - linux-headers
+  - pkgconfig
+  - glib
+  - gtk
+  - libadwaita
+  - cairo
+  - pango
+  - systemd
+  - json-glib
+  - libdex
+  - libpanel
+  - libunwind
+  - polkit
+  - elfutils
+  - sysprof-common-
+  - sysprof-capture-
+  runtime:
+  - glib
+  - gtk
+  - libadwaita
+  - cairo
+  - pango
+  - systemd
+  - json-glib
+  - libdex
+  - libpanel
+  - libunwind
+  - polkit
+  - elfutils
+  - sysprof-common-
+  - sysprof-capture-

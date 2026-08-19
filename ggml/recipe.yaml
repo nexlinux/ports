@@ -1,0 +1,20 @@
+name: ggml
+version: 0.20.1
+source:
+  url: https://github.com/ggml-org/ggml/archive/refs/tags/v0.20.1.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - shaderc
+  - nvidia-cuda-toolkit
+  - vulkan-loader
+  - hip-
+  - hipBLAS-
+  runtime:
+  - nvidia-cuda-toolkit
+  - vulkan-loader
+  - hip-
+  - hipBLAS-

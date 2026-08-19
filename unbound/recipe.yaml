@@ -1,0 +1,29 @@
+name: unbound
+version: 1.25.1
+source:
+  url: https://nlnetlabs.nl/downloads/unbound/unbound-1.25.1.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - pkgconfig
+  - swig
+  - ldns
+  - splint
+  - wdiff
+  - openpgp-keys-nlnetlabs
+  - unbound
+  - expat
+  - libevent
+  - openssl
+  - libsodium
+  - fstrm
+  - protobuf-c
+  - nghttp2
+  - hiredis
+  - systemd
+  runtime:
+  - dnssec-root
+  - selinux-bind

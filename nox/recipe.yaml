@@ -1,0 +1,22 @@
+name: nox
+version: 2026.07.11
+source:
+  url: https://github.com/wntrblm/nox/archive/2026.07.11.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - pbs-installer
+  - argcomplete
+  - attrs
+  - colorlog
+  - dependency-groups
+  - humanize
+  - packaging
+  runtime:
+  - argcomplete
+  - attrs
+  - colorlog
+  - dependency-groups
+  - humanize
+  - packaging

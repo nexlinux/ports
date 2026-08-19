@@ -1,0 +1,13 @@
+name: libnftnl
+version: 1.3.0
+source:
+  url: https://netfilter.org/projects/libnftnl/files/libnftnl-1.3.0.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - libmnl
+  runtime:
+  - libmnl
