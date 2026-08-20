@@ -1,0 +1,29 @@
+name: libwnck
+version: '43.3'
+source:
+  url: https://download.gnome.org/sources/libwnck/43/libwnck-43.3.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - gtk-doc
+  - docbook-xml-dtd
+  - gettext
+  - pkgconfig
+  - cairo
+  - glib
+  - gtk+
+  - startup-notification
+  - libX11
+  - libXres
+  - gobject-introspection
+  runtime:
+  - cairo
+  - glib
+  - gtk+
+  - startup-notification
+  - libX11
+  - libXres
+  - gobject-introspection

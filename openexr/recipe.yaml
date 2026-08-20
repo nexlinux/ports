@@ -1,0 +1,17 @@
+name: openexr
+version: 3.4.4
+source:
+  url: https://github.com/AcademySoftwareFoundation/openexr/releases/download/v3.4.4/openexr-3.4.4.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - pkgconfig
+  - help2man
+  - libdeflate
+  - imath
+  runtime:
+  - libdeflate
+  - imath

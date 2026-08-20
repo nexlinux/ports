@@ -1,0 +1,6 @@
+name: evdev
+version: 1.9.3
+source:
+  url: https://github.com/gvalkov/python-evdev/archive/v1.9.3.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX

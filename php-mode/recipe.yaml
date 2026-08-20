@@ -1,0 +1,7 @@
+name: php-mode
+version: 1.27.0
+source:
+  url: https://github.com/emacs-php/php-mode/archive/refs/tags/v1.27.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install

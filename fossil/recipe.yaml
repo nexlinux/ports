@@ -1,0 +1,23 @@
+name: fossil
+version: '2.22'
+source:
+  url: https://fossil-scm.org/home/tarball/66ee0beb9b47d827bde533fe6a1fb2ead4ceb1936468881b4fb621bd6bdfd862/fossil-src-.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - tcl
+  - zlib
+  - readline
+  - libedit
+  - sqlite
+  - openssl
+  runtime:
+  - zlib
+  - readline
+  - libedit
+  - sqlite
+  - openssl
+  - tcl

@@ -1,0 +1,11 @@
+name: valgrind
+version: 3.27.1
+source:
+  url: https://sourceware.org/pub/valgrind/valgrind-3.27.1.tar.bz2
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - mpi

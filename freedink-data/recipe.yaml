@@ -1,0 +1,7 @@
+name: freedink-data
+version: 1.08.20190120
+source:
+  url: https://ftp.gnu.org/gnu/freedink/freedink-data-1.08.20190120.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
