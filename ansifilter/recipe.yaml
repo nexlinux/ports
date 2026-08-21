@@ -1,0 +1,12 @@
+name: ansifilter
+version: '2.22'
+source:
+  url: http://andre-simon.de/zip/ansifilter-2.22.tar.bz2
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - openpgp-keys-andresimon
+  - qtbase

@@ -1,0 +1,30 @@
+name: qtile
+version: 0.37.0
+source:
+  url: https://github.com/qtile/qtile/archive/refs/tags/v0.37.0.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - setuptools
+  - setuptools-scm
+  - isort
+  - libcst
+  - imagemagick
+  - xorg-server
+  - xterm
+  - wayland-scanner
+  - cairocffi
+  - cffi
+  - libinput
+  - wayland
+  - wlroots
+  runtime:
+  - dbus-fast
+  - pygobject
+  - xcffib
+  - cairo
+  - libnotify
+  - pango
+  - pulsectl-asyncio
+  - libpulse

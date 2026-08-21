@@ -1,0 +1,21 @@
+name: gnome-power-manager
+version: '43.0'
+source:
+  url: https://download.gnome.org/sources/gnome-power-manager/43/gnome-power-manager-43.0.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - docbook-sgml-dtd
+  - docbook-sgml-utils
+  - gettext
+  - pkgconfig
+  - dbus
+  - glib
+  - gtk+
+  - cairo
+  - upower
+  runtime:
+  - adwaita-icon-theme

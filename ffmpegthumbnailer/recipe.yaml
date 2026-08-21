@@ -1,0 +1,19 @@
+name: ffmpegthumbnailer
+version: 2.2.3
+source:
+  url: https://github.com/dirkvdb/ffmpegthumbnailer/archive/refs/tags/2.2.3.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - ffmpeg
+  - glib
+  - libjpeg-turbo
+  - libpng
+  runtime:
+  - ffmpeg
+  - glib
+  - libjpeg-turbo
+  - libpng

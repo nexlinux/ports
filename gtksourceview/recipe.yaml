@@ -1,0 +1,20 @@
+name: gtksourceview
+version: 3.24.11-r4
+source:
+  url: https://download.gnome.org/sources/gtksourceview/3.24/gtksourceview-3.24.11.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - glib-utils
+  - gtk-doc-am
+  - gettext
+  - pkgconfig
+  runtime:
+  - glib
+  - libxml2
+  - gtk+
+  - glade
+  - gobject-introspection

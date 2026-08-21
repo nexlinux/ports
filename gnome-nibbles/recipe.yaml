@@ -1,0 +1,29 @@
+name: gnome-nibbles
+version: 4.4.2
+source:
+  url: https://download.gnome.org/sources/gnome-nibbles/4.4/gnome-nibbles-4.4.2.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - meson
+  - itstool
+  - gettext
+  - pkgconfig
+  - gsound
+  - glib
+  - libgee
+  - gtk
+  - libadwaita
+  - pango
+  - libgnome-games-support
+  runtime:
+  - glib
+  - libgee
+  - gsound
+  - gtk
+  - libadwaita
+  - pango
+  - libgnome-games-support
