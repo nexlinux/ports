@@ -1,0 +1,30 @@
+name: libsecret
+version: 0.21.7-r1
+source:
+  url: https://download.gnome.org/sources/libsecret/0.21/libsecret-0.21.7.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - docbook-xml-dtd
+  - libxslt
+  - gdbus-codegen
+  - glib-utils
+  - gettext
+  - pkgconfig
+  - gi-docgen
+  - pam_wrapper
+  - dbus-python
+  - pygobject
+  - gjs
+  - swtpm
+  - tpm2-abrmd
+  - tpm2-tss
+  - bash-completion
+  - glib
+  - libgcrypt
+  - gnutls
+  - pam
+  - gobject-introspection

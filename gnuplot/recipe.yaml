@@ -1,0 +1,51 @@
+name: gnuplot
+version: 6.0.4
+source:
+  url: https://downloads.sourceforge.net/gnuplot/gnuplot-6.0.4.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - pkgconfig
+  - latex-base
+  - texlive-latexextra
+  - texlive-langgreek
+  - texlive-mathscience
+  - ghostscript-gpl
+  - qttools
+  - openspecfun
+  - cairo
+  - pango
+  - gd
+  - pgf
+  - texlive-latexrecommended-2008-r2
+  - libcaca
+  - qt5compat
+  - qtbase
+  - qtsvg
+  - readline
+  - libcerf
+  - wxGTK
+  - gtk+
+  - libX11
+  - libXaw
+  runtime:
+  - openspecfun
+  - cairo
+  - pango
+  - gd
+  - latex-base
+  - pgf
+  - texlive-latexrecommended-2008-r2
+  - libcaca
+  - qt5compat
+  - qtbase
+  - qtsvg
+  - readline
+  - libcerf
+  - wxGTK
+  - gtk+
+  - libX11
+  - libXaw

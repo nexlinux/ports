@@ -1,0 +1,44 @@
+name: gnutls
+version: 3.8.12
+source:
+  url: https://github.com/gnutls/gnutls/archive/refs/tags/3.8.12.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - gtk-doc-am
+  - pkgconfig-0-r1
+  - gtk-doc
+  - gettext
+  - dieharder
+  - libfaketime
+  - datefudge
+  - softhsm
+  - ppp
+  - socat
+  - openpgp-keys-gnutls
+  - libtasn1
+  - libunistring
+  - nettle
+  - gmp
+  - brotli
+  - unbound
+  - libintl-0-r1
+  - p11-kit
+  - libidn2
+  - zlib
+  - zstd
+  runtime:
+  - libtasn1
+  - libunistring
+  - nettle
+  - gmp
+  - brotli
+  - unbound
+  - libintl-0-r1
+  - p11-kit
+  - libidn2
+  - zlib
+  - zstd

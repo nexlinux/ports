@@ -1,0 +1,19 @@
+name: stripe
+version: 15.4.0
+source:
+  url: https://github.com/stripe/stripe/archive/refs/tags/v15.4.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - stripe-mock
+  - aiohttp
+  - httpx
+  - trio
+  - curl
+  - requests
+  - typing-extensions
+  runtime:
+  - requests
+  - typing-extensions

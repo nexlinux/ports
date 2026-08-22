@@ -1,0 +1,16 @@
+name: matplotlib-venn
+version: 1.1.2
+source:
+  url: https://github.com/konstantint/matplotlib-venn/archive/1.1.2.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - shapely
+  - matplotlib
+  - numpy
+  - scipy
+  runtime:
+  - matplotlib
+  - numpy
+  - scipy
