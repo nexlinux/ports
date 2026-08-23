@@ -1,0 +1,22 @@
+name: nsd
+version: 4.15.0
+source:
+  url: https://www.nlnetlabs.nl/downloads/nsd/nsd-4.15.0.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - openpgp-keys-nlnetlabs
+  runtime:
+  - nsd
+  - fstrm
+  - protobuf-c
+  - libevent
+  - munin
+  - openssl
+  - systemd
+  - libbpf
+  - xdp-tools
+  - libcap

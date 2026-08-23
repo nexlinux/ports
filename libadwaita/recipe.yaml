@@ -1,0 +1,26 @@
+name: libadwaita
+version: 1.8.7
+source:
+  url: https://download.gnome.org/sources/libadwaita/1.8/libadwaita-1.8.7.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - gi-docgen
+  - glib-utils
+  - gettext
+  - pkgconfig
+  - sassc
+  - glib
+  - gtk
+  - appstream
+  - fribidi
+  - gobject-introspection
+  runtime:
+  - glib
+  - gtk
+  - appstream
+  - fribidi
+  - gobject-introspection

@@ -1,0 +1,25 @@
+name: libgusb
+version: 0.4.9
+source:
+  url: https://github.com/hughsie/libgusb/releases/download/0.4.9/libgusb-0.4.9.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - setuptools
+  - gi-docgen
+  - openpgp-keys-hughsie
+  - pkgconfig
+  - glib
+  - libusb
+  - json-glib
+  - gobject-introspection
+  - hwdata
+  runtime:
+  - glib
+  - libusb
+  - json-glib
+  - gobject-introspection
+  - hwdata

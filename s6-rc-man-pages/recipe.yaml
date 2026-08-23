@@ -1,0 +1,7 @@
+name: s6-rc-man-pages
+version: 0.5.5.0.1
+source:
+  url: https://git.sr.ht/~flexibeast/s6-rc-man-pages/archive/v0.5.5.0.1.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install

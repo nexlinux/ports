@@ -1,0 +1,20 @@
+name: logbook
+version: 1.9.2
+source:
+  url: https://github.com/getlogbook/logbook/archive/1.9.2.tar.gz
+build:
+- cargo build --release
+- mkdir -p $DESTDIR$PREFIX/bin
+- cp target/release/logbook $DESTDIR$PREFIX/bin/
+depends:
+  build:
+  - setuptools-rust
+  - brotli
+  - execnet
+  - jinja2
+  - pip
+  - pyzmq
+  - sqlalchemy
+  - typing-extensions
+  runtime:
+  - typing-extensions

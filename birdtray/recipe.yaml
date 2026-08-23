@@ -1,0 +1,20 @@
+name: birdtray
+version: 1.11.4_p20250318
+source:
+  url: https://dev.gentoo.org/~ago/distfiles/birdtray-1.11.4_p20250318.tar.xz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - qttools
+  - sqlite
+  - qtbase
+  - qtsvg
+  - libX11
+  runtime:
+  - sqlite
+  - qtbase
+  - qtsvg
+  - libX11

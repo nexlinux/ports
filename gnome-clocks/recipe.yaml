@@ -1,0 +1,29 @@
+name: gnome-clocks
+version: '49.0'
+source:
+  url: https://download.gnome.org/sources/gnome-clocks/49/gnome-clocks-49.0.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - libxml2
+  - itstool
+  - gettext
+  - pkgconfig
+  - libgweather
+  - libadwaita
+  - glib
+  - gtk
+  - gnome-desktop
+  - geocode-glib
+  - geoclue
+  runtime:
+  - glib
+  - gtk
+  - libgweather
+  - gnome-desktop
+  - geocode-glib
+  - geoclue
+  - libadwaita
