@@ -1,0 +1,19 @@
+name: vcrpy
+version: 8.1.1
+source:
+  url: https://github.com/kevin1024/vcrpy/archive/v8.1.1.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - httplib2
+  - httpx
+  - pyyaml
+  - requests
+  - urllib3
+  - wrapt
+  runtime:
+  - pyyaml
+  - requests
+  - urllib3
+  - wrapt

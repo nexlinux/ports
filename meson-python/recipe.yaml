@@ -1,0 +1,20 @@
+name: meson-python
+version: 0.20.0
+source:
+  url: https://github.com/mesonbuild/meson-python/archive/0.20.0.tar.gz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - cython
+  - packaging
+  - git
+  - pyproject-metadata
+  - meson
+  - patchelf
+  runtime:
+  - pyproject-metadata
+  - meson
+  - patchelf

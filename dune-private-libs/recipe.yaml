@@ -1,0 +1,15 @@
+name: dune-private-libs
+version: 3.18.1
+source:
+  url: https://github.com/ocaml/dune/archive/3.18.1.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - dune
+  runtime:
+  - stdune
+  - dyn
+  - ordering

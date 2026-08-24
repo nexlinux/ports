@@ -1,0 +1,24 @@
+name: gnome-color-manager
+version: 3.36.2-r1
+source:
+  url: https://download.gnome.org/sources/gnome-color-manager/3.36/gnome-color-manager-3.36.2.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - docbook-sgml-dtd
+  - docbook-sgml-utils
+  - itstool
+  - gettext
+  - pkgconfig
+  - glib
+  - gtk+
+  - colord
+  - lcms
+  runtime:
+  - glib
+  - gtk+
+  - colord
+  - lcms
