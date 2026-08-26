@@ -1,0 +1,37 @@
+name: ipython
+version: 9.16.1
+source:
+  url: https://github.com/ipython/ipython/archive/refs/tags/9.16.1.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - setuptools
+  - dvipng
+  - ipykernel
+  - matplotlib
+  - nbformat
+  - numpy
+  - matplotlib-inline
+  - packaging
+  - pickleshare
+  - requests
+  - testpath
+  - ipython-pygments-lexers
+  - jedi
+  - pexpect
+  - prompt-toolkit
+  - psutil
+  - pygments
+  - stack-data
+  - traitlets
+  runtime:
+  - ipython-pygments-lexers
+  - jedi
+  - matplotlib-inline
+  - pexpect
+  - prompt-toolkit
+  - psutil
+  - pygments
+  - stack-data
+  - traitlets

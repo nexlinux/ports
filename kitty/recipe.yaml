@@ -1,0 +1,54 @@
+name: kitty
+version: 0.48.1
+source:
+  url: https://github.com/kovidgoyal/kitty/releases/download/v0.48.1/kitty-0.48.1.tar.xz
+build:
+- go build -o kitty
+- mkdir -p $DESTDIR$PREFIX/bin
+- cp kitty $DESTDIR$PREFIX/bin/
+depends:
+  build:
+  - go
+  - ncurses
+  - pkgconfig
+  - pillow
+  - wayland-scanner
+  - openssl
+  - xxhash
+  - symbols-nerd-font
+  - freetype
+  - harfbuzz
+  - lcms
+  - libglvnd
+  - libpng
+  - dbus
+  - zlib
+  - cairo
+  - libxkbcommon
+  - xkeyboard-config
+  - kitty-shell-integration-
+  - kitty-terminfo-
+  - libX11
+  - libXcursor
+  - wayland
+  - kissat
+  runtime:
+  - openssl
+  - xxhash
+  - symbols-nerd-font
+  - freetype
+  - harfbuzz
+  - lcms
+  - libglvnd
+  - libpng
+  - dbus
+  - zlib
+  - cairo
+  - libxkbcommon
+  - xkeyboard-config
+  - kitty-shell-integration-
+  - kitty-terminfo-
+  - libX11
+  - libXcursor
+  - wayland
+  - kissat

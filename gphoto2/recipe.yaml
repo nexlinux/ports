@@ -1,0 +1,28 @@
+name: gphoto2
+version: 2.5.32
+source:
+  url: https://downloads.sourceforge.net/gphoto/gphoto2-2.5.32.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - pkgconfig
+  - gettext
+  - openpgp-keys-marcusmeissner
+  - popt
+  - libexif
+  - libgphoto2
+  - aalib
+  - libjpeg-turbo
+  - cdk
+  - readline
+  runtime:
+  - popt
+  - libexif
+  - libgphoto2
+  - aalib
+  - libjpeg-turbo
+  - cdk
+  - readline

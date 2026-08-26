@@ -1,0 +1,15 @@
+name: gambit
+version: 4.9.5
+source:
+  url: https://github.com/gambit/gambit/archive/refs/tags/v4.9.5.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - ghostscript-gpl
+  - emacs
+  - openssl
+  runtime:
+  - openssl

@@ -1,0 +1,30 @@
+name: at-spi2-core
+version: 2.60.5
+source:
+  url: https://download.gnome.org/sources/at-spi2-core/2.60/at-spi2-core-2.60.5.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - glib-utils
+  - sphinx
+  - gdbus-codegen
+  - gi-docgen
+  - pygobject
+  - gettext
+  - pkgconfig
+  - dbus
+  - dbus-glib
+  - glib
+  - libxml2
+  - gobject-introspection
+  - systemd
+  - libX11
+  - libXtst
+  - libXi
+  - libXres
+  - atk
+  runtime:
+  - dbus-broker

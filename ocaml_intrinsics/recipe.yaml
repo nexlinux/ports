@@ -1,0 +1,11 @@
+name: ocaml_intrinsics
+version: 0.16.0
+source:
+  url: https://github.com/janestreet/ocaml_intrinsics/archive/v0.16.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - ocaml
+  - dune-configurator

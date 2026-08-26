@@ -1,0 +1,11 @@
+name: time
+version: '1.10'
+source:
+  url: https://ftp.gnu.org/gnu/time/time-1.10.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - texinfo
