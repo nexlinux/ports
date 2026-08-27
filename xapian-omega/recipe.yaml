@@ -1,0 +1,17 @@
+name: xapian-omega
+version: 1.4.32
+source:
+  url: https://oligarchy.co.uk/xapian/1.4.32/xapian-omega-1.4.32.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - openpgp-keys-ollybetts
+  - perl
+  - libpcre2
+  - xapian-
+  - '30'
+  - file
+  - zlib

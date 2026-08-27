@@ -1,0 +1,25 @@
+name: gcr
+version: 3.41.2-r2
+source:
+  url: https://download.gnome.org/sources/gcr/3.41/gcr-3.41.2.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - libxml2
+  - gdbus-codegen
+  - glib-utils
+  - gi-docgen
+  - gettext
+  - gpg
+  - pkgconfig
+  - glib
+  - libgcrypt
+  - p11-kit
+  - libsecret
+  - systemd
+  - gtk+
+  - dbus
+  - gobject-introspection

@@ -1,0 +1,26 @@
+name: gnome-tweaks
+version: '49.0'
+source:
+  url: https://download.gnome.org/sources/gnome-tweaks/49/gnome-tweaks-49.0.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - gettext
+  runtime:
+  - pygobject
+  - gnome-settings-daemon
+  - sound-theme-freedesktop
+  - glib
+  - gobject-introspection
+  - gtk
+  - libadwaita
+  - libgudev
+  - gnome-desktop
+  - libnotify
+  - pango
+  - gsettings-desktop-schemas
+  - gnome-shell
+  - mutter

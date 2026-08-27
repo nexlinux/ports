@@ -1,0 +1,11 @@
+name: p1_pgsql
+version: 1.1.25
+source:
+  url: https://github.com/processone/p1_pgsql/archive/1.1.25.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - xmpp
+  - erlang

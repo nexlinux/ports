@@ -1,0 +1,86 @@
+name: synapse
+version: 1.155.0
+source:
+  url: https://github.com/element-hq/synapse/archive/v1.155.0.tar.gz
+build:
+- cargo build --release
+- mkdir -p $DESTDIR$PREFIX/bin
+- cp target/release/synapse $DESTDIR$PREFIX/bin/
+depends:
+  build:
+  - synapse
+  - setuptools-rust
+  - hiredis
+  - idna
+  - lxml
+  - parameterized
+  - txredisapi
+  - postgresql
+  - attrs
+  - bcrypt
+  - bleach
+  - canonicaljson
+  - cryptography
+  - ijson
+  - immutabledict
+  - jinja2
+  - jsonschema
+  - matrix-common
+  - msgpack
+  - netaddr
+  - packaging
+  - phonenumbers
+  - pillow
+  - prometheus-client
+  - pyasn1-modules
+  - pyasn1
+  - pydantic
+  - pymacaroons
+  - pyopenssl
+  - python-multipart
+  - pyyaml
+  - service-identity
+  - signedjson
+  - sortedcontainers
+  - treq
+  - twisted
+  - typing-extensions
+  - unpaddedbase64
+  - psycopg
+  - selinux-matrixd
+  - python-systemd
+  runtime:
+  - synapse
+  - attrs
+  - bcrypt
+  - bleach
+  - canonicaljson
+  - cryptography
+  - ijson
+  - immutabledict
+  - jinja2
+  - jsonschema
+  - matrix-common
+  - msgpack
+  - netaddr
+  - packaging
+  - phonenumbers
+  - pillow
+  - prometheus-client
+  - pyasn1-modules
+  - pyasn1
+  - pydantic
+  - pymacaroons
+  - pyopenssl
+  - python-multipart
+  - pyyaml
+  - service-identity
+  - signedjson
+  - sortedcontainers
+  - treq
+  - twisted
+  - typing-extensions
+  - unpaddedbase64
+  - psycopg
+  - selinux-matrixd
+  - python-systemd

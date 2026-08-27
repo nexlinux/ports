@@ -1,0 +1,13 @@
+name: dwarf-mode
+version: '2.40'
+source:
+  url: https://ftp.gnu.org/gnu/binutils/binutils-2.40.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - binutils
+  runtime:
+  - binutils
