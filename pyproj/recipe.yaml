@@ -1,0 +1,16 @@
+name: pyproj
+version: 3.7.2
+source:
+  url: https://github.com/pyproj4/pyproj/archive/3.7.2.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - cython
+  - numpy
+  - pandas
+  - shapely
+  - xarray
+  - proj
+  runtime:
+  - certifi

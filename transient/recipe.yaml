@@ -1,0 +1,17 @@
+name: transient
+version: 0.13.6
+source:
+  url: https://github.com/magit/transient/archive/v0.13.6.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - texinfo
+  - compat
+  - cond-let
+  - llama
+  runtime:
+  - compat
+  - cond-let
+  - llama

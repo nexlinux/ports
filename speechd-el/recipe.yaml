@@ -1,0 +1,12 @@
+name: speechd-el
+version: '2.12'
+source:
+  url: https://github.com/brailcom/speechd-el/archive/refs/tags/speechd-el-2.12.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - speech-dispatcher
+  runtime:
+  - speech-dispatcher

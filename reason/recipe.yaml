@@ -1,0 +1,27 @@
+name: reason
+version: 3.18.0
+source:
+  url: https://github.com/reasonml/reason/archive/3.18.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - findlib
+  - cppo
+  - dune-build-info
+  - fix
+  - menhir
+  - merlin-extend
+  - ppx_derivers
+  - ppxlib
+  - utop
+  runtime:
+  - cppo
+  - dune-build-info
+  - fix
+  - menhir
+  - merlin-extend
+  - ppx_derivers
+  - ppxlib
+  - utop

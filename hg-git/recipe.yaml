@@ -1,0 +1,13 @@
+name: hg-git
+version: 1.2.0_p20260328
+source:
+  url: https://foss.heptapod.net/mercurial/hg-git/-/archive/0b8fb9c9ceca65d48e1e0d848dab56fd7d64bb52/-0b8fb9c9ceca65d48e1e0d848dab56fd7d64bb52.tar.bz2
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - mercurial
+  - dulwich
+  runtime:
+  - mercurial
+  - dulwich

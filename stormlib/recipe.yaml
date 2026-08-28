@@ -1,0 +1,17 @@
+name: stormlib
+version: '9.31'
+source:
+  url: https://github.com/ladislav-zezula/StormLib/archive/v9.31.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - bzip2
+  - libtomcrypt
+  - zlib
+  runtime:
+  - bzip2
+  - libtomcrypt
+  - zlib
