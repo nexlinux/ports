@@ -1,0 +1,12 @@
+name: hl-todo
+version: 3.9.1
+source:
+  url: https://github.com/tarsius/hl-todo/archive/v3.9.1.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - compat
+  runtime:
+  - compat

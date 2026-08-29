@@ -1,0 +1,30 @@
+name: gnome-desktop
+version: 44.1-r300
+source:
+  url: https://download.gnome.org/sources/gnome-desktop/44/gnome-desktop-44.1.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - docbook-xml-dtd
+  - gdbus-codegen
+  - itstool
+  - gettext
+  - pkgconfig
+  - gdk-pixbuf
+  - gtk+
+  - glib
+  - gsettings-desktop-schemas
+  - xkeyboard-config
+  - libxkbcommon
+  - iso-codes
+  - systemd
+  - libudev
+  - libseccomp
+  - cairo
+  - gobject-introspection
+  runtime:
+  - bubblewrap
+  - gnome-desktop-

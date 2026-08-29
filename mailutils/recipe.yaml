@@ -1,0 +1,61 @@
+name: mailutils
+version: '3.21'
+source:
+  url: https://ftp.gnu.org/gnu/mailutils/mailutils-3.21.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - pkgconfig
+  - dejagnu
+  - libsieve
+  - mailx
+  - ncurses
+  - readline
+  - libltdl
+  - libcrypt
+  - mta
+  - db
+  - fribidi
+  - emacs
+  - gdbm
+  - krb5
+  - kyotocabinet
+  - openldap
+  - mysql-connector-c
+  - gettext
+  - pam
+  - postgresql
+  - gsasl
+  - libiconv
+  - libunistring
+  - gnutls
+  - tcp-wrappers
+  - tokyocabinet
+  runtime:
+  - libsieve
+  - mailx
+  - ncurses
+  - readline
+  - libltdl
+  - libcrypt
+  - mta
+  - db
+  - fribidi
+  - emacs
+  - gdbm
+  - krb5
+  - kyotocabinet
+  - openldap
+  - mysql-connector-c
+  - gettext
+  - pam
+  - postgresql
+  - gsasl
+  - libiconv
+  - libunistring
+  - gnutls
+  - tcp-wrappers
+  - tokyocabinet

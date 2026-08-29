@@ -1,0 +1,15 @@
+name: exfatprogs
+version: 1.4.3
+source:
+  url: https://github.com/exfatprogs/exfatprogs/releases/download/1.4.3/exfatprogs-1.4.3.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - openpgp-keys-hclee
+  runtime:
+  - exfat-utils
+  - util-linux
+  - fts-standalone

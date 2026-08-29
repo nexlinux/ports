@@ -1,0 +1,24 @@
+name: devhelp
+version: '43.0'
+source:
+  url: https://download.gnome.org/sources/devhelp/43/devhelp-43.0.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - libxml2
+  - glib-utils
+  - itstool
+  - gi-docgen
+  - gettext
+  - pkgconfig
+  - glib
+  - gtk+
+  - webkit-gtk
+  - gsettings-desktop-schemas
+  - gobject-introspection
+  runtime:
+  - gedit
+  - pygobject
