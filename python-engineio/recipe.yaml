@@ -1,0 +1,19 @@
+name: python-engineio
+version: 4.13.4
+source:
+  url: https://github.com/miguelgrinberg/python-engineio/archive/v4.13.4.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - tornado
+  - websockets
+  - aiohttp
+  - requests
+  - simple-websocket
+  - websocket-client
+  runtime:
+  - aiohttp
+  - requests
+  - simple-websocket
+  - websocket-client

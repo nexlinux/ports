@@ -1,0 +1,13 @@
+name: snapshottest
+version: 0.6.0
+source:
+  url: https://github.com/syrusakbary/snapshottest/archive/0.6.0.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - six
+  - termcolor
+  runtime:
+  - six
+  - termcolor

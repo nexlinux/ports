@@ -1,0 +1,10 @@
+name: mmm-mode
+version: 0.5.11
+source:
+  url: https://github.com/dgutov/mmm-mode/archive/0.5.11.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - texinfo

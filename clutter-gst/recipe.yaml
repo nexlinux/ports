@@ -1,0 +1,24 @@
+name: clutter-gst
+version: 3.0.27-r2
+source:
+  url: https://download.gnome.org/sources/clutter-gst/3.0/clutter-gst-3.0.27.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - glib-utils
+  - gtk-doc-am
+  - pkgconfig
+  - glib
+  - clutter
+  - cogl
+  - gstreamer
+  - gst-plugins-bad
+  - gst-plugins-base
+  - gobject-introspection
+  - libgudev
+  runtime:
+  - gst-plugins-good
+  - gst-plugins-v4l2

@@ -1,0 +1,26 @@
+name: bcachefs-tools
+version: 1.39.0
+source:
+  url: https://evilpiepirate.org/bcachefs-tools/bcachefs-tools-1.39.0.tar.zst
+build:
+- cargo build --release
+- mkdir -p $DESTDIR$PREFIX/bin
+- cp target/release/bcachefs-tools $DESTDIR$PREFIX/bin/
+depends:
+  build:
+  - docutils
+  - clang
+  - musl
+  - pkgconfig
+  - linux-headers
+  - openpgp-keys-kentoverstreet
+  - lz4
+  - zstd
+  - libaio
+  - libsodium
+  - userspace-rcu
+  - keyutils
+  - util-linux
+  - libunwind
+  - udev
+  - zlib

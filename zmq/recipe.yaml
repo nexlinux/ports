@@ -1,0 +1,14 @@
+name: zmq
+version: 5.2.1
+source:
+  url: https://github.com/issuu/ocaml-zmq/archive/5.2.1.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - dune-configurator
+  - ounit2
+  - zeromq
+  runtime:
+  - zeromq
