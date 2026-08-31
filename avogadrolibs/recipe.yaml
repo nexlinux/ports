@@ -1,0 +1,39 @@
+name: avogadrolibs
+version: 1.103.0
+source:
+  url: https://github.com/OpenChemistry/avogadrolibs/archive/1.103.0.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - doxygen
+  - gtest
+  - eigen
+  - nlohmann_json
+  - pugixml
+  - hdf5
+  - pybind11
+  - qtbase
+  - qtsvg
+  - glew
+  - openbabel
+  - opengl
+  - libarchive
+  - jkqtplotter
+  - spglib
+  runtime:
+  - eigen
+  - nlohmann_json
+  - pugixml
+  - hdf5
+  - pybind11
+  - qtbase
+  - qtsvg
+  - glew
+  - openbabel
+  - opengl
+  - libarchive
+  - jkqtplotter
+  - spglib

@@ -1,0 +1,27 @@
+name: gtkmm
+version: 4.20.0
+source:
+  url: https://download.gnome.org/sources/gtkmm/4.20/gtkmm-4.20.0.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - pkgconfig
+  - doxygen
+  - perl
+  - libxslt
+  - glibmm
+  - gtk
+  - cairomm
+  - pangomm
+  - gdk-pixbuf
+  - libepoxy
+  runtime:
+  - glibmm
+  - gtk
+  - cairomm
+  - pangomm
+  - gdk-pixbuf
+  - libepoxy

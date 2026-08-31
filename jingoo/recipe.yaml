@@ -1,0 +1,21 @@
+name: jingoo
+version: 1.5.2
+source:
+  url: https://github.com/tategakibunko/jingoo/archive/refs/tags/1.5.2.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - ounit2
+  - menhir
+  - ppx_deriving
+  - re
+  - uucp
+  - uutf
+  runtime:
+  - menhir
+  - ppx_deriving
+  - re
+  - uucp
+  - uutf

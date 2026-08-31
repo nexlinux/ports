@@ -1,0 +1,20 @@
+name: gnome-tetravex
+version: 3.38.3
+source:
+  url: https://download.gnome.org/sources/gnome-tetravex/3.38/gnome-tetravex-3.38.3.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - itstool
+  - desktop-file-utils
+  - appstream
+  - gettext
+  - pkgconfig
+  - glib
+  - gtk+
+  runtime:
+  - glib
+  - gtk+

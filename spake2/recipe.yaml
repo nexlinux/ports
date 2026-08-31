@@ -1,0 +1,14 @@
+name: spake2
+version: '0.9'
+source:
+  url: https://github.com/warner/python-spake2/archive/v0.9.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - versioneer
+  - cryptography
+  - more-itertools
+  runtime:
+  - cryptography
+  - more-itertools

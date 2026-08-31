@@ -1,0 +1,18 @@
+name: yices2
+version: 2.7.0
+source:
+  url: https://github.com/SRI-CSL/yices2/archive/2.7.0.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - parallel
+  - gmp
+  - libpoly
+  - cudd
+  runtime:
+  - gmp
+  - libpoly
+  - cudd
