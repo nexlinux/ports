@@ -1,0 +1,17 @@
+name: alacarte
+version: 3.58.0
+source:
+  url: https://download.gnome.org/sources/alacarte/3.58/alacarte-3.58.0.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - gettext
+  - pkgconfig
+  - pygobject
+  - gnome-menus
+  runtime:
+  - gdk-pixbuf
+  - gtk+

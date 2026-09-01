@@ -1,0 +1,32 @@
+name: ulogd
+version: 2.0.9
+source:
+  url: https://netfilter.org/projects/ulogd/files/ulogd-2.0.9.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - pkgconfig
+  - linuxdoc-tools
+  - openjade
+  - texlive-core
+  - texlive-fontsrecommended
+  - latex-base
+  - iptables
+  - nftables
+  - libnfnetlink
+  - libdbi
+  - jansson
+  - libmnl
+  - libnetfilter_acct
+  - libnetfilter_conntrack
+  - libnetfilter_log
+  - mysql-connector-c
+  - libpcap
+  - postgresql
+  - sqlite
+  runtime:
+  - ulogd
+  - selinux-ulogd

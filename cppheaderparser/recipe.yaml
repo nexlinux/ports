@@ -1,0 +1,11 @@
+name: cppheaderparser
+version: 2.7.4-r1
+source:
+  url: https://downloads.sourceforge.net/cppheaderparser/CppHeaderParser-2.7.4.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - ply
+  runtime:
+  - ply

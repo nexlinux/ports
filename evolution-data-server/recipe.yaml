@@ -1,0 +1,66 @@
+name: evolution-data-server
+version: 3.60.1
+source:
+  url: https://download.gnome.org/sources/evolution-data-server/3.60/evolution-data-server-3.60.2.tar.xz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - gdbus-codegen
+  - glib-utils
+  - gperf
+  - gtk-doc
+  - gi-docgen
+  - docbook-xml-dtd
+  - intltool
+  - gettext
+  - pkgconfig
+  - libsecret
+  - sqlite
+  - glib
+  - libical
+  - libxml2
+  - nspr
+  - nss
+  - libsoup
+  - json-glib
+  - icu
+  - zlib
+  - libiconv
+  - db
+  - gtk+
+  - gtk
+  - libcanberra-gtk3
+  - libcanberra
+  - webkit-gtk
+  - gnome-online-accounts
+  - gobject-introspection
+  - krb5
+  - openldap
+  - libgweather
+  runtime:
+  - libsecret
+  - sqlite
+  - glib
+  - libical
+  - libxml2
+  - nspr
+  - nss
+  - libsoup
+  - json-glib
+  - icu
+  - zlib
+  - libiconv
+  - db
+  - gtk+
+  - gtk
+  - libcanberra-gtk3
+  - libcanberra
+  - webkit-gtk
+  - gnome-online-accounts
+  - gobject-introspection
+  - krb5
+  - openldap
+  - libgweather

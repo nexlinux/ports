@@ -1,0 +1,15 @@
+name: offlineimap3
+version: 8.0.3
+source:
+  url: https://github.com/OfflineIMAP/offlineimap3/archive/refs/tags/v8.0.3.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - asciidoc
+  - pytest-cov
+  - distro
+  - imaplib2
+  - rfc6555
+  - gssapi
+  - keyring

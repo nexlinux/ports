@@ -1,0 +1,13 @@
+name: dhcpcd
+version: 10.5.0
+source:
+  url: https://github.com/NetworkConfiguration/dhcpcd/releases/download/v10.5.0/dhcpcd-10.5.0.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - openpgp-keys-roymarples
+  runtime:
+  - dhcpcd

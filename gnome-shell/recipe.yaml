@@ -1,0 +1,72 @@
+name: gnome-shell
+version: '49.7'
+source:
+  url: https://download.gnome.org/sources/gnome-shell/49/gnome-shell-49.9.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - meson
+  - libxslt
+  - gdbus-codegen
+  - glib-utils
+  - gtk-doc
+  - gi-docgen
+  - docbook-xml-dtd
+  - gettext
+  - pkgconfig
+  - dbus
+  - mutter
+  - evolution-data-server
+  - gcr
+  - glib
+  - gobject-introspection
+  - gjs
+  - gtk
+  - '17'
+  - polkit
+  - gsettings-desktop-schemas-49_alpha
+  - libX11
+  - libXext
+  - libXfixes
+  - ibus
+  - docutils
+  - gnome-desktop
+  - networkmanager
+  - libnma
+  - libsecret
+  - pipewire
+  - systemd
+  - elogind
+  - gnome-autoar
+  - json-glib
+  - libsoup
+  - at-spi2-core
+  - gdk-pixbuf
+  - libxml2
+  - libpulse
+  - libical
+  - pygobject
+  - libglvnd
+  runtime:
+  - accountsservice
+  - at-spi2-core
+  - geoclue
+  - graphene
+  - pango
+  - libsoup
+  - upower
+  - librsvg
+  - libadwaita
+  - gnome-session
+  - gnome-settings-daemon
+  - xdg-utils
+  - adwaita-icon-theme
+  - mobile-broadband-provider-info
+  - timezone-data
+  - ibus
+  - selinux-wm
+  - adwaita-fonts
+  - xdg-desktop-portal-gnome

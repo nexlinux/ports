@@ -1,0 +1,15 @@
+name: include-what-you-use
+version: '0.26'
+source:
+  url: https://github.com/include-what-you-use/include-what-you-use/archive/0.26.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - clang
+  - llvm
+  runtime:
+  - clang
+  - llvm
