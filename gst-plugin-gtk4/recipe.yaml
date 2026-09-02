@@ -1,0 +1,15 @@
+name: gst-plugin-gtk4
+version: 0.13.4
+source:
+  url: https://crates.io/api/v1/crates/gst-plugin-gtk4/0.13.4/download
+build:
+- cargo build --release
+- mkdir -p $DESTDIR$PREFIX/bin
+- cp target/release/gst-plugin-gtk4 $DESTDIR$PREFIX/bin/
+depends:
+  build:
+  - cargo-c
+  - glib
+  - gtk
+  - gstreamer
+  - gst-plugins-base

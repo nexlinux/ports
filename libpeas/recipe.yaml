@@ -1,0 +1,27 @@
+name: libpeas
+version: 1.38.1
+source:
+  url: https://download.gnome.org/sources/libpeas/1.38/libpeas-1.38.1.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - glib-utils
+  - gtk-doc
+  - gi-docgen
+  - docbook-xml-dtd
+  - gettext
+  - pkgconfig
+  - glib
+  - gtk+
+  - glade
+  - lgi
+  - pygobject
+  runtime:
+  - glib
+  - gtk+
+  - glade
+  - lgi
+  - pygobject

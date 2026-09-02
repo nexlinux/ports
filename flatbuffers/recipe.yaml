@@ -1,0 +1,11 @@
+name: flatbuffers
+version: 25.12.19
+source:
+  url: https://github.com/google/flatbuffers/archive/v25.12.19.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - numpy

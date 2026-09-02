@@ -1,0 +1,15 @@
+name: vectorscan
+version: 5.4.11
+source:
+  url: https://github.com/VectorCamp/vectorscan/archive/refs/tags/vectorscan/5.4.11.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - ragel
+  - pkgconfig
+  - boost
+  runtime:
+  - hyperscan

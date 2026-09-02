@@ -1,0 +1,20 @@
+name: nco
+version: 5.3.9
+source:
+  url: https://github.com/nco/nco/archive/refs/tags/5.3.9.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - texinfo
+  - netcdf
+  - gsl
+  - antlr-cpp
+  - udunits
+  runtime:
+  - netcdf
+  - gsl
+  - antlr-cpp
+  - udunits
