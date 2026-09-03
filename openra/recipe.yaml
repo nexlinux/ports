@@ -1,0 +1,18 @@
+name: openra
+version: '20250330'
+source:
+  url: https://github.com/OpenRA/OpenRA/archive/release-20250330.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - ca-certificates
+  - freetype
+  - libsdl2
+  - openal
+  runtime:
+  - ca-certificates
+  - freetype
+  - libsdl2
+  - openal

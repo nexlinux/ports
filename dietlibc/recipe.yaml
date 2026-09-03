@@ -1,0 +1,11 @@
+name: dietlibc
+version: '0.35'
+source:
+  url: http://www.fefe.de/dietlibc/dietlibc-0.35.tar.xz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - openpgp-keys-fefe
+  - binutils

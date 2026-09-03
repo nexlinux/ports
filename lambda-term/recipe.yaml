@@ -1,0 +1,22 @@
+name: lambda-term
+version: 3.4.0
+source:
+  url: https://github.com/ocaml-community/lambda-term/archive/3.4.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - lwt
+  - logs
+  - lwt_log
+  - mew_vi
+  - react
+  - zed
+  runtime:
+  - lwt
+  - logs
+  - lwt_log
+  - mew_vi
+  - react
+  - zed

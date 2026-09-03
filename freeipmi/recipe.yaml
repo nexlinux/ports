@@ -1,0 +1,13 @@
+name: freeipmi
+version: 1.6.19
+source:
+  url: https://ftp.gnu.org/gnu/freeipmi/freeipmi-1.6.19.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - libgcrypt
+  runtime:
+  - libgcrypt
