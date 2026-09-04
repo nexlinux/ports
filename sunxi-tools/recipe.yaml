@@ -1,0 +1,16 @@
+name: sunxi-tools
+version: 1.4.2
+source:
+  url: https://github.com/linux-sunxi/sunxi-tools/archive/v1.4.2.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - pkgconfig
+  - unzip
+  - dtc
+  - zlib
+  runtime:
+  - dtc
+  - zlib

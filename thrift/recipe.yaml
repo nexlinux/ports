@@ -1,0 +1,16 @@
+name: thrift
+version: 0.21.0
+source:
+  url: https://archive.apache.org/dist/thrift/0.21.0/thrift-0.21.0.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - lex
+  - yacc
+  - boost
+  - openssl
+  - zlib
+  - libevent

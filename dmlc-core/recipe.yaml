@@ -1,0 +1,15 @@
+name: dmlc-core
+version: '0.5'
+source:
+  url: https://github.com/dmlc/dmlc-core/archive/refs/tags/v0.5.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - doxygen
+  - gtest
+  - curl
+  runtime:
+  - curl

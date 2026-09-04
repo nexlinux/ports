@@ -1,0 +1,8 @@
+name: exiftool
+version: '13.30'
+source:
+  url: https://github.com/exiftool/exiftool/archive/refs/tags/13.30.tar.gz
+build:
+- perl Makefile.PL PREFIX=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install

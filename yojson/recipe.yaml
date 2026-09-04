@@ -1,0 +1,10 @@
+name: yojson
+version: 3.0.0
+source:
+  url: https://github.com/ocaml-community/yojson/archive/3.0.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - alcotest

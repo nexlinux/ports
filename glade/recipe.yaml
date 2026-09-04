@@ -1,0 +1,27 @@
+name: glade
+version: 3.40.0-r3
+source:
+  url: https://download.gnome.org/sources/glade/3.40/glade-3.40.0.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - gtk-doc
+  - docbook-xml-dtd
+  - libxslt
+  - itstool
+  - gettext
+  - pkgconfig
+  - at-spi2-core
+  - glib
+  - libxml2
+  - cairo
+  - gdk-pixbuf
+  - gtk+
+  - pango
+  - gobject-introspection
+  - gjs
+  - pygobject
+  - webkit-gtk

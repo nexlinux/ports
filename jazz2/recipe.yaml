@@ -1,0 +1,16 @@
+name: jazz2
+version: 2.9.1
+source:
+  url: https://github.com/deathkiller/jazz2-native/archive/refs/tags/2.9.1.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - zlib
+  - libglvnd
+  - libopenmpt
+  - openal
+  - glfw
+  - libsdl2
