@@ -1,0 +1,14 @@
+name: d0_blind_id
+version: 1.0_p20201124
+source:
+  url: https://gitlab.com/xonotic/d0_blind_id/-/archive/c32ee93edd10288ca40e1eb81263f0a37309b32c/.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - pkgconfig
+  - gmp
+  runtime:
+  - gmp

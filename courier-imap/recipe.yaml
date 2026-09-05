@@ -1,0 +1,21 @@
+name: courier-imap
+version: 5.3.2
+source:
+  url: https://sourceforge.net/projects/courier/files/imap/5.3.2/courier-imap-5.3.2.tar.bz2/download
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - gnutls
+  - openssl
+  - courier-authlib
+  - courier-unicode
+  - mailbase
+  - libidn
+  - db
+  - gdbm
+  - courier
+  runtime:
+  - selinux-courier

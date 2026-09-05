@@ -1,0 +1,14 @@
+name: rfc3161-client
+version: 1.0.8
+source:
+  url: https://github.com/trailofbits/rfc3161-client/archive/v1.0.8.tar.gz
+build:
+- cargo build --release
+- mkdir -p $DESTDIR$PREFIX/bin
+- cp target/release/rfc3161-client $DESTDIR$PREFIX/bin/
+depends:
+  build:
+  - pretend
+  - cryptography
+  runtime:
+  - cryptography

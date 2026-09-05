@@ -1,0 +1,22 @@
+name: gnome-text-editor
+version: '49.2'
+source:
+  url: https://download.gnome.org/sources/gnome-text-editor/49/gnome-text-editor-49.2.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - glib-utils
+  - itstool
+  - gettext
+  - pkgconfig
+  - glib
+  - gtk
+  - gtksourceview
+  - libadwaita
+  - editorconfig-core-c
+  - libspelling
+  runtime:
+  - gsettings-desktop-schemas

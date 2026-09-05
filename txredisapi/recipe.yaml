@@ -1,0 +1,16 @@
+name: txredisapi
+version: 1.4.12
+source:
+  url: https://github.com/IlyaSkriblovsky/txredisapi/archive/refs/tags/1.4.12.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - redis
+  - hiredis
+  - mock
+  - six
+  - twisted
+  runtime:
+  - six
+  - twisted

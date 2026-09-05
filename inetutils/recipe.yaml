@@ -1,0 +1,38 @@
+name: inetutils
+version: '2.8'
+source:
+  url: https://ftp.gnu.org/gnu/inetutils/inetutils-2.8.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - openpgp-keys-inetutils
+  - readline
+  - libcrypt
+  - libidn2
+  - krb5
+  - pam
+  - tcp-wrappers
+  runtime:
+  - ftpbase
+  - selinux-ftp
+  - ftp
+  - net-tools
+  - coreutils
+  - netkit-base
+  - selinux-inetd
+  - iputils
+  - netkit-rsh
+  - selinux-rlogin
+  - util-linux
+  - sysklogd
+  - netkit-talk
+  - telnet-bsd
+  - netkit-telnetd
+  - selinux-telnet
+  - tftp-hpa
+  - selinux-tftp
+  - whois
+  - traceroute
