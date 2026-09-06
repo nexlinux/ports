@@ -1,0 +1,14 @@
+name: libvpx
+version: 1.16.0
+source:
+  url: https://github.com/webmproject/libvpx/archive/v1.16.0.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - perl
+  - yasm
+  - doxygen
+  - php

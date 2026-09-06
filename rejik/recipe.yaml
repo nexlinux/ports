@@ -1,0 +1,14 @@
+name: rejik
+version: 3.2.11
+source:
+  url: https://rejik.ru/download/redirector-3.2.11.tgz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - libpcre
+  runtime:
+  - Text-Iconv
+  - XML-Parser
+  - squid

@@ -1,0 +1,32 @@
+name: gnome-console
+version: '49.1'
+source:
+  url: https://download.gnome.org/sources/gnome-console/49/gnome-console-49.2.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - meson
+  - gdbus-codegen
+  - pkgconfig
+  - desktop-file-utils
+  - appstream-glib
+  - glib
+  - gtk
+  - libadwaita
+  - vte
+  - libgtop
+  - libpcre2
+  - gsettings-desktop-schemas
+  - pango
+  runtime:
+  - glib
+  - gtk
+  - libadwaita
+  - vte
+  - libgtop
+  - libpcre2
+  - gsettings-desktop-schemas
+  - pango

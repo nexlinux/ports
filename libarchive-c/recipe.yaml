@@ -1,0 +1,11 @@
+name: libarchive-c
+version: '5.3'
+source:
+  url: https://github.com/Changaco/python-libarchive-c/archive/5.3.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - libarchive
+  runtime:
+  - libarchive

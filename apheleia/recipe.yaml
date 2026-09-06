@@ -1,0 +1,7 @@
+name: apheleia
+version: 4.5.0
+source:
+  url: https://github.com/radian-software/apheleia/archive/v4.5.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install

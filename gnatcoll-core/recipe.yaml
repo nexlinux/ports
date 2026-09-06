@@ -1,0 +1,16 @@
+name: gnatcoll-core
+version: 26.0.0
+source:
+  url: https://github.com/AdaCore/gnatcoll-core/archive/refs/tags/v26.0.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - gprbuild
+  - e3-testsuite
+  - sphinx
+  - sphinx-rtd-theme
+  - libgpr-
+  runtime:
+  - libgpr-

@@ -1,0 +1,37 @@
+name: nautilus
+version: 49.6-r1
+source:
+  url: https://download.gnome.org/sources/nautilus/49/nautilus-49.6.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - gdbus-codegen
+  - glib-utils
+  - wayland-scanner
+  - docbook-xml-dtd
+  - gi-docgen
+  - gettext
+  - pkgconfig
+  - dbus
+  - glib
+  - gexiv2
+  - gstreamer
+  - gst-plugins-base
+  - gnome-autoar
+  - gnome-desktop
+  - gsettings-desktop-schemas
+  - gtk
+  - wayland
+  - libadwaita
+  - libportal
+  - icu
+  - pango
+  - libselinux
+  - tinysparql
+  - libcloudproviders
+  - gobject-introspection
+  runtime:
+  - localsearch
