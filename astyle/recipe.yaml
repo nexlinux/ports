@@ -1,0 +1,13 @@
+name: astyle
+version: 3.4.9
+source:
+  url: https://downloads.sourceforge.net/astyle/astyle-3.4.9.tar.bz2
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - openpgp-keys-andresimon
+  - xz-utils
+  - jdk

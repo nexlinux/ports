@@ -1,0 +1,8 @@
+name: cadical
+version: 2.0.0
+source:
+  url: https://github.com/arminbiere/cadical/archive/rel-2.0.0.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install

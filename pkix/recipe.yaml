@@ -1,0 +1,7 @@
+name: pkix
+version: 1.0.9
+source:
+  url: https://github.com/processone/pkix/archive/1.0.9.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install

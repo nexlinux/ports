@@ -1,0 +1,25 @@
+name: gtksourceviewmm
+version: 3.18.0-r2
+source:
+  url: https://download.gnome.org/sources/gtksourceviewmm/3.18/gtksourceviewmm-3.18.0.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - pkgconfig
+  - doxygen
+  - glibmm
+  - gtkmm
+  - gtksourceview
+  - atkmm
+  - cairomm
+  - pangomm
+  runtime:
+  - glibmm
+  - gtkmm
+  - gtksourceview
+  - atkmm
+  - cairomm
+  - pangomm

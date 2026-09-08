@@ -1,0 +1,35 @@
+name: strongswan
+version: 6.0.7
+source:
+  url: https://download.strongswan.org/strongswan-6.0.7.tar.bz2
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - openpgp-keys-strongswan
+  - ipsec
+  - glib
+  - gmp
+  - libgcrypt
+  - libgpg-error
+  - libcap
+  - curl
+  - openldap
+  - openssl
+  - mysql-connector-c
+  - sqlite
+  - systemd
+  - networkmanager
+  - pam
+  - botan
+  - iptables
+  - libsoup
+  - unbound
+  - ldns
+  runtime:
+  - logger
+  - iproute2
+  - libreswan
+  - selinux-ipsec

@@ -1,0 +1,12 @@
+name: elfeed-protocol
+version: 0.9.1
+source:
+  url: https://github.com/fasheng/elfeed-protocol/archive/0.9.1.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - elfeed
+  runtime:
+  - elfeed

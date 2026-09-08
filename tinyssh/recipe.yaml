@@ -1,0 +1,13 @@
+name: tinyssh
+version: '20260601'
+source:
+  url: https://github.com/janmojzis/tinyssh/archive/20260601.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - openpgp-keys-janmojzis
+  - ucspi-tcp
+  runtime:
+  - ucspi-tcp
