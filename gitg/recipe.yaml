@@ -1,0 +1,49 @@
+name: gitg
+version: '50'
+source:
+  url: https://download.gnome.org/sources/gitg/50/gitg-50.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - gettext
+  - pkgconfig
+  - gpgme
+  - libsecret
+  - gspell
+  - glib
+  - gobject-introspection
+  - json-glib
+  - libgee
+  - libgit2-glib
+  - libgit2
+  - libpeas
+  - libxml2
+  - gsettings-desktop-schemas
+  - libhandy
+  - gtk+
+  - gtksourceview
+  - adwaita-icon-theme
+  - glade
+  - pygobject
+  runtime:
+  - gpgme
+  - libsecret
+  - gspell
+  - glib
+  - gobject-introspection
+  - json-glib
+  - libgee
+  - libgit2-glib
+  - libgit2
+  - libpeas
+  - libxml2
+  - gsettings-desktop-schemas
+  - libhandy
+  - gtk+
+  - gtksourceview
+  - adwaita-icon-theme
+  - glade
+  - pygobject

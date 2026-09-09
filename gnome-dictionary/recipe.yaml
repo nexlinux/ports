@@ -1,0 +1,21 @@
+name: gnome-dictionary
+version: 40.0-r1
+source:
+  url: https://download.gnome.org/sources/gnome-dictionary/40/gnome-dictionary-40.0.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - docbook-xsl-stylesheets
+  - docbook-xml-dtd
+  - libxslt
+  - glib-utils
+  - itstool
+  - gettext
+  - pkgconfig
+  - glib
+  - gtk+
+  runtime:
+  - gsettings-desktop-schemas

@@ -1,0 +1,11 @@
+name: flycheck
+version: '36.0'
+source:
+  url: https://github.com/flycheck/flycheck/archive/v36.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - buttercup
+  - shut-up

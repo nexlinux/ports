@@ -1,0 +1,16 @@
+name: uv
+version: 0.12.6
+source:
+  url: https://github.com/astral-sh/uv/archive/0.12.6.tar.gz
+build:
+- cargo build --release
+- mkdir -p $DESTDIR$PREFIX/bin
+- cp target/release/uv $DESTDIR$PREFIX/bin/
+depends:
+  build:
+  - pkgconfig
+  - python
+  - uv
+  - bzip2
+  - xz-utils
+  - zstd

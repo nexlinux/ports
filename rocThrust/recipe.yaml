@@ -1,0 +1,23 @@
+name: rocThrust
+version: 7.1.0
+source:
+  url: https://github.com/ROCm/rocThrust/archive/rocm-7.1.0.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - cmake
+  - unzip
+  - hip
+  - rocPRIM
+  - gtest
+  - benchmark
+  - rocRAND
+  runtime:
+  - hip
+  - rocPRIM
+  - gtest
+  - benchmark
+  - rocRAND

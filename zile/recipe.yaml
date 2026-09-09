@@ -1,0 +1,20 @@
+name: zile
+version: 2.6.4
+source:
+  url: https://ftp.gnu.org/gnu/zile/zile-2.6.4.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - perl
+  - help2man
+  - pkgconfig
+  - glib
+  - libgee
+  - ncurses
+  runtime:
+  - glib
+  - libgee
+  - ncurses

@@ -1,0 +1,39 @@
+name: httpx2
+version: 2.9.1
+source:
+  url: https://github.com/pydantic/httpx2/archive/v2.9.1.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - hatch-fancy-pypi-readme
+  - uv-dynamic-versioning
+  - brotlicffi
+  - chardet
+  - cryptography
+  - h2
+  - starlette
+  - socksio
+  - trio
+  - trustme
+  - typing-extensions
+  - uvicorn
+  - websockets
+  - wsproto
+  - zstandard
+  - anyio
+  - idna
+  - h11
+  - truststore
+  - click
+  - pygments
+  - rich
+  runtime:
+  - anyio
+  - idna
+  - h11
+  - truststore
+  - typing-extensions
+  - click
+  - pygments
+  - rich
