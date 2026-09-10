@@ -1,0 +1,10 @@
+name: haskell-mode
+version: '17.4'
+source:
+  url: https://github.com/haskell/haskell-mode/archive/v17.4.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - texinfo

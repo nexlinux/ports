@@ -1,0 +1,15 @@
+name: expect_test_helpers_core
+version: 0.16.0
+source:
+  url: https://github.com/janestreet/expect_test_helpers_core/archive/refs/tags/v0.16.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - ocaml
+  - base
+  - core
+  - ppx_jane
+  - stdio
+  - sexp_pretty

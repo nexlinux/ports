@@ -1,0 +1,43 @@
+name: weechat
+version: 4.10.0
+source:
+  url: https://weechat.org/files/src/weechat-4.10.0.tar.xz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - libgcrypt
+  - gnutls
+  - ncurses
+  - zlib
+  - curl
+  - libiconv
+  - libintl
+  - perl
+  - libcrypt
+  - cJSON
+  - ruby
+  - selinux-irc
+  - enchant
+  - aspell
+  - tcl
+  - zstd
+  runtime:
+  - libgcrypt
+  - gnutls
+  - ncurses
+  - zlib
+  - curl
+  - libiconv
+  - libintl
+  - perl
+  - libcrypt
+  - cJSON
+  - ruby
+  - selinux-irc
+  - enchant
+  - aspell
+  - tcl
+  - zstd

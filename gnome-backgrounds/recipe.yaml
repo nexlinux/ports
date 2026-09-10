@@ -1,0 +1,18 @@
+name: gnome-backgrounds
+version: '50.0'
+source:
+  url: https://download.gnome.org/sources/gnome-backgrounds/50/gnome-backgrounds-50.0.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - gettext
+  - libjxl
+  - librsvg
+  - gdk-pixbuf
+  runtime:
+  - libjxl
+  - librsvg
+  - gdk-pixbuf
