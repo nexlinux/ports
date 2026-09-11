@@ -1,0 +1,10 @@
+name: ncdu
+version: 2.9.2
+source:
+  url: https://dev.yorhel.nl/download/ncdu-2.9.2.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - openpgp-keys-yorhel

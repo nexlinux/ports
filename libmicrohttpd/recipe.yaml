@@ -1,0 +1,15 @@
+name: libmicrohttpd
+version: 1.0.5
+source:
+  url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.5.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - pkgconfig
+  - openpgp-keys-libmicrohttpd-
+  - gnutls
+  runtime:
+  - gnutls

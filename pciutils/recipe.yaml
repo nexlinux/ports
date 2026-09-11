@@ -1,0 +1,17 @@
+name: pciutils
+version: 3.15.0
+source:
+  url: https://mj.ucw.cz/download/linux/pci/pciutils-3.15.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - binutils
+  - lld
+  - native-cctools
+  - pkgconfig
+  - openpgp-keys-martinmares
+  - zlib
+  runtime:
+  - hwdata

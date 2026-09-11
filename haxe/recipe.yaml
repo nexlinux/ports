@@ -1,0 +1,37 @@
+name: haxe
+version: 4.3.6-r4
+source:
+  url: https://github.com/HaxeFoundation/haxe-debian/archive/upstream/4.3.6-r4.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - camlp5
+  - dune
+  - findlib
+  - extlib
+  - ocaml
+  - luv
+  - ocaml-sha
+  - ptmap
+  - sedlex
+  - xml-light
+  - neko
+  - boehm-gc
+  - libpcre
+  - mbedtls
+  - zlib
+  runtime:
+  - extlib
+  - ocaml
+  - luv
+  - ocaml-sha
+  - ptmap
+  - sedlex
+  - xml-light
+  - neko
+  - boehm-gc
+  - libpcre
+  - mbedtls
+  - zlib

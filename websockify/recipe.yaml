@@ -1,0 +1,17 @@
+name: websockify
+version: 0.13.0
+source:
+  url: https://github.com/novnc/websockify/archive/v0.13.0.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - jwcrypto
+  - numpy
+  - requests
+  - redis
+  runtime:
+  - jwcrypto
+  - numpy
+  - requests
+  - redis
