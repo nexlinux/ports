@@ -1,0 +1,24 @@
+name: global
+version: 6.6.15
+source:
+  url: https://ftp.gnu.org/gnu/global/global-6.6.15.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - texi2html
+  - texlive-core
+  - texinfo
+  - libltdl
+  - sqlite
+  - ncurses
+  - pygments
+  - emacs
+  runtime:
+  - libltdl
+  - sqlite
+  - ncurses
+  - pygments
+  - emacs

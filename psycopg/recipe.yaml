@@ -1,0 +1,13 @@
+name: psycopg
+version: 3.3.4
+source:
+  url: https://github.com/psycopg/psycopg/archive/3.3.4.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - cython
+  - postgresql
+  - dnspython
+  runtime:
+  - typing-extensions

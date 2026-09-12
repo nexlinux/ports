@@ -1,0 +1,10 @@
+name: p1_mysql
+version: 1.0.25
+source:
+  url: https://github.com/processone/p1_mysql/archive/1.0.25.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - erlang

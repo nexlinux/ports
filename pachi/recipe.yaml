@@ -1,0 +1,14 @@
+name: pachi
+version: 1.0-r2
+source:
+  url: https://downloads.sourceforge.net/dragontech/pachi_source.tgz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - libsdl
+  - sdl-mixer
+  runtime:
+  - gamestat

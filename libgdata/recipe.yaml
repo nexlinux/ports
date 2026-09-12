@@ -1,0 +1,32 @@
+name: libgdata
+version: 0.18.1-r2
+source:
+  url: https://download.gnome.org/sources/libgdata/0.18/libgdata-0.18.1.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - glib-utils
+  - gtk-doc
+  - docbook-xml-dtd
+  - gettext
+  - pkgconfig
+  - uhttpmock
+  - gdk-pixbuf
+  - glib
+  - json-glib
+  - libxml2
+  - libsoup
+  - gcr
+  - gnome-online-accounts
+  - gobject-introspection
+  runtime:
+  - glib
+  - json-glib
+  - libxml2
+  - libsoup
+  - gcr
+  - gnome-online-accounts
+  - gobject-introspection

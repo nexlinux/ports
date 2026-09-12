@@ -1,0 +1,29 @@
+name: orca
+version: '49.7'
+source:
+  url: https://download.gnome.org/sources/orca/49/orca-49.7.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - pytest-mock
+  - itstool
+  - gettext
+  - pkgconfig
+  - at-spi2-core
+  - glib
+  - gstreamer
+  - gtk+
+  - gst-python
+  - pygobject
+  - dasbus
+  - brltty
+  - liblouis
+  runtime:
+  - speech-dispatcher
+  - pyatspi
+  - setproctitle
+  - libwnck
+  - pango

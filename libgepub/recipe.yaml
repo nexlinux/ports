@@ -1,0 +1,24 @@
+name: libgepub
+version: 0.7.3
+source:
+  url: https://download.gnome.org/sources/libgepub/0.7/libgepub-0.7.3.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - pkgconfig
+  - libsoup
+  - glib
+  - libxml2
+  - libarchive
+  - webkit-gtk
+  - gobject-introspection
+  runtime:
+  - libsoup
+  - glib
+  - libxml2
+  - libarchive
+  - webkit-gtk
+  - gobject-introspection
