@@ -1,0 +1,25 @@
+name: nestopia
+version: 1.53.2
+source:
+  url: https://github.com/0ldsk00l/nestopia/archive/refs/tags/1.53.2.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - autoconf-archive
+  - pkgconfig
+  - libarchive
+  - libepoxy
+  - libsamplerate
+  - libsdl2
+  - zlib
+  - fltk
+  runtime:
+  - libarchive
+  - libepoxy
+  - libsamplerate
+  - libsdl2
+  - zlib
+  - fltk

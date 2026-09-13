@@ -1,0 +1,14 @@
+name: pecan
+version: 1.8.0
+source:
+  url: https://github.com/pecan/pecan/archive/refs/tags/1.8.0.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - webtest
+  - webob
+  - mako
+  runtime:
+  - webob
+  - mako

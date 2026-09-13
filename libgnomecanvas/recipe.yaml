@@ -1,0 +1,26 @@
+name: libgnomecanvas
+version: 2.30.3-r1
+source:
+  url: https://download.gnome.org/sources/libgnomecanvas/2.30/libgnomecanvas-2.30.3.tar.bz2
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - perl
+  - gettext
+  - glib-utils
+  - intltool
+  - pkgconfig
+  - glib
+  - gtk+
+  - libart_lgpl
+  - pango
+  - libglade
+  runtime:
+  - glib
+  - gtk+
+  - libart_lgpl
+  - pango
+  - libglade

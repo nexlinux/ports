@@ -1,0 +1,52 @@
+name: ada_language_server
+version: 26.0.202507021
+source:
+  url: https://github.com/AdaCore/ada_language_server/archive/refs/tags/26.0.202507021.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - gprbuild
+  - e3-testsuite
+  - ada_libfswatch
+  - AdaSAT
+  - gnatcoll-bindings
+  - gnatcoll-core
+  - gnatdoc
+  - gnatformat
+  - gpr
+  - lal-refactor
+  - langkit
+  - libadalang
+  - libadalang-tools
+  - libgpr
+  - prettier-ada
+  - spawn
+  - templates-parser
+  - vss-text
+  - vss-extra
+  - xmlada
+  - gmp
+  - fswatch
+  runtime:
+  - ada_libfswatch
+  - AdaSAT
+  - gnatcoll-bindings
+  - gnatcoll-core
+  - gnatdoc
+  - gnatformat
+  - gpr
+  - lal-refactor
+  - langkit
+  - libadalang
+  - libadalang-tools
+  - libgpr
+  - prettier-ada
+  - spawn
+  - templates-parser
+  - vss-text
+  - vss-extra
+  - xmlada
+  - gmp
+  - fswatch

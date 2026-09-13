@@ -1,0 +1,8 @@
+name: grass
+version: 0.13.4
+source:
+  url: https://github.com/connorskees/grass/archive/0.13.4.tar.gz
+build:
+- cargo build --release
+- mkdir -p $DESTDIR$PREFIX/bin
+- cp target/release/grass $DESTDIR$PREFIX/bin/

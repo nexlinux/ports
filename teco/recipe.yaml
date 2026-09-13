@@ -1,0 +1,13 @@
+name: teco
+version: 36_p19940820-r1
+source:
+  url: https://www.ibiblio.org/pub/linux/apps/editors/tty/teco.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - pkgconfig
+  - ncurses
+  runtime:
+  - ncurses
