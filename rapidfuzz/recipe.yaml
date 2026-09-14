@@ -1,0 +1,14 @@
+name: rapidfuzz
+version: 3.14.6
+source:
+  url: https://github.com/rapidfuzz/rapidfuzz/archive/refs/tags/v3.14.6.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - cython
+  - taskflow
+  - rapidfuzz-cpp
+  - numpy

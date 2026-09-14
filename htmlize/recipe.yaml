@@ -1,0 +1,7 @@
+name: htmlize
+version: '1.59'
+source:
+  url: https://github.com/hniksic/emacs-htmlize/archive/release/1.59.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install

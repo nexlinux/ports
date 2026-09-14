@@ -1,0 +1,17 @@
+name: angstrom
+version: 0.16.1
+source:
+  url: https://github.com/inhabitedtype/angstrom/archive/0.16.1.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - alcotest
+  - async
+  - bigstringaf
+  - lwt
+  runtime:
+  - async
+  - bigstringaf
+  - lwt

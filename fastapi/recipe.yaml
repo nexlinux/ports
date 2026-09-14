@@ -1,0 +1,28 @@
+name: fastapi
+version: 0.140.13
+source:
+  url: https://github.com/fastapi/fastapi/archive/refs/tags/0.140.13.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - a2wsgi
+  - dirty-equals
+  - flask
+  - httpx
+  - httpx2
+  - pydantic-settings
+  - python-multipart
+  - sqlalchemy
+  - typer
+  - annotated-doc
+  - starlette
+  - pydantic
+  - typing-extensions
+  - typing-inspection
+  runtime:
+  - annotated-doc
+  - starlette
+  - pydantic
+  - typing-extensions
+  - typing-inspection

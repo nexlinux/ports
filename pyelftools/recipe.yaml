@@ -1,0 +1,6 @@
+name: pyelftools
+version: '0.33'
+source:
+  url: https://github.com/eliben/pyelftools/archive/v0.33.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
