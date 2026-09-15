@@ -1,0 +1,39 @@
+name: gnome-keyring
+version: '50.0'
+source:
+  url: https://download.gnome.org/sources/gnome-keyring/50/gnome-keyring-50.0.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - gettext
+  - eselect-pinentry
+  - docbook-xml-dtd
+  - libxslt
+  - pkgconfig
+  - dbus
+  - glib-utils
+  - glib
+  - gcr
+  - libgcrypt
+  - p11-kit
+  - ca-certificates
+  - libcap-ng
+  - selinux-gnome
+  - systemd
+  - openssh
+  - pam
+  runtime:
+  - glib
+  - gcr
+  - libgcrypt
+  - p11-kit
+  - eselect-pinentry
+  - ca-certificates
+  - libcap-ng
+  - selinux-gnome
+  - systemd
+  - openssh
+  - pam

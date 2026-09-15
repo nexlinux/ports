@@ -1,0 +1,64 @@
+name: gthumb
+version: 3.12.8.2
+source:
+  url: https://download.gnome.org/sources/gthumb/3.12/gthumb-3.12.7.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - appstream
+  - glib-utils
+  - itstool
+  - yacc
+  - lex
+  - gettext
+  - pkgconfig
+  - glib
+  - gtk+
+  - libX11
+  - exiv2
+  - clutter
+  - clutter-gtk
+  - gstreamer
+  - gst-plugins-base
+  - gst-plugins-gtk
+  - libraw
+  - brasero
+  - libchamplain
+  - librsvg
+  - libwebp
+  - libjxl
+  - libheif
+  - lcms
+  - colord
+  - zlib
+  - libjpeg-turbo
+  - tiff
+  - libpng
+  - gsettings-desktop-schemas
+  runtime:
+  - glib
+  - gtk+
+  - libX11
+  - exiv2
+  - clutter
+  - clutter-gtk
+  - gstreamer
+  - gst-plugins-base
+  - gst-plugins-gtk
+  - libraw
+  - brasero
+  - libchamplain
+  - librsvg
+  - libwebp
+  - libjxl
+  - libheif
+  - lcms
+  - colord
+  - zlib
+  - libjpeg-turbo
+  - tiff
+  - libpng
+  - gsettings-desktop-schemas

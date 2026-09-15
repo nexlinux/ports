@@ -1,0 +1,13 @@
+name: cutlass
+version: 3.9.2
+source:
+  url: https://github.com/NVIDIA/cutlass/archive/refs/tags/v3.9.2.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - nvidia-cuda-toolkit
+  runtime:
+  - nvidia-cuda-toolkit

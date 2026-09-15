@@ -1,0 +1,11 @@
+name: clojure-mode
+version: 5.23.0
+source:
+  url: https://github.com/clojure-emacs/clojure-mode/archive/v5.23.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - s
+  - paredit

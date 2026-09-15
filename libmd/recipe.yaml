@@ -1,0 +1,11 @@
+name: libmd
+version: 1.2.0
+source:
+  url: https://archive.hadrons.org/software/libmd/libmd-1.2.0.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - openpgp-keys-guillemjover

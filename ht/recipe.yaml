@@ -1,0 +1,13 @@
+name: ht
+version: '2.3'
+source:
+  url: https://github.com/Wilfred/ht.el/archive/2.3.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - f
+  - dash
+  runtime:
+  - dash
