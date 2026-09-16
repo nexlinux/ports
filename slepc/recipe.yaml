@@ -1,0 +1,17 @@
+name: slepc
+version: 3.24.2
+source:
+  url: https://slepc.upv.es/download/distrib/slepc-3.24.2.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - petsc-
+  - arpack
+  - mpi
+  runtime:
+  - petsc-
+  - arpack
+  - mpi

@@ -1,0 +1,25 @@
+name: gnome-chess
+version: '50.1'
+source:
+  url: https://download.gnome.org/sources/gnome-chess/50/gnome-chess-50.1.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - itstool
+  - appstream-glib
+  - gettext
+  - pkgconfig
+  - glib
+  - gtk
+  - libadwaita
+  - librsvg
+  - pango
+  runtime:
+  - glib
+  - gtk
+  - libadwaita
+  - librsvg
+  - pango

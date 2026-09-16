@@ -1,0 +1,75 @@
+name: opencv
+version: 4.14.0
+source:
+  url: https://github.com/opencv/opencv/archive/4.14.0.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - patchelf
+  - pkgconfig
+  - nvidia-cuda-toolkit
+  - doxygen
+  - beautifulsoup4
+  - ant
+  - wqy-microhei
+  - protobuf
+  - zlib
+  - libavif
+  - abseil-cpp
+  - cudnn
+  - flatbuffers
+  - hdf5
+  - freetype
+  - harfbuzz
+  - ogre
+  - ffmpeg
+  - gdal
+  - gflags
+  - glog
+  - libgphoto2
+  - gstreamer
+  - gst-plugins-base
+  - glib
+  - gtk+
+  - libdc1394
+  - libraw1394
+  - libjpeg-turbo
+  - jasper
+  - openjpeg
+  - atlas
+  - mkl
+  - cblas
+  - lapack
+  - lapacke
+  - opencl
+  - opencl-headers
+  - imath
+  - openexr
+  - opengl
+  - glu
+  - OpenNI
+  - OpenNI2
+  - libpng
+  - libspng
+  - numpy
+  - qt5compat
+  - qtbase
+  - quirc
+  - tbb
+  - tesseract
+  - tiff
+  - libv4l
+  - libva
+  - vtk
+  - opencascade
+  - libwebp
+  - xine-lib
+  - vulkan-loader
+  - libxkbcommon
+  - wayland
+  - wayland-protocols
+  runtime:
+  - jre

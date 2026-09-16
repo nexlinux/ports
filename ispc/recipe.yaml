@@ -1,0 +1,16 @@
+name: ispc
+version: 1.31.0
+source:
+  url: https://github.com/ispc/ispc/archive/v1.31.0.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - yacc
+  - lex
+  - clang
+  - ncurses
+  - level-zero
+  - tbb

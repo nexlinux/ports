@@ -1,0 +1,36 @@
+name: evolution-ews
+version: 3.60.1
+source:
+  url: https://download.gnome.org/sources/evolution-ews/3.60/evolution-ews-3.60.2.tar.xz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - gdbus-codegen
+  - glib-utils
+  - intltool
+  - gettext
+  - pkgconfig
+  - sqlite
+  - glib
+  - libical
+  - json-glib
+  - libmspack
+  - libxml2
+  - evolution-data-server
+  - evolution
+  - libsoup
+  - gtk+
+  runtime:
+  - sqlite
+  - glib
+  - libical
+  - json-glib
+  - libmspack
+  - libxml2
+  - evolution-data-server
+  - evolution
+  - libsoup
+  - gtk+

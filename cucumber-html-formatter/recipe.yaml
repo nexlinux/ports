@@ -1,0 +1,7 @@
+name: cucumber-html-formatter
+version: 22.2.0
+source:
+  url: https://github.com/cucumber/html-formatter/archive/refs/tags/v22.2.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install

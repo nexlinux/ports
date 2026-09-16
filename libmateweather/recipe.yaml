@@ -1,0 +1,23 @@
+name: libmateweather
+version: 1.28.2
+source:
+  url: https://github.com/mate-desktop/libmateweather/archive/refs/tags/v1.28.2.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - gtk-doc
+  - gtk-doc-am
+  - gettext
+  - libtool
+  - pkgconfig
+  - glib
+  - libxml2
+  - libsoup
+  - timezone-data-2010k
+  - gdk-pixbuf
+  - gtk+
+  runtime:
+  - libintl

@@ -1,0 +1,10 @@
+name: nelua
+version: '20240113'
+source:
+  url: https://github.com/edubart/nelua-lang/archive/refs/tags/20240113.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - luacheck

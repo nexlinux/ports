@@ -1,0 +1,16 @@
+name: libgee
+version: 0.20.8
+source:
+  url: https://download.gnome.org/sources/libgee/0.20/libgee-0.20.8.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - pkgconfig
+  - glib
+  - gobject-introspection
+  runtime:
+  - glib
+  - gobject-introspection
