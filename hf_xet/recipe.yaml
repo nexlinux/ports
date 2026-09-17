@@ -1,0 +1,8 @@
+name: hf_xet
+version: 1.5.2
+source:
+  url: https://github.com/huggingface/xet-core/archive/refs/tags/v1.5.2.tar.gz
+build:
+- cargo build --release
+- mkdir -p $DESTDIR$PREFIX/bin
+- cp target/release/hf_xet $DESTDIR$PREFIX/bin/

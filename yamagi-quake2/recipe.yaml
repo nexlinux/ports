@@ -1,0 +1,19 @@
+name: yamagi-quake2
+version: '8.60'
+source:
+  url: https://deponie.yamagi.org/quake2/quake2-8.60.tar.xz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - libsdl2
+  - curl
+  - libglvnd
+  - openal
+  runtime:
+  - libsdl2
+  - curl
+  - libglvnd
+  - openal

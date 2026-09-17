@@ -1,0 +1,15 @@
+name: lxcfs
+version: 7.0.0
+source:
+  url: https://linuxcontainers.org/downloads/lxcfs/lxcfs-7.0.0.tar.gz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - pkgconfig
+  - jinja2
+  - help2man
+  - openpgp-keys-linuxcontainers
+  - fuse

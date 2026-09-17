@@ -1,0 +1,24 @@
+name: notification-daemon
+version: 3.20.0-r1
+source:
+  url: https://download.gnome.org/sources/notification-daemon/3.20/notification-daemon-3.20.0.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - gdbus-codegen
+  - gettext
+  - pkgconfig
+  - glib
+  - gtk+
+  - dbus
+  - libX11
+  - notify-osd
+  runtime:
+  - glib
+  - gtk+
+  - dbus
+  - libX11
+  - notify-osd

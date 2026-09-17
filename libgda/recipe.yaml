@@ -1,0 +1,61 @@
+name: libgda
+version: 5.2.9-r3
+source:
+  url: https://download.gnome.org/sources/libgda/5.2/libgda-5.2.9.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - yelp-tools
+  - glib-utils
+  - gtk-doc-am
+  - intltool
+  - pkgconfig
+  - jdk
+  - iso-codes
+  - glib
+  - libxml2
+  - libxslt
+  - readline
+  - ncurses
+  - db
+  - libsecret
+  - gtk+
+  - goocanvas
+  - gtksourceview
+  - graphviz
+  - libsoup
+  - gobject-introspection
+  - json-glib
+  - openldap
+  - mdbtools
+  - mysql-connector-c
+  - postgresql
+  - openssl
+  - sqlite
+  - libgee
+  runtime:
+  - iso-codes
+  - glib
+  - libxml2
+  - libxslt
+  - readline
+  - ncurses
+  - db
+  - libsecret
+  - gtk+
+  - goocanvas
+  - gtksourceview
+  - graphviz
+  - libsoup
+  - gobject-introspection
+  - json-glib
+  - openldap
+  - mdbtools
+  - mysql-connector-c
+  - postgresql
+  - openssl
+  - sqlite
+  - libgee

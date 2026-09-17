@@ -1,0 +1,8 @@
+name: autobook
+version: '1.5'
+source:
+  url: https://sourceware.org/autobook/convenience-2.0.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install

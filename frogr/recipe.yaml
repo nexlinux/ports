@@ -1,0 +1,32 @@
+name: frogr
+version: 1.8.1-r1
+source:
+  url: https://download.gnome.org/sources/frogr/1.8/frogr-1.8.1.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - itstool
+  - gettext
+  - pkgconfig
+  - glib
+  - json-glib
+  - libgcrypt
+  - libxml2
+  - gstreamer
+  - libexif
+  - libsoup
+  - gtk+
+  - gdk-pixbuf
+  runtime:
+  - glib
+  - json-glib
+  - libgcrypt
+  - libxml2
+  - gstreamer
+  - libexif
+  - libsoup
+  - gtk+
+  - gdk-pixbuf
