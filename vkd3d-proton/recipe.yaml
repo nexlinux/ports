@@ -1,0 +1,12 @@
+name: vkd3d-proton
+version: 2.14.1
+source:
+  url: https://github.com/HansKristian-Work/vkd3d-proton/archive/refs/tags/v2.14.1.tar.gz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - glslang
+  - mingw64-toolchain

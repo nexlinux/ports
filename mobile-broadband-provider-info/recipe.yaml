@@ -1,0 +1,12 @@
+name: mobile-broadband-provider-info
+version: '20240407'
+source:
+  url: https://download.gnome.org/sources/mobile-broadband-provider-info/20240407/mobile-broadband-provider-info-20240407.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - libxslt
+  - libxml2

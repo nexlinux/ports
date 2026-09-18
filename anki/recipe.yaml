@@ -1,0 +1,39 @@
+name: anki
+version: 25.09.2
+source:
+  url: https://github.com/ankitects/anki/archive/refs/tags/25.09.2.tar.gz
+build:
+- cargo build --release
+- mkdir -p $DESTDIR$PREFIX/bin
+- cp target/release/anki $DESTDIR$PREFIX/bin/
+depends:
+  build:
+  - zstd
+  - protobuf
+  - pkgconfig
+  - ninja
+  - nodejs
+  - yarn
+  - pyqt6
+  - dvipng
+  - texlive
+  - openssl
+  - cargo-nextest
+  - mock
+  - sqlite
+  runtime:
+  - qtsvg
+  - beautifulsoup4
+  - distro
+  - decorator
+  - flask
+  - flask-cors
+  - jsonschema
+  - markdown
+  - protobuf
+  - pyqt6
+  - pyqt6-sip
+  - pyqt6-webengine
+  - requests
+  - send2trash
+  - waitress

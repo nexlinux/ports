@@ -1,0 +1,11 @@
+name: pytest-codeblocks
+version: 0.18.0
+source:
+  url: https://github.com/nschloe/pytest-codeblocks/archive/0.18.0.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - pytest
+  runtime:
+  - pytest

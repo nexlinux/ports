@@ -1,0 +1,27 @@
+name: gnome-robots
+version: '40.0'
+source:
+  url: https://download.gnome.org/sources/gnome-robots/40/gnome-robots-40.0.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - librsvg
+  - appstream-glib
+  - itstool
+  - gettext
+  - pkgconfig
+  - libgee
+  - glib
+  - libgnome-games-support
+  - gsound
+  - gtk+
+  runtime:
+  - libgee
+  - glib
+  - libgnome-games-support
+  - gsound
+  - gtk+
+  - librsvg

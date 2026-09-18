@@ -1,0 +1,7 @@
+name: reformatter
+version: '0.6'
+source:
+  url: https://github.com/purcell/emacs-reformatter/archive/0.6.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
