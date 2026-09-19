@@ -1,0 +1,14 @@
+name: ghdl
+version: 6.0.0
+source:
+  url: https://github.com/ghdl/ghdl/archive/v6.0.0.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - patchelf
+  - llvm
+  runtime:
+  - llvm

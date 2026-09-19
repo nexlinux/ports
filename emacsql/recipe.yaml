@@ -1,0 +1,15 @@
+name: emacsql
+version: 4.4.1
+source:
+  url: https://github.com/magit/emacsql/archive/refs/tags/v4.4.1.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - pkgconfig
+  - postgresql
+  - mysql
+  runtime:
+  - postgresql
+  - mysql

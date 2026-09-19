@@ -1,0 +1,14 @@
+name: urwid
+version: 4.1.5
+source:
+  url: https://github.com/urwid/urwid/archive/refs/tags/4.1.5.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - setuptools-scm
+  - typing-extensions
+  - wcwidth
+  runtime:
+  - typing-extensions
+  - wcwidth

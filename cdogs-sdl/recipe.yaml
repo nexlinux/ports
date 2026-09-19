@@ -1,0 +1,17 @@
+name: cdogs-sdl
+version: 2.4.0
+source:
+  url: https://github.com/cxong/cdogs-sdl/archive/refs/tags/2.4.0.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - libsdl2
+  - sdl2-mixer
+  - enet
+  runtime:
+  - libsdl2
+  - sdl2-mixer
+  - enet

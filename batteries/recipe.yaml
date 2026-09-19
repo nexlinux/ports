@@ -1,0 +1,16 @@
+name: batteries
+version: 3.11.0
+source:
+  url: https://github.com/ocaml-batteries-team/batteries-included/archive/v3.11.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - qcheck
+  - qtest
+  - camlp-streams
+  - num
+  runtime:
+  - camlp-streams
+  - num

@@ -1,0 +1,23 @@
+name: procps
+version: 4.0.6
+source:
+  url: https://downloads.sourceforge.net/procps-ng/procps-ng-4.0.6.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - pkgconfig
+  - dejagnu
+  - openpgp-keys-craigsmall
+  - elogind
+  - error-standalone
+  - ncurses
+  - libselinux
+  - systemd
+  runtime:
+  - man-pages-l10n
+  - man-pages-zh_CN
+  - coreutils
+  - util-linux

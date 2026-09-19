@@ -1,0 +1,20 @@
+name: json-glib
+version: 1.10.8
+source:
+  url: https://download.gnome.org/sources/json-glib/1.10/json-glib-1.10.8.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - docutils
+  - glib-utils
+  - gi-docgen
+  - gettext
+  - pkgconfig
+  - glib
+  - gobject-introspection
+  runtime:
+  - glib
+  - gobject-introspection

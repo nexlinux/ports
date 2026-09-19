@@ -1,0 +1,36 @@
+name: transformers
+version: 5.16.1
+source:
+  url: https://github.com/huggingface/transformers/archive/refs/tags/v5.16.1.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - datasets
+  - pytorch
+  - huggingface_hub
+  - tokenizers
+  - filelock
+  - numpy
+  - packaging
+  - parameterized
+  - pyyaml
+  - regex
+  - tqdm
+  - typer
+  - safetensors
+  - accelerate
+  runtime:
+  - huggingface_hub
+  - tokenizers
+  - filelock
+  - numpy
+  - packaging
+  - parameterized
+  - pyyaml
+  - regex
+  - tqdm
+  - typer
+  - safetensors
+  - accelerate
+  - pytorch

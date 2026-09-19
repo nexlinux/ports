@@ -1,0 +1,32 @@
+name: polychromatic
+version: 0.9.7
+source:
+  url: https://github.com/polychromatic/polychromatic/archive/v0.9.7.tar.gz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - intltool
+  - gtk+
+  - pyqt6-webengine
+  - pyqt6
+  - colorama
+  - colour
+  - distro
+  - pygobject
+  - requests
+  - setproctitle
+  - openrazer
+  runtime:
+  - gtk+
+  - pyqt6-webengine
+  - pyqt6
+  - colorama
+  - colour
+  - distro
+  - pygobject
+  - requests
+  - setproctitle
+  - openrazer
