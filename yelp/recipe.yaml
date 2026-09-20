@@ -1,0 +1,34 @@
+name: yelp
+version: '49.2'
+source:
+  url: https://download.gnome.org/sources/yelp/49/yelp-49.1.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - itstool
+  - gettext
+  - pkgconfig
+  - glib
+  - gtk
+  - libadwaita
+  - libxml2
+  - libxslt
+  - sqlite
+  - webkit-gtk
+  - yelp-xsl
+  - xz-utils
+  - bzip2
+  runtime:
+  - glib
+  - gtk
+  - libadwaita
+  - libxml2
+  - libxslt
+  - sqlite
+  - webkit-gtk
+  - yelp-xsl
+  - xz-utils
+  - bzip2

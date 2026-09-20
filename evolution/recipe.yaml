@@ -1,0 +1,55 @@
+name: evolution
+version: 3.60.1
+source:
+  url: https://download.gnome.org/sources/evolution/3.60/evolution-3.60.2.tar.xz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - docbook-xml-dtd
+  - gdbus-codegen
+  - glib-utils
+  - itstool
+  - gtk-doc
+  - intltool
+  - gettext
+  - pkgconfig
+  - libsecret
+  - enchant
+  - sqlite
+  - glib
+  - libxml2
+  - gnome-desktop
+  - gsettings-desktop-schemas
+  - evolution-data-server-
+  - libsoup
+  - webkit-gtk
+  - cairo
+  - gdk-pixbuf
+  - gtk+
+  - shared-mime-info
+  - cmark
+  - iso-codes
+  - at-spi2-core
+  - dconf
+  - gnome-autoar
+  - bogofilter
+  - libchamplain
+  - clutter
+  - clutter-gtk
+  - geocode-glib
+  - openldap
+  - libnotify
+  - libcanberra-gtk3
+  - libcanberra
+  - spamassassin
+  - gspell
+  - nspr
+  - nss
+  - libgweather
+  - ytnef
+  runtime:
+  - highlight
+  - selinux-evolution

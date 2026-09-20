@@ -1,0 +1,47 @@
+name: eog
+version: '50.1'
+source:
+  url: https://download.gnome.org/sources/eog/50/eog-50.3.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - gi-docgen
+  - docbook-xml-dtd
+  - glib-utils
+  - itstool
+  - gettext
+  - pkgconfig
+  - glib
+  - libpeas
+  - gnome-desktop
+  - gsettings-desktop-schemas-42_beta
+  - shared-mime-info
+  - gdk-pixbuf
+  - gtk+
+  - libhandy
+  - zlib
+  - libexif
+  - lcms
+  - exempi
+  - libjpeg-turbo
+  - librsvg
+  - libX11
+  runtime:
+  - glib
+  - libpeas
+  - gnome-desktop
+  - gsettings-desktop-schemas-42_beta
+  - shared-mime-info
+  - gdk-pixbuf
+  - gtk+
+  - libhandy
+  - zlib
+  - libexif
+  - lcms
+  - exempi
+  - libjpeg-turbo
+  - librsvg
+  - libX11

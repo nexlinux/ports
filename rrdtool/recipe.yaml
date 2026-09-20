@@ -1,0 +1,38 @@
+name: rrdtool
+version: 1.10.3
+source:
+  url: https://github.com/oetiker/rrdtool-1.x/archive/refs/tags/v1.10.3.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - groff
+  - pkgconfig
+  - awk
+  - setuptools
+  - bc
+  - glib
+  - libxml2
+  - libdbi
+  - libpng
+  - cairo
+  - pango
+  - perl
+  - ceph
+  - rrdcached
+  - tcl
+  - tcp-wrappers
+  runtime:
+  - glib
+  - libxml2
+  - libdbi
+  - libpng
+  - cairo
+  - pango
+  - perl
+  - ceph
+  - rrdcached
+  - tcl
+  - tcp-wrappers

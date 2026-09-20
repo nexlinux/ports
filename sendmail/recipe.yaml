@@ -1,0 +1,38 @@
+name: sendmail
+version: 8.19.0.1
+source:
+  url: https://ftp.sendmail.org/snapshots/sendmail.8.19.0.1.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - m4
+  - pkgconfig
+  - openpgp-keys-sendmail
+  - smmsp
+  - smmsp-0-r2
+  - mailbase
+  - db
+  - icu
+  - libcrypt
+  - openldap
+  - libnsl
+  - cyrus-sasl
+  - openssl
+  - tcp-wrappers
+  - tinycdb
+  runtime:
+  - libmilter
+  - m4
+  - courier
+  - esmtp
+  - exim
+  - msmtp
+  - netqmail
+  - notqmail
+  - nullmailer
+  - opensmtpd
+  - postfix
+  - ssmtp
+  - selinux-sendmail
