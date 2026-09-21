@@ -1,0 +1,36 @@
+name: bind
+version: 9.20.27
+source:
+  url: https://downloads.isc.org/isc/bind9/9.20.27/bind-9.20.27.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - perl
+  - pkgconfig
+  - sphinx
+  - cmocka
+  - systemtap
+  - openpgp-keys-isc
+  - named
+  - json-c
+  - userspace-rcu
+  - libuv
+  - zlib
+  - openssl
+  - libcap
+  - fstrm
+  - protobuf-c
+  - nghttp2
+  - libmaxminddb
+  - krb5
+  - libidn2
+  - jemalloc
+  - lmdb
+  - libxml2
+  runtime:
+  - selinux-bind
+  - psmisc
+  - bind-tools

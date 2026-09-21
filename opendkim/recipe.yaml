@@ -1,0 +1,15 @@
+name: opendkim
+version: '9999'
+source:
+  url: https://downloads.sourceforge.net/opendkim/opendkim-2.10.3.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - opendkim
+  runtime:
+  - opendkim
+  - psmisc
+  - selinux-dkim

@@ -1,0 +1,43 @@
+name: totem
+version: '43.2'
+source:
+  url: https://download.gnome.org/sources/totem/43/totem-43.2.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - perl
+  - gtk-doc
+  - docbook-xml-dtd
+  - glib-utils
+  - itstool
+  - gettext
+  - pkgconfig
+  - glib
+  - gtk+
+  - libhandy
+  - gstreamer
+  - gst-plugins-base
+  - gst-plugins-good
+  - grilo
+  - libpeas
+  - totem-pl-parser
+  - gnome-desktop
+  - gsettings-desktop-schemas
+  - libepoxy
+  - cairo
+  - gdk-pixbuf
+  - gobject-introspection
+  - pygobject
+  runtime:
+  - grilo-plugins
+  - gst-plugins-gtk
+  - gst-plugins-meta
+  - gst-plugins-taglib
+  - adwaita-icon-theme
+  - libportal
+  - pango
+  - libpeas
+  - dbus-python

@@ -1,0 +1,48 @@
+name: gnome-applets
+version: 3.54.0-r1
+source:
+  url: https://download.gnome.org/sources/gnome-applets/3.54/gnome-applets-3.54.0.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - docbook-xml-dtd
+  - libxslt
+  - gdbus-codegen
+  - glib-utils
+  - itstool
+  - gettext
+  - pkgconfig
+  - gtk+
+  - glib
+  - gnome-panel
+  - libgtop
+  - libwnck
+  - libnotify
+  - upower
+  - adwaita-icon-theme
+  - libxml2
+  - libgweather
+  - gucharmap
+  - polkit
+  - libX11
+  - tinysparql
+  - pango
+  runtime:
+  - gtk+
+  - glib
+  - gnome-panel
+  - libgtop
+  - libwnck
+  - libnotify
+  - upower
+  - adwaita-icon-theme
+  - libxml2
+  - libgweather
+  - gucharmap
+  - polkit
+  - libX11
+  - tinysparql
+  - pango

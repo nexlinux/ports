@@ -1,0 +1,13 @@
+name: textile
+version: 4.0.4
+source:
+  url: https://github.com/textile/python-textile/archive/4.0.4.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - nh3
+  - regex
+  runtime:
+  - nh3
+  - regex

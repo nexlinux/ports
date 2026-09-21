@@ -1,0 +1,47 @@
+name: dosbox-staging
+version: 0.83.0
+source:
+  url: https://github.com/dosbox-staging/dosbox-staging/archive/v0.83.0.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - gtest
+  - pkgconfig
+  - ncurses
+  - munt-mt32emu
+  - opengl
+  - libslirp
+  - asio
+  - alsa-lib
+  - iir1
+  - libpng
+  - libsdl2
+  - opusfile
+  - sdl2-image
+  - speexdsp
+  - fluid-soundfont
+  - fluidsynth
+  - zlib
+  - zlib-ng
+  - dosbox
+  runtime:
+  - ncurses
+  - munt-mt32emu
+  - opengl
+  - libslirp
+  - asio
+  - alsa-lib
+  - iir1
+  - libpng
+  - libsdl2
+  - opusfile
+  - sdl2-image
+  - speexdsp
+  - fluid-soundfont
+  - fluidsynth
+  - zlib
+  - zlib-ng
+  - dosbox

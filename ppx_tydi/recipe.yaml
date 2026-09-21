@@ -1,0 +1,17 @@
+name: ppx_tydi
+version: 0.17.1
+source:
+  url: https://github.com/janestreet/ppx_tydi/archive/v0.17.1.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - dune
+  - ocaml
+  - base-
+  - ppxlib
+  runtime:
+  - ocaml
+  - base-
+  - ppxlib
