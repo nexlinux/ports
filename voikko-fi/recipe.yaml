@@ -1,0 +1,11 @@
+name: voikko-fi
+version: '2.6'
+source:
+  url: https://www.puimula.org/voikko-sources/voikko-fi/voikko-fi-2.6.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - openpgp-keys-voikko
+  - libvoikko

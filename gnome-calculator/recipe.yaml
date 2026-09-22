@@ -1,0 +1,36 @@
+name: gnome-calculator
+version: '50.0'
+source:
+  url: https://download.gnome.org/sources/gnome-calculator/50/gnome-calculator-50.0.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - appstream-glib
+  - blueprint-compiler
+  - itstool
+  - gettext
+  - pkgconfig
+  - libsoup
+  - gtksourceview
+  - libadwaita
+  - glib
+  - libxml2
+  - libgee
+  - mpc
+  - mpfr
+  - gtk
+  - gobject-introspection
+  runtime:
+  - glib
+  - libxml2
+  - libsoup
+  - libgee
+  - mpc
+  - mpfr
+  - gtk
+  - libadwaita
+  - gtksourceview
+  - gobject-introspection

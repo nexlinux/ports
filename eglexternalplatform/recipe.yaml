@@ -1,0 +1,8 @@
+name: eglexternalplatform
+version: 1.2.1
+source:
+  url: https://github.com/NVIDIA/eglexternalplatform/archive/1.2.1.tar.gz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build

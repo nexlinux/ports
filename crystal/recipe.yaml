@@ -1,0 +1,19 @@
+name: crystal
+version: 1.21.0
+source:
+  url: https://github.com/crystal-lang/crystal/archive/1.21.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - boehm-gc
+  - gmp
+  - libatomic_ops
+  - libevent
+  - libpcre2
+  - libxml2
+  - libyaml
+  - pcl
+  - llvm
+  - libunwind

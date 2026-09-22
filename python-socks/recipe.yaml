@@ -1,0 +1,15 @@
+name: python-socks
+version: 3.1.1
+source:
+  url: https://github.com/romis2012/python-socks/archive/v3.1.1.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - flask
+  - starlette
+  - tiny-proxy
+  - trio
+  - trustme
+  - uvicorn
+  - yarl

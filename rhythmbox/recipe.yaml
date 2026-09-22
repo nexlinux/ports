@@ -1,0 +1,54 @@
+name: rhythmbox
+version: 3.5.1
+source:
+  url: https://download.gnome.org/sources/rhythmbox/3.5/rhythmbox-3.5.1.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - gi-docgen
+  - itstool
+  - pkgconfig
+  - check
+  - cairo
+  - gdk-pixbuf
+  - glib
+  - gobject-introspection
+  - gstreamer
+  - gst-plugins-base
+  - gtk+
+  - json-glib
+  - libpeas
+  - libsoup
+  - libxml2
+  - pango
+  - tdb
+  - totem-pl-parser
+  - brasero
+  - libdmapsharing
+  - gst-plugins-soup
+  - libsecret
+  - libnotify
+  - lirc
+  - pygobject
+  - libgudev
+  - libgpod
+  - libmtp
+  runtime:
+  - gst-plugins-soup
+  - gst-plugins-cdparanoia
+  - gst-plugins-cdio
+  - gst-plugins-meta
+  - gst-plugins-taglib
+  - adwaita-icon-theme
+  - libpeas
+  - libsoup
+  - gdk-pixbuf
+  - gtk+
+  - pango
+  - dbus
+  - libsecret
+  - grilo
+  - grilo-plugins
