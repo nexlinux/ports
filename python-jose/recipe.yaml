@@ -1,0 +1,21 @@
+name: python-jose
+version: 3.5.0
+source:
+  url: https://github.com/mpdavis/python-jose/archive/3.5.0.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - cryptography
+  - ecdsa
+  - pyasn1
+  - pycryptodome
+  - rsa
+  - six
+  runtime:
+  - cryptography
+  - ecdsa
+  - pyasn1
+  - pycryptodome
+  - rsa
+  - six

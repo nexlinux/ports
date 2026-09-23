@@ -1,0 +1,28 @@
+name: lsp-java
+version: '4.0'
+source:
+  url: https://github.com/emacs-lsp/lsp-java/archive/refs/tags/4.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - emacs-
+  - dap-mode
+  - dash
+  - f
+  - ht
+  - lsp-mode
+  - markdown-mode
+  - request
+  - treemacs
+  runtime:
+  - emacs-
+  - dap-mode
+  - dash
+  - f
+  - ht
+  - lsp-mode
+  - markdown-mode
+  - request
+  - treemacs

@@ -1,0 +1,8 @@
+name: llhttp
+version: 9.4.2
+source:
+  url: https://github.com/nodejs/llhttp/archive/release/v9.4.2.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build

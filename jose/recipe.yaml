@@ -1,0 +1,10 @@
+name: jose
+version: 1.11.10
+source:
+  url: https://github.com/potatosalad/erlang-jose/archive/1.11.10.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - erlang

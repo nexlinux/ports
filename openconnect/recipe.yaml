@@ -1,0 +1,37 @@
+name: openconnect
+version: '9.20'
+source:
+  url: https://www.infradead.org/openconnect/download/openconnect-9.20.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - pkgconfig
+  - groff
+  - gettext
+  - ocserv
+  - json-parser
+  - libxml2
+  - zlib
+  - p11-kit
+  - openssl
+  - libp11
+  - trousers
+  - ca-certificates
+  - nettle
+  - gnutls
+  - libtasn1
+  - tpm2-tss
+  - krb5
+  - libproxy
+  - lz4
+  - libintl
+  - oath-toolkit
+  - pcsc-lite
+  - stoken
+  runtime:
+  - iproute2
+  - vpnc-scripts-20210402-r1
+  - selinux-vpn

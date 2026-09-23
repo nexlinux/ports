@@ -1,0 +1,18 @@
+name: ppx_inline_test
+version: 0.16.0
+source:
+  url: https://github.com/janestreet/ppx_inline_test/archive/v0.16.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - ocaml
+  - base
+  - ppxlib
+  - time_now
+  runtime:
+  - ocaml
+  - base
+  - ppxlib
+  - time_now

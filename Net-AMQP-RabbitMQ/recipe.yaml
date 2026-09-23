@@ -1,0 +1,15 @@
+name: Net-AMQP-RabbitMQ
+version: '2.40010'
+source:
+  url: https://github.com/Net-AMQP-RabbitMQ/Net-AMQP-RabbitMQ/archive/refs/tags/2.40010.tar.gz
+build:
+- perl Makefile.PL PREFIX=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - perl-ExtUtils-MakeMaker
+  - rabbitmq-server
+  - Math-Int64
+  runtime:
+  - Math-Int64
