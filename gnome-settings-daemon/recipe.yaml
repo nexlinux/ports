@@ -1,0 +1,46 @@
+name: gnome-settings-daemon
+version: '50.1'
+source:
+  url: https://download.gnome.org/sources/gnome-settings-daemon/50/gnome-settings-daemon-50.1.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - linux-headers
+  - glib-utils
+  - gdbus-codegen
+  - umockdev
+  - pygobject
+  - python-dbusmock
+  - gnome-session
+  - gettext
+  - pkgconfig
+  - geocode-glib
+  - glib
+  - gnome-desktop
+  - gsettings-desktop-schemas
+  - libgweather
+  - colord
+  - libcanberra
+  - geoclue
+  - libpulse
+  - polkit
+  - upower
+  - libgudev
+  - wayland
+  - gcr
+  - cups
+  - modemmanager
+  - networkmanager
+  - alsa-lib
+  - fontconfig
+  - elogind
+  - systemd
+  - libnotify
+  - libXext
+  - libX11
+  - libXfixes
+  runtime:
+  - dconf

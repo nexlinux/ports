@@ -1,0 +1,13 @@
+name: castxml
+version: 0.8.0
+source:
+  url: https://github.com/CastXML/CastXML/archive/v0.8.0.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - sphinx
+  - clang
+  - llvm

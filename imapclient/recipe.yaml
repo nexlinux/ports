@@ -1,0 +1,6 @@
+name: imapclient
+version: 4.0.1
+source:
+  url: https://github.com/mjs/imapclient/archive/4.0.1.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX

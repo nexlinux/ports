@@ -1,0 +1,7 @@
+name: anaphora
+version: 1.0.4
+source:
+  url: https://github.com/rolandwalker/anaphora/archive/v1.0.4.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install

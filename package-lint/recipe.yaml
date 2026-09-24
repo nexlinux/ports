@@ -1,0 +1,12 @@
+name: package-lint
+version: '0.26'
+source:
+  url: https://github.com/purcell/package-lint/archive/0.26.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - compat
+  runtime:
+  - compat
