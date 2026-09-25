@@ -1,0 +1,13 @@
+name: gleam
+version: 1.14.0
+source:
+  url: https://github.com/gleam-lang/gleam/archive/refs/tags/v1.14.0.tar.gz
+build:
+- cargo build --release
+- mkdir -p $DESTDIR$PREFIX/bin
+- cp target/release/gleam $DESTDIR$PREFIX/bin/
+depends:
+  build:
+  - erlang
+  runtime:
+  - erlang

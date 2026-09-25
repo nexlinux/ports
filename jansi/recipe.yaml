@@ -1,0 +1,13 @@
+name: jansi
+version: 2.4.1
+source:
+  url: https://github.com/fusesource/jansi/archive/refs/tags/jansi-2.4.1.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - junit
+  - jdk
+  runtime:
+  - jre

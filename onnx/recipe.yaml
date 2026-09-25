@@ -1,0 +1,22 @@
+name: onnx
+version: 1.20.1
+source:
+  url: https://github.com/onnx/onnx/archive/refs/tags/v1.20.1.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - nanobind
+  - abseil-cpp
+  - protobuf
+  - ml-dtypes
+  - numpy
+  - typing-extensions
+  runtime:
+  - abseil-cpp
+  - protobuf
+  - ml-dtypes
+  - numpy
+  - typing-extensions

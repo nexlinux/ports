@@ -1,0 +1,14 @@
+name: minicoredumper
+version: 2.1.0
+source:
+  url: https://linutronix.de/minicoredumper/files/minicoredumper-2.1.0.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - pkgconfig
+  - openpgp-keys-johnogness
+  - json-c
+  - libelf

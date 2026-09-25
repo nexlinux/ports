@@ -1,0 +1,7 @@
+name: editorconfig-emacs
+version: 0.11.0
+source:
+  url: https://github.com/editorconfig/editorconfig-emacs/archive/v0.11.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
