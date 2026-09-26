@@ -1,0 +1,25 @@
+name: aubio
+version: 0.4.9-r5
+source:
+  url: https://waf.io/waf-2.0.27.tar.bz2
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - cblas
+  - ffmpeg-compat
+  - fftw
+  - jack
+  - libsamplerate
+  - numpy
+  - libsndfile
+  runtime:
+  - cblas
+  - ffmpeg-compat
+  - fftw
+  - jack
+  - libsamplerate
+  - numpy
+  - libsndfile

@@ -1,0 +1,16 @@
+name: duperemove
+version: 0.15.2
+source:
+  url: https://github.com/markfasheh/duperemove/archive/v0.15.2.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - sqlite
+  - glib
+  - util-linux
+  runtime:
+  - sqlite
+  - glib
+  - util-linux

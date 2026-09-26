@@ -1,0 +1,17 @@
+name: tar
+version: '1.35'
+source:
+  url: https://ftp.gnu.org/gnu/tar/tar-1.35.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - gettext
+  - openpgp-keys-tar
+  - acl
+  - libselinux
+  runtime:
+  - acl
+  - libselinux
