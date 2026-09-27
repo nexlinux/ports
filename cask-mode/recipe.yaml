@@ -1,0 +1,10 @@
+name: cask-mode
+version: '0.1'
+source:
+  url: https://github.com/Wilfred/cask-mode/archive/0.1.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - assess

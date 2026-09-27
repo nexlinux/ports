@@ -1,0 +1,14 @@
+name: composable-kernel
+version: 7.0.2
+source:
+  url: https://github.com/ROCm/composable_kernel/archive/rocm-7.0.2.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - rocm-cmake
+  - hip
+  runtime:
+  - hip
