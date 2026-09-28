@@ -1,0 +1,14 @@
+name: protobuf
+version: 6.31.1
+source:
+  url: https://github.com/protocolbuffers/protobuf/archive/v6.31.1.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - protobuf
+  - absl-py
+  - numpy
+  - pytest-forked

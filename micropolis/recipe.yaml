@@ -1,0 +1,19 @@
+name: micropolis
+version: 1.0_p20250628
+source:
+  url: https://gitlab.com/stargo/micropolis/-/archive/176c45720f3b9e5555fe1084d3e6ea59488c1785/micropolis-176c45720f3b9e5555fe1084d3e6ea59488c1785.tar.bz2
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - yacc
+  - libsdl
+  - sdl-mixer
+  - libX11
+  - libXpm
+  runtime:
+  - libsdl
+  - sdl-mixer
+  - libX11
+  - libXpm

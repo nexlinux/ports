@@ -1,0 +1,12 @@
+name: package-build
+version: 5.0.2
+source:
+  url: https://github.com/melpa/package-build/archive/v5.0.2.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - compat
+  runtime:
+  - compat

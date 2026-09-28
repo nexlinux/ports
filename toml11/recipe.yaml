@@ -1,0 +1,8 @@
+name: toml11
+version: 4.4.0
+source:
+  url: https://github.com/ToruNiina/toml11/archive/v4.4.0.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build

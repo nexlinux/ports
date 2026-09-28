@@ -1,0 +1,39 @@
+name: pitivi
+version: 2023.03-r2
+source:
+  url: https://download.gnome.org/sources/pitivi/2023/pitivi-2023.03.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - yelp-tools
+  - setuptools
+  - itstool
+  - gettext
+  - pkgconfig
+  - pycairo
+  - cairo
+  - gstreamer-
+  runtime:
+  - glib
+  - gobject-introspection
+  - libpeas
+  - dbus-python
+  - gst-python
+  - matplotlib
+  - numpy
+  - pygobject
+  - scipy
+  - librsvg
+  - gstreamer-editing-services-
+  - gst-plugins-base-
+  - gst-plugins-bad-
+  - gst-plugins-gtk-
+  - gst-plugins-good-
+  - gst-plugins-libav-
+  - gst-plugins-gdkpixbuf-
+  - libnotify
+  - libwnck
+  - gtk+

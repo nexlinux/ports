@@ -1,0 +1,7 @@
+name: fennel
+version: 1.6.1
+source:
+  url: https://git.sr.ht/~technomancy/fennel/archive/1.6.1.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
