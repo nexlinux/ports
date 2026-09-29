@@ -1,0 +1,12 @@
+name: plz
+version: 0.9.1
+source:
+  url: https://github.com/alphapapa/plz.el/archive/v0.9.1.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - curl
+  runtime:
+  - curl

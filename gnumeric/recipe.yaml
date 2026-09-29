@@ -1,0 +1,40 @@
+name: gnumeric
+version: 1.12.60
+source:
+  url: https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.61.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - docbook-xml-dtd
+  - yelp-tools
+  - gtk-doc-am
+  - intltool
+  - pkgconfig
+  - bzip2
+  - zlib
+  - glib
+  - libgsf
+  - goffice
+  - libxml2
+  - pango
+  - gtk+
+  - cairo
+  - gobject-introspection
+  - perl
+  - libgda
+  runtime:
+  - bzip2
+  - zlib
+  - glib
+  - libgsf
+  - goffice
+  - libxml2
+  - pango
+  - gtk+
+  - cairo
+  - gobject-introspection
+  - perl
+  - libgda

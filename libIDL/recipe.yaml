@@ -1,0 +1,16 @@
+name: libIDL
+version: 0.8.14-r4
+source:
+  url: https://download.gnome.org/sources/libIDL/0.8/libIDL-0.8.14.tar.bz2
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - lex
+  - yacc
+  - pkgconfig
+  - glib
+  runtime:
+  - glib

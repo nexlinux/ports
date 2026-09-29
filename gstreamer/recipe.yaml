@@ -1,0 +1,25 @@
+name: gstreamer
+version: 1.26.11
+source:
+  url: https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.26.11.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - glib-utils
+  - yacc
+  - lex
+  - openpgp-keys-tpm
+  - glib
+  - libcap
+  - gobject-introspection
+  - libunwind
+  - elfutils
+  runtime:
+  - glib
+  - libcap
+  - gobject-introspection
+  - libunwind
+  - elfutils

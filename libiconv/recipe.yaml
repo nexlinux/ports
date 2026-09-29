@@ -1,0 +1,13 @@
+name: libiconv
+version: '1.18'
+source:
+  url: https://ftp.gnu.org/gnu/libiconv/libiconv-1.18.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - openpgp-keys-gettext
+  - glibc
+  - musl

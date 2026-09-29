@@ -1,0 +1,15 @@
+name: tiny-proxy
+version: 0.3.0
+source:
+  url: https://github.com/romis2012/tiny-proxy/archive/v0.3.0.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - aiohttp
+  - httpx
+  - httpx-socks
+  - trustme
+  - anyio
+  runtime:
+  - anyio
