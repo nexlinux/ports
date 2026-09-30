@@ -1,0 +1,7 @@
+name: swift-mode
+version: 9.4.0
+source:
+  url: https://github.com/swift-emacs/swift-mode/archive/v9.4.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install

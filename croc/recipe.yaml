@@ -1,0 +1,13 @@
+name: croc
+version: 10.2.7
+source:
+  url: https://github.com/schollz/croc/releases/download/v10.2.7/croc_v10.2.7_src.tar.gz
+build:
+- go build -o croc
+- mkdir -p $DESTDIR$PREFIX/bin
+- cp croc $DESTDIR$PREFIX/bin/
+depends:
+  build:
+  - croc
+  runtime:
+  - croc

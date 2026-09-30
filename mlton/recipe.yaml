@@ -1,0 +1,15 @@
+name: mlton
+version: '20180207'
+source:
+  url: https://downloads.sourceforge.net/mlton/mlton-20180207.src.tgz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - gmp
+  - smlnj
+  - elfix
+  - latex-base
+  runtime:
+  - gmp

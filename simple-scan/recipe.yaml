@@ -1,0 +1,26 @@
+name: simple-scan
+version: '50.0'
+source:
+  url: https://download.gnome.org/sources/simple-scan/50/simple-scan-50.0.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - libxml2
+  - itstool
+  - gettext
+  - pkgconfig
+  - libadwaita
+  - libgusb
+  - colord
+  - glib
+  - gtk
+  - zlib
+  - cairo
+  - gdk-pixbuf
+  - libwebp
+  - sane-backends
+  runtime:
+  - xdg-utils

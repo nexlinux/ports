@@ -1,0 +1,30 @@
+name: cherrypy
+version: 18.10.0
+source:
+  url: https://github.com/cherrypy/cherrypy/archive/refs/tags/v18.10.0.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - setuptools-scm
+  - routes
+  - simplejson
+  - objgraph
+  - path
+  - requests-toolbelt
+  - memcached
+  - pylibmc
+  - pytest-services
+  - cheroot
+  - portend
+  - more-itertools
+  - zc-lockfile
+  - jaraco-collections
+  - pyopenssl
+  runtime:
+  - cheroot
+  - portend
+  - more-itertools
+  - zc-lockfile
+  - jaraco-collections
+  - pyopenssl
