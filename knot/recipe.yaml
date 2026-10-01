@@ -1,0 +1,38 @@
+name: knot
+version: 3.5.8
+source:
+  url: https://knot-dns.nic.cz/release/knot-3.5.8.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - pkgconfig
+  - protobuf
+  - protobuf-c
+  - sphinx
+  - sphinx-panels
+  - softhsm
+  - openpgp-keys-knot
+  - libedit
+  - fstrm
+  runtime:
+  - lmdb
+  - gnutls
+  - knot
+  - userspace-rcu
+  - libcap-ng
+  - dbus
+  - libmaxminddb
+  - hiredis
+  - systemd
+  - prometheus-client
+  - psutil
+  - ngtcp2
+  - selinux-knot
+  - nghttp2
+  - libidn2
+  - libbpf
+  - xdp-tools
+  - libmnl

@@ -1,0 +1,27 @@
+name: apache-tools
+version: 2.4.68
+source:
+  url: https://archive.apache.org/dist/httpd/httpd-2.4.68.tar.bz2
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - pkgconfig
+  - openpgp-keys-apache-httpd
+  - apr
+  - apr-util
+  - expat
+  - libpcre2
+  - libcrypt
+  - util-linux
+  - openssl
+  runtime:
+  - apr
+  - apr-util
+  - expat
+  - libpcre2
+  - libcrypt
+  - util-linux
+  - openssl

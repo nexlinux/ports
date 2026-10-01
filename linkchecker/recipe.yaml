@@ -1,0 +1,20 @@
+name: linkchecker
+version: 10.6.0
+source:
+  url: https://github.com/linkchecker/linkchecker/releases/download/v10.6.0/LinkChecker-10.6.0.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - pdfminer
+  - cryptography
+  - pyftpdlib
+  - pyopenssl
+  - gettext
+  - beautifulsoup4
+  - dnspython
+  - requests
+  runtime:
+  - beautifulsoup4
+  - dnspython
+  - requests

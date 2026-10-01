@@ -1,0 +1,40 @@
+name: apr-util
+version: 1.6.4
+source:
+  url: https://archive.apache.org/dist/apr/apr-util-1.6.4.tar.bz2
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - libtool
+  - doxygen
+  - openpgp-keys-apache-httpd
+  - apr-
+  - expat
+  - libcrypt
+  - db
+  - gdbm
+  - openldap
+  - mariadb-connector-c
+  - mysql-connector-c
+  - nss
+  - unixODBC
+  - openssl
+  - postgresql
+  - sqlite
+  runtime:
+  - apr-
+  - expat
+  - libcrypt
+  - db
+  - gdbm
+  - openldap
+  - mariadb-connector-c
+  - mysql-connector-c
+  - nss
+  - unixODBC
+  - openssl
+  - postgresql
+  - sqlite
