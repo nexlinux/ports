@@ -1,0 +1,12 @@
+name: ocaml-crunch
+version: 4.0.0
+source:
+  url: https://github.com/mirage/ocaml-crunch/archive/refs/tags/v4.0.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - dune
+  - cmdliner
+  - ptime

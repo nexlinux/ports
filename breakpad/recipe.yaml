@@ -1,0 +1,14 @@
+name: breakpad
+version: 2024.02.16
+source:
+  url: https://github.com/google/breakpad/archive/refs/tags/v2024.02.16.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - gtest
+  - curl
+  runtime:
+  - curl

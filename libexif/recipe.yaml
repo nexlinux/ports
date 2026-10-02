@@ -1,0 +1,17 @@
+name: libexif
+version: 0.6.26
+source:
+  url: https://github.com/libexif/libexif/releases/download/v0.6.26/libexif-0.6.26.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - pkgconfig
+  - doxygen
+  - gettext
+  - openpgp-keys-marcusmeissner
+  - libintl
+  runtime:
+  - libintl

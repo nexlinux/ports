@@ -1,0 +1,15 @@
+name: vss-extra
+version: 26.0.0
+source:
+  url: https://github.com/AdaCore/vss-extra/archive/refs/tags/v26.0.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - gprbuild
+  - xmlada
+  - vss-text
+  runtime:
+  - xmlada
+  - vss-text

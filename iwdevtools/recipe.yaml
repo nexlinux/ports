@@ -1,0 +1,32 @@
+name: iwdevtools
+version: 0.13.1
+source:
+  url: https://github.com/ionenwks/iwdevtools/archive/refs/tags/v0.13.1.tar.gz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - help2man
+  - util-linux
+  - getopt
+  - pax-utils
+  - portage-utils
+  - bash
+  - libxml2
+  - coreutils
+  - diffutils
+  - file
+  - portage
+  runtime:
+  - pax-utils
+  - portage-utils
+  - bash
+  - libxml2
+  - coreutils
+  - diffutils
+  - file
+  - portage
+  - util-linux
+  - getopt

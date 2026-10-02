@@ -1,0 +1,10 @@
+name: lkrg
+version: 0.9.8
+source:
+  url: https://lkrg.org/download/lkrg-0.9.8.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - openpgp-keys-openwall

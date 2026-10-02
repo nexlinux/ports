@@ -1,0 +1,40 @@
+name: gnome-photos
+version: '44.0'
+source:
+  url: https://download.gnome.org/sources/gnome-photos/44/gnome-photos-44.0.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - appstream-glib
+  - libxslt
+  - docbook-xsl-stylesheets
+  - desktop-file-utils
+  - gdbus-codegen
+  - glib-utils
+  - itstool
+  - gettext
+  - pkgconfig
+  - dogtail
+  - babl
+  - cairo
+  - gdk-pixbuf
+  - gegl
+  - geocode-glib
+  - gexiv2
+  - glib
+  - libportal
+  - gnome-online-accounts
+  - gsettings-desktop-schemas
+  - gtk+
+  - libdazzle
+  - libhandy
+  - libjpeg-turbo
+  - libpng
+  - tinysparql
+  - dbus
+  runtime:
+  - dleyna
+  - localsearch
