@@ -1,0 +1,8 @@
+name: framework-tool-tui
+version: 0.8.5
+source:
+  url: https://github.com/grouzen/framework-tool-tui/archive/refs/tags/v0.8.5.tar.gz
+build:
+- cargo build --release
+- mkdir -p $DESTDIR$PREFIX/bin
+- cp target/release/framework-tool-tui $DESTDIR$PREFIX/bin/

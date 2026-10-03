@@ -1,0 +1,21 @@
+name: magit
+version: 4.7.0
+source:
+  url: https://github.com/magit/magit/archive/v4.7.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - texinfo
+  - compat
+  - cond-let
+  - llama
+  - transient
+  - with-editor
+  runtime:
+  - compat
+  - cond-let
+  - llama
+  - transient
+  - with-editor

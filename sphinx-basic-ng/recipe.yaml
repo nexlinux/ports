@@ -1,0 +1,12 @@
+name: sphinx-basic-ng
+version: 1.0.0_beta2
+source:
+  url: https://github.com/pradyunsg/sphinx-basic-ng/archive/1.0.0.beta2.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - myst-parser
+  - sphinx
+  runtime:
+  - sphinx

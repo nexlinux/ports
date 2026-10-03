@@ -1,0 +1,58 @@
+name: gtk
+version: 4.18.6-r1
+source:
+  url: https://download.gnome.org/sources/gtk/4.18/gtk-4.18.6.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - pygobject
+  - docutils
+  - glib
+  - gdbus-codegen
+  - glib-utils
+  - gettext
+  - pkgconfig
+  - gi-docgen
+  - shaderc
+  - wayland-scanner
+  - cantarell
+  - weston
+  - cairo
+  - pango
+  - fribidi
+  - harfbuzz
+  - gdk-pixbuf
+  - libpng
+  - tiff
+  - libjpeg-turbo
+  - libepoxy
+  - graphene
+  - iso-codes
+  - shared-mime-info
+  - libcloudproviders
+  - colord
+  - cups
+  - librsvg
+  - gstreamer
+  - gst-plugins-bad
+  - gst-plugins-base
+  - gobject-introspection
+  - vulkan-loader
+  - wayland
+  - wayland-protocols
+  - mesa
+  - libxkbcommon
+  - fontconfig
+  - libX11
+  - libXi
+  - libXext
+  - libXrandr
+  - libXcursor
+  - libXfixes
+  - libXdamage
+  - libXinerama
+  runtime:
+  - gtk-update-icon-cache
