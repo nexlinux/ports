@@ -1,0 +1,26 @@
+name: opentelemetry-cpp
+version: 1.24.0
+source:
+  url: https://github.com/open-telemetry/opentelemetry-cpp/archive/refs/tags/v1.24.0.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - pkgconfig
+  - protobuf
+  - curl
+  - zlib
+  - nlohmann_json
+  - grpc
+  - abseil-cpp
+  - prometheus-cpp
+  runtime:
+  - curl
+  - zlib
+  - nlohmann_json
+  - grpc
+  - abseil-cpp
+  - protobuf
+  - prometheus-cpp

@@ -1,0 +1,12 @@
+name: libebml
+version: 1.4.7
+source:
+  url: https://dl.matroska.org/downloads/libebml/libebml-1.4.7.tar.xz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - openpgp-keys-moritzbunkus
+  - utfcpp

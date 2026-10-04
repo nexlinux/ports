@@ -1,0 +1,32 @@
+name: msmtp
+version: 1.8.32
+source:
+  url: https://marlam.de/msmtp/releases/msmtp-1.8.32.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - texi2dvi
+  - gettext
+  - openpgp-keys-martinlambers
+  - pkgconfig
+  - libidn2
+  - libintl
+  - libsecret
+  - gsasl
+  - gnutls
+  - libretls
+  runtime:
+  - mailbase
+  - msmtpd
+  - courier
+  - esmtp
+  - exim
+  - netqmail
+  - nullmailer
+  - postfix
+  - sendmail
+  - opensmtpd
+  - ssmtp
