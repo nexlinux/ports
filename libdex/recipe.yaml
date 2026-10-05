@@ -1,0 +1,27 @@
+name: libdex
+version: 1.2.0
+source:
+  url: https://download.gnome.org/sources/libdex/1.2/libdex-1.2.0.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - glib-utils
+  - pkgconfig
+  - gi-docgen
+  - gdbus-codegen
+  - glib
+  - liburing
+  - gobject-introspection
+  - pygobject
+  - sysprof-capture
+  - libucontext
+  runtime:
+  - glib
+  - liburing
+  - gobject-introspection
+  - pygobject
+  - sysprof-capture
+  - libucontext

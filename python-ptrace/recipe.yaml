@@ -1,0 +1,6 @@
+name: python-ptrace
+version: 0.9.9
+source:
+  url: https://github.com/vstinner/python-ptrace/archive/0.9.9.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX

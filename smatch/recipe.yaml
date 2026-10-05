@@ -1,0 +1,13 @@
+name: smatch
+version: '9999'
+source:
+  url: https://repo.or.cz/w/smatch.git/snapshot/9999.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - pkgconfig
+  - sqlite
+  runtime:
+  - sqlite

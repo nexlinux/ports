@@ -1,0 +1,19 @@
+name: wdiff
+version: 1.2.3
+source:
+  url: https://ftp.gnu.org/gnu/wdiff/wdiff-1.2.3.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - texinfo
+  - screen
+  - diffutils
+  - less
+  - ncurses
+  runtime:
+  - diffutils
+  - less
+  - ncurses

@@ -1,0 +1,23 @@
+name: pyglet
+version: 2.1.15
+source:
+  url: https://github.com/pyglet/pyglet/archive/refs/tags/v2.1.15.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - pillow
+  - fontconfig
+  - xorg-server
+  - glu
+  - opengl
+  - gtk+
+  - libpulse
+  - openal
+  runtime:
+  - glu
+  - opengl
+  - pillow
+  - gtk+
+  - libpulse
+  - openal

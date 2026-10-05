@@ -1,0 +1,14 @@
+name: libaom
+version: 3.14.1
+source:
+  url: https://storage.googleapis.com/aom-releases/libaom-3.14.1.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - perl
+  - yasm
+  - doxygen
+  - gtest-parallel

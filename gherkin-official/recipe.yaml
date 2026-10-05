@@ -1,0 +1,13 @@
+name: gherkin-official
+version: 41.0.0
+source:
+  url: https://github.com/cucumber/gherkin/archive/refs/tags/v41.0.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - uv-build
+  - typing-extensions
+  runtime:
+  - typing-extensions
