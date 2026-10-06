@@ -1,0 +1,12 @@
+name: macrostep
+version: 0.9.5
+source:
+  url: https://github.com/emacsorphanage/macrostep/archive/0.9.5.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - compat
+  runtime:
+  - compat

@@ -1,0 +1,10 @@
+name: mirage-clock
+version: 4.2.0
+source:
+  url: https://github.com/mirage/mirage-clock/archive/v4.2.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - dune-configurator

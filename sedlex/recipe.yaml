@@ -1,0 +1,12 @@
+name: sedlex
+version: '3.6'
+source:
+  url: https://github.com/ocaml-community/sedlex/archive/v3.6.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - ppx_expect
+  - gen
+  - ppxlib

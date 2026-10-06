@@ -1,0 +1,8 @@
+name: mdns
+version: 1.4.3
+source:
+  url: https://github.com/mjansson/mdns/archive/1.4.3.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build

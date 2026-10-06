@@ -1,0 +1,14 @@
+name: calamares-gentoo-livecd
+version: 3.3.14_p20250918
+source:
+  url: https://github.com/StefanCristian/calamares-gentoo-livecd/archive/refs/tags/3.3.14_p20250918.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - calamares
+  - sudo
+  runtime:
+  - calamares
+  - sudo

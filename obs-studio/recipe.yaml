@@ -1,0 +1,12 @@
+name: obs-studio
+version: 32.2.2
+source:
+  url: https://github.com/obsproject/obs-studio/archive/32.2.2.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - extra-cmake-modules
+  - swig
