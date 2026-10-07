@@ -1,0 +1,11 @@
+name: c-stdaux
+version: 1.6.0
+source:
+  url: https://github.com/c-util/c-stdaux/archive/v1.6.0.tar.gz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - pkgconfig

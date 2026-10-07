@@ -1,0 +1,20 @@
+name: bino
+version: '2.7'
+source:
+  url: https://bino3d.org/releases/bino-2.7.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - qttools
+  - pandoc
+  - openpgp-keys-martinlambers
+  - qtbase
+  - qtmultimedia
+  - qtsvg
+  runtime:
+  - qtbase
+  - qtmultimedia
+  - qtsvg

@@ -1,0 +1,24 @@
+name: glib-networking
+version: 2.80.1
+source:
+  url: https://download.gnome.org/sources/glib-networking/2.80/glib-networking-2.80.1.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - gettext
+  - pkgconfig
+  - dbus
+  - glib
+  - libproxy
+  - gnutls
+  - ca-certificates
+  - gsettings-desktop-schemas
+  runtime:
+  - glib
+  - libproxy
+  - gnutls
+  - ca-certificates
+  - gsettings-desktop-schemas

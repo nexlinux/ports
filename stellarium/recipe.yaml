@@ -1,0 +1,35 @@
+name: stellarium
+version: '26.2'
+source:
+  url: https://github.com/Stellarium/stellarium/releases/download/v26.2/stellarium-26.2.tar.xz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - perl
+  - doxygen
+  - qttools
+  - openpgp-keys-stellarium
+  runtime:
+  - tbb
+  - md4c
+  - qtbase
+  - qtcharts
+  - qtpositioning
+  - qtsvg
+  - dejavu
+  - calcmysky
+  - opengl
+  - zlib
+  - qtserialport
+  - gpsd
+  - exiv2
+  - nlopt
+  - qtmultimedia
+  - qtspeech
+  - qtdeclarative
+  - indilib
+  - qtwebengine
+  - qxlsx

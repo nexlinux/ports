@@ -1,0 +1,7 @@
+name: exprtk
+version: 0.0.3
+source:
+  url: https://github.com/ArashPartow/exprtk/archive/refs/tags/0.0.3.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install

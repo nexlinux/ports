@@ -1,0 +1,12 @@
+name: kdevelop-pg-qt
+version: 2.4.0
+source:
+  url: https://download.kde.org/stable/stable/kdevelop-pg-qt/2.4.0/src/kdevelop-pg-qt-2.4.0.tar.xz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - lex
+  - yacc

@@ -1,0 +1,12 @@
+name: minisign
+version: '0.12'
+source:
+  url: https://github.com/jedisct1/minisign/archive/0.12.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - pkgconfig
+  - libsodium
