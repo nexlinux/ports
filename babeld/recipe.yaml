@@ -1,0 +1,7 @@
+name: babeld
+version: 1.13.1
+source:
+  url: https://github.com/jech/babeld/archive/babeld-1.13.1.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install

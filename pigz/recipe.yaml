@@ -1,0 +1,11 @@
+name: pigz
+version: '2.8'
+source:
+  url: https://www.zlib.net/pigz/pigz-2.8.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - openpgp-keys-madler
+  - zlib

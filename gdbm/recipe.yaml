@@ -1,0 +1,13 @@
+name: gdbm
+version: '1.25'
+source:
+  url: https://ftp.gnu.org/gnu/gdbm/gdbm-1.25.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - dejagnu
+  - openpgp-keys-gdbm
+  - readline

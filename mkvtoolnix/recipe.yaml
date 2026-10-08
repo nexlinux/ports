@@ -1,0 +1,47 @@
+name: mkvtoolnix
+version: '99.0'
+source:
+  url: https://mkvtoolnix.download/sources/mkvtoolnix-99.0.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - docbook-xsl-stylesheets
+  - libxslt
+  - rake
+  - pkgconfig
+  - gettext
+  - po4a
+  - boost
+  - gmp
+  - libebml
+  - libfmt
+  - pugixml
+  - qtbase
+  - flac
+  - libmatroska
+  - libogg
+  - libvorbis
+  - zlib
+  - libdvdread
+  - cmark
+  - qtmultimedia
+  - qtsvg
+  runtime:
+  - boost
+  - gmp
+  - libebml
+  - libfmt
+  - pugixml
+  - qtbase
+  - flac
+  - libmatroska
+  - libogg
+  - libvorbis
+  - zlib
+  - libdvdread
+  - cmark
+  - qtmultimedia
+  - qtsvg

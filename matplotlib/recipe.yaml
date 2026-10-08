@@ -1,0 +1,49 @@
+name: matplotlib
+version: 3.11.2
+source:
+  url: https://github.com/matplotlib/matplotlib/archive/refs/tags/v3.11.2.tar.gz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - pybind11
+  - setuptools-scm
+  - pkgconfig
+  - psutil
+  - pytest-rerunfailures
+  - tornado
+  - ffmpeg
+  - pygobject
+  - gtk+
+  - latex-base
+  - dvipng
+  - ghostscript-gpl
+  - poppler
+  - texlive-fontsrecommended
+  - texlive-latexextra
+  - texlive-luatex
+  - texlive-xetex
+  runtime:
+  - contourpy
+  - cycler
+  - fonttools
+  - kiwisolver
+  - packaging
+  - pillow
+  - pyparsing
+  - python-dateutil
+  - pytz
+  - dejavu
+  - stix-fonts
+  - libpng
+  - imagemagick-tools
+  - cairocffi
+  - xlwt
+  - pygobject
+  - gtk+
+  - pyqt6
+  - pyside
+  - tornado
+  - wxpython
