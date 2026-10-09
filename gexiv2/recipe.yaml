@@ -1,0 +1,25 @@
+name: gexiv2
+version: 0.16.2
+source:
+  url: https://download.gnome.org/sources/gexiv2/0.16/gexiv2-0.16.2.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - meson
+  - glib-utils
+  - gtk-doc
+  - gi-docgen
+  - docbook-xml-dtd
+  - exiv2
+  - pkgconfig
+  - glib
+  - gobject-introspection
+  - pygobject
+  runtime:
+  - exiv2
+  - glib
+  - gobject-introspection
+  - pygobject

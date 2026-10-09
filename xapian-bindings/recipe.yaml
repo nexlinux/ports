@@ -1,0 +1,17 @@
+name: xapian-bindings
+version: 1.4.31
+source:
+  url: https://oligarchy.co.uk/xapian/1.4.31/xapian-bindings-1.4.31.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - xapian-
+  - perl
+  - php
+  - sphinx
+  - tcl
+  runtime:
+  - jre

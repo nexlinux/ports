@@ -1,0 +1,15 @@
+name: swagger-spec-validator
+version: 3.0.4
+source:
+  url: https://github.com/Yelp/swagger_spec_validator/archive/v3.0.4.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - jsonschema
+  - pyyaml
+  - typing-extensions
+  runtime:
+  - jsonschema
+  - pyyaml
+  - typing-extensions

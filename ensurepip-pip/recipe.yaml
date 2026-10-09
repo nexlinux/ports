@@ -1,0 +1,17 @@
+name: ensurepip-pip
+version: 26.1.2
+source:
+  url: https://github.com/pypa/pip/archive/26.1.2.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - ensurepip-setuptools
+  - ensurepip-wheel
+  - freezegun
+  - pretend
+  - scripttest
+  - werkzeug
+  - wheel
+  - cryptography
+  - git
