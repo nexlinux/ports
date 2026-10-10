@@ -1,0 +1,16 @@
+name: ollama
+version: 0.40.2
+source:
+  url: https://github.com/ollama/ollama/archive/refs/tags/v0.40.2.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - go
+  - stb
+  - ollama
+  - ggml
+  runtime:
+  - curl

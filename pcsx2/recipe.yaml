@@ -1,0 +1,47 @@
+name: pcsx2
+version: 2.8.1
+source:
+  url: https://github.com/PCSX2/pcsx2/archive/refs/tags/v2.8.1.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - qttools
+  - clang
+  - wayland-scanner
+  - extra-cmake-modules
+  - lz4
+  - zstd
+  - rapidyaml
+  - qtbase
+  - qtsvg
+  - kddockwidgets
+  - fontconfig
+  - freetype
+  - libglvnd
+  - libjpeg-turbo
+  - libpng
+  - libsdl3
+  - libwebp
+  - plutosvg
+  - plutovg
+  - shaderc
+  - vulkan-loader
+  - ffmpeg
+  - libpcap
+  - curl
+  - dbus
+  - zlib
+  - libudev
+  - libX11
+  - libXi
+  - libXrandr
+  - alsa-lib
+  - jack
+  - libpulse
+  - sndio
+  - wayland
+  runtime:
+  - pcsx2_patches-0_p20241020

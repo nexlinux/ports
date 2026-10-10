@@ -1,0 +1,10 @@
+name: eredis
+version: 1.7.1
+source:
+  url: https://github.com/Nordix/eredis/archive/v1.7.1.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - erlang

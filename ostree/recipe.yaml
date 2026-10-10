@@ -1,0 +1,54 @@
+name: ostree
+version: '2025.2'
+source:
+  url: https://github.com/ostreedev/ostree/releases/download/v2025.2/libostree-2025.2.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - libxslt
+  - glib-utils
+  - flex
+  - bison
+  - pkgconfig
+  - xz-utils
+  - glib
+  - fuse
+  - zlib
+  - libarchive
+  - curl
+  - dracut
+  - gpgme
+  - libgpg-error
+  - grub
+  - gobject-introspection
+  - util-linux
+  - libselinux
+  - libsodium
+  - libsoup
+  - gnutls
+  - openssl
+  - systemd
+  - avahi
+  runtime:
+  - xz-utils
+  - glib
+  - fuse
+  - zlib
+  - libarchive
+  - curl
+  - dracut
+  - gpgme
+  - libgpg-error
+  - grub
+  - gobject-introspection
+  - util-linux
+  - libselinux
+  - libsodium
+  - libsoup
+  - gnutls
+  - openssl
+  - systemd
+  - avahi

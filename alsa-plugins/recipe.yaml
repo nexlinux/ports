@@ -1,0 +1,27 @@
+name: alsa-plugins
+version: 1.2.12
+source:
+  url: https://www.alsa-project.org/files/pub/plugins/alsa-plugins-1.2.12.tar.bz2
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - pkgconfig
+  - openpgp-keys-alsa
+  - alsa-lib-
+  - ffmpeg
+  - jack
+  - libsamplerate
+  - libpulse
+  - speex
+  - speexdsp
+  runtime:
+  - alsa-lib-
+  - ffmpeg
+  - jack
+  - libsamplerate
+  - libpulse
+  - speex
+  - speexdsp

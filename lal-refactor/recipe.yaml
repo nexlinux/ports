@@ -1,0 +1,16 @@
+name: lal-refactor
+version: 26.0.0
+source:
+  url: https://github.com/AdaCore/lal-refactor/archive/refs/tags/v26.0.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - gprbuild
+  - e3-testsuite
+  - libadalang
+  - libadalang-tools
+  runtime:
+  - libadalang
+  - libadalang-tools

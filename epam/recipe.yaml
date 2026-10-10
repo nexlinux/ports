@@ -1,0 +1,13 @@
+name: epam
+version: 1.0.14
+source:
+  url: https://github.com/processone/epam/archive/1.0.14.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - epam
+  - erlang
+  - pam

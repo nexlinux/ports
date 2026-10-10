@@ -1,0 +1,26 @@
+name: mesa
+version: 26.2.2
+source:
+  url: https://archive.mesa3d.org/mesa-26.2.2.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - bindgen
+  - meson
+  - yacc
+  - flex
+  - pkgconfig
+  - expat
+  - spirv-tools
+  - libglvnd
+  - zlib
+  - libunwind
+  runtime:
+  - expat
+  - spirv-tools
+  - libglvnd
+  - zlib
+  - libunwind
