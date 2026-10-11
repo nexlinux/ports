@@ -1,0 +1,26 @@
+name: gnome-session
+version: '50.1'
+source:
+  url: https://download.gnome.org/sources/gnome-session/50/gnome-session-50.1.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - libxslt
+  - gdbus-codegen
+  - gettext
+  - pkgconfig
+  - xmlto
+  - docbook-xml-dtd
+  - glib
+  - gnome-desktop
+  - systemd
+  - elogind
+  runtime:
+  - gnome-settings-daemon
+  - gsettings-desktop-schemas
+  - dbus
+  - xdg-user-dirs-gtk
+  - gnome-session-openrc-

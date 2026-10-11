@@ -1,0 +1,12 @@
+name: xmlada
+version: 26.0.0
+source:
+  url: https://github.com/AdaCore/xmlada/archive/refs/tags/v26.0.0.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - sphinx
+  - sphinx-rtd-theme

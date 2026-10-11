@@ -1,0 +1,52 @@
+name: rsyslog
+version: 8.2608.0
+source:
+  url: https://github.com/rsyslog/rsyslog/archive/refs/tags/v8.2608.0.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - lex
+  - yacc
+  - autoconf-archive
+  - lsb-release
+  - pkgconfig
+  - libfaketime
+  - accessible-pygments
+  - furo
+  - sphinx
+  - sphinxcontrib-mermaid
+  runtime:
+  - libfastjson
+  - libestr
+  - zlib
+  - libyaml
+  - curl
+  - libdbi
+  - libgcrypt
+  - apr-util
+  - civetweb
+  - libcrypt
+  - libpcap
+  - librdkafka
+  - krb5
+  - libmaxminddb
+  - mongo-c-driver
+  - mysql-connector-c
+  - liblognorm
+  - libnet
+  - postgresql
+  - rabbitmq-c
+  - hiredis
+  - libevent
+  - librelp
+  - liblogging
+  - openssl
+  - net-snmp
+  - gnutls
+  - systemd
+  - util-linux
+  - xxhash
+  - czmq

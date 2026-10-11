@@ -1,0 +1,81 @@
+name: localsearch
+version: 3.8.2
+source:
+  url: https://download.gnome.org/sources/localsearch/3.8/localsearch-3.8.2.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - asciidoc
+  - libxslt
+  - glib-utils
+  - gdbus-codegen
+  - gettext
+  - pkgconfig
+  - pygobject
+  - tap-py
+  - gstreamer
+  - gst-plugins-libav
+  - gst-plugins-openh264
+  - tinysparql
+  - dbus
+  - exempi
+  - gexiv2
+  - glib
+  - libgudev
+  - gobject-introspection
+  - libcue
+  - libexif
+  - libgsf
+  - libgxps
+  - libiptcdata
+  - libjpeg-turbo
+  - libosinfo
+  - libpng
+  - libseccomp
+  - tiff
+  - libxml2
+  - poppler
+  - totem-pl-parser
+  - giflib
+  - networkmanager
+  - libgrss
+  - gzip
+  - upower
+  - icu
+  - gst-plugins-base
+  - gst-plugins-meta
+  - ffmpeg
+  runtime:
+  - tinysparql
+  - dbus
+  - exempi
+  - gexiv2
+  - glib
+  - libgudev
+  - gobject-introspection
+  - libcue
+  - libexif
+  - libgsf
+  - libgxps
+  - libiptcdata
+  - libjpeg-turbo
+  - libosinfo
+  - libpng
+  - libseccomp
+  - tiff
+  - libxml2
+  - poppler
+  - totem-pl-parser
+  - giflib
+  - networkmanager
+  - libgrss
+  - gzip
+  - upower
+  - icu
+  - gstreamer
+  - gst-plugins-base
+  - gst-plugins-meta
+  - ffmpeg

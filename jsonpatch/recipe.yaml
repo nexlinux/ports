@@ -1,0 +1,12 @@
+name: jsonpatch
+version: '1.34'
+source:
+  url: https://github.com/stefankoegl/python-json-patch/archive/v1.34.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - hypothesis
+  - jsonpointer
+  runtime:
+  - jsonpointer
