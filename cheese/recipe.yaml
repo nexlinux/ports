@@ -1,0 +1,44 @@
+name: cheese
+version: 44.1-r1
+source:
+  url: https://download.gnome.org/sources/cheese/44/cheese-44.1.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - gtk-doc
+  - libxslt
+  - docbook-xml-dtd
+  - itstool
+  - appstream-glib
+  - libxml2
+  - glib-utils
+  - gettext
+  - pkgconfig
+  - xorg-proto
+  - libXtst
+  - clutter
+  - clutter-gst
+  - clutter-gtk
+  - gdk-pixbuf
+  - glib
+  - gnome-desktop
+  - gstreamer
+  - gst-plugins-base
+  - gst-plugins-bad
+  - gtk+
+  - libcanberra-gtk3
+  - libcanberra
+  - libX11
+  - dbus
+  - gnome-video-effects
+  - gobject-introspection
+  - cogl
+  runtime:
+  - gst-plugins-good
+  - gst-plugins-jpeg
+  - gst-plugins-v4l2
+  - pipewire
+  - gst-plugins-vpx

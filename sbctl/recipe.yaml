@@ -1,0 +1,12 @@
+name: sbctl
+version: 0.15.4
+source:
+  url: https://github.com/Foxboron/sbctl/releases/download/0.15.4/sbctl-0.15.4.tar.gz
+build:
+- go build -o sbctl
+- mkdir -p $DESTDIR$PREFIX/bin
+- cp sbctl $DESTDIR$PREFIX/bin/
+depends:
+  build:
+  - asciidoc
+  - openpgp-keys-foxboron

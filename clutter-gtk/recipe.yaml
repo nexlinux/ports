@@ -1,0 +1,22 @@
+name: clutter-gtk
+version: 1.8.4-r2
+source:
+  url: https://download.gnome.org/sources/clutter-gtk/1.8/clutter-gtk-1.8.4.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - gtk-doc-am
+  - gettext
+  - pkgconfig
+  - gtk+
+  - clutter
+  - cogl
+  - gobject-introspection
+  runtime:
+  - gtk+
+  - clutter
+  - cogl
+  - gobject-introspection

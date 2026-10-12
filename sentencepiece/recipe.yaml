@@ -1,0 +1,19 @@
+name: sentencepiece
+version: 0.2.1
+source:
+  url: https://github.com/google/sentencepiece/archive/refs/tags/v0.2.1.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - abseil-cpp
+  - protobuf
+  - google-perftools
+  - pysentencepiece
+  runtime:
+  - abseil-cpp
+  - protobuf
+  - google-perftools
+  - pysentencepiece

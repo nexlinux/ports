@@ -1,0 +1,75 @@
+name: libvirt
+version: 11.10.0
+source:
+  url: https://download.libvirt.org/libvirt-11.10.0.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - xhtml1
+  - perl
+  - libxslt
+  - XML-XPath
+  - docutils
+  - pkgconfig
+  - bash-completion
+  - openpgp-keys-libvirt
+  runtime:
+  - qemu
+  - scrub
+  - glib
+  - libgcrypt
+  - libnl
+  - libxml2
+  - openbsd-netcat
+  - gnutls
+  - libtirpc
+  - curl
+  - dbus
+  - dmidecode
+  - gettext
+  - readline
+  - acl
+  - libapparmor
+  - audit
+  - libcap-ng
+  - systemtap
+  - firewalld
+  - fuse
+  - glusterfs
+  - open-iscsi
+  - libiscsi
+  - libssh
+  - libssh2
+  - lvm2
+  - systemd
+  - nbdkit
+  - libnbd
+  - nfs-utils
+  - numactl
+  - numad
+  - parted
+  - libpcap
+  - libvirt
+  - polkit
+  - swtpm
+  - json-c
+  - ceph
+  - cyrus-sasl
+  - libselinux
+  - dnsmasq
+  - ebtables
+  - iptables
+  - nftables
+  - radvd
+  - iproute2
+  - virtiofsd
+  - wireshark
+  - xen
+  - xen-tools
+  - libudev
+  - libpciaccess
+  - zfs
+  - util-linux
