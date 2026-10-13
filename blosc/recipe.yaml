@@ -1,0 +1,15 @@
+name: blosc
+version: 1.11.4
+source:
+  url: https://github.com/Blosc/python-blosc/archive/v1.11.4.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - scikit-build
+  - numpy
+  - c-blosc
+  runtime:
+  - c-blosc

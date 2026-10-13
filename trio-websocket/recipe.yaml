@@ -1,0 +1,16 @@
+name: trio-websocket
+version: 0.12.2
+source:
+  url: https://github.com/python-trio/trio-websocket/archive/0.12.2.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - trustme
+  - exceptiongroup
+  - trio
+  - wsproto
+  runtime:
+  - exceptiongroup
+  - trio
+  - wsproto

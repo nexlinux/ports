@@ -1,0 +1,82 @@
+name: gvfs
+version: 1.60.3
+source:
+  url: https://download.gnome.org/sources/gvfs/1.60/gvfs-1.60.3.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - docbook-xml-dtd
+  - docbook-xsl-stylesheets
+  - libxslt
+  - gdbus-codegen
+  - glib-utils
+  - pkgconfig
+  - libgdata
+  - glib
+  - gsettings-desktop-schemas
+  - libgcrypt
+  - dbus
+  - gcr
+  - polkit
+  - libcap
+  - libxml2
+  - libsoup
+  - avahi
+  - libgudev
+  - fuse
+  - tmpfiles
+  - udisks
+  - systemd
+  - elogind
+  - libimobiledevice
+  - libplist
+  - usbmuxd
+  - gnome-online-accounts
+  - libsecret
+  - libbluray
+  - libusb
+  - libmtp
+  - samba
+  - libarchive
+  - libcdio
+  - libcdio-paranoia
+  - msgraph
+  - libgphoto2
+  - libnfs
+  - openssh
+  runtime:
+  - glib
+  - gsettings-desktop-schemas
+  - libgcrypt
+  - dbus
+  - gcr
+  - polkit
+  - libcap
+  - libxml2
+  - libsoup
+  - avahi
+  - libgudev
+  - fuse
+  - tmpfiles
+  - udisks
+  - systemd
+  - elogind
+  - libimobiledevice
+  - libplist
+  - usbmuxd
+  - gnome-online-accounts
+  - libsecret
+  - libbluray
+  - libusb
+  - libmtp
+  - samba
+  - libarchive
+  - libcdio
+  - libcdio-paranoia
+  - msgraph
+  - libgphoto2
+  - libnfs
+  - openssh

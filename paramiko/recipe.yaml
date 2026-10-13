@@ -1,0 +1,15 @@
+name: paramiko
+version: 5.0.0
+source:
+  url: https://github.com/paramiko/paramiko/archive/5.0.0.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - bcrypt
+  - cryptography
+  - pynacl
+  runtime:
+  - bcrypt
+  - cryptography
+  - pynacl

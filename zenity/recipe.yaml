@@ -1,0 +1,24 @@
+name: zenity
+version: 4.0.5
+source:
+  url: https://download.gnome.org/sources/zenity/4.0/zenity-4.0.5.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - itstool
+  - gettext
+  - pkgconfig
+  - libadwaita
+  - webkit-gtk
+  - help2man
+  - gdk-pixbuf
+  - pango
+  runtime:
+  - libadwaita
+  - webkit-gtk
+  - help2man
+  - gdk-pixbuf
+  - pango

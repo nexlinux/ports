@@ -1,0 +1,7 @@
+name: afio
+version: 2.5.2
+source:
+  url: https://github.com/kholtman/afio/archive/refs/tags/v2.5.2.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install

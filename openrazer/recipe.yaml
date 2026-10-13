@@ -1,0 +1,33 @@
+name: openrazer
+version: 3.12.3
+source:
+  url: https://github.com/openrazer/openrazer/archive/v3.12.3.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - linux-sources
+  - numpy
+  - plugdev
+  - daemonize
+  - dbus-python
+  - notify2
+  - pygobject
+  - pyudev
+  - setproctitle
+  - gtk+
+  - xautomation
+  - xdotool
+  runtime:
+  - numpy
+  - plugdev
+  - daemonize
+  - dbus-python
+  - notify2
+  - pygobject
+  - pyudev
+  - setproctitle
+  - gtk+
+  - xautomation
+  - xdotool
