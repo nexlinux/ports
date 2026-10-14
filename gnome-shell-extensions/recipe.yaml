@@ -1,0 +1,28 @@
+name: gnome-shell-extensions
+version: '49.0'
+source:
+  url: https://download.gnome.org/sources/gnome-shell-extensions/49/gnome-shell-extensions-49.0.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - gettext
+  - pkgconfig
+  - glib
+  - libgtop
+  - eselect-gnome-shell-extensions
+  runtime:
+  - at-spi2-core
+  - gjs
+  - gobject-introspection
+  - gnome-menus
+  - gnome-shell-
+  - libadwaita
+  - clutter
+  - graphene
+  - gtk
+  - pango
+  - adwaita-icon-theme
+  - mutter

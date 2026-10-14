@@ -1,0 +1,27 @@
+name: coq
+version: 9.1.1
+source:
+  url: https://github.com/coq/coq/archive/V9.1.1.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - findlib
+  - ounit2
+  - camlzip
+  - num
+  - yojson
+  - zarith
+  - lablgtk
+  - lablgtk-sourceview
+  - ocaml
+  runtime:
+  - camlzip
+  - num
+  - yojson
+  - zarith
+  - lablgtk
+  - lablgtk-sourceview
+  - ocaml

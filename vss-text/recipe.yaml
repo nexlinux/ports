@@ -1,0 +1,14 @@
+name: vss-text
+version: 26.0.0
+source:
+  url: https://github.com/AdaCore/vss-text/archive/refs/tags/v26.0.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - gprbuild
+  - unicode-data
+  - xmlada
+  runtime:
+  - xmlada

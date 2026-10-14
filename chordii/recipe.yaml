@@ -1,0 +1,8 @@
+name: chordii
+version: 4.5.3
+source:
+  url: https://downloads.sourceforge.net/chordii/chordii-4.5.3.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
