@@ -1,0 +1,11 @@
+name: mpdecimal
+version: 4.0.1
+source:
+  url: https://www.bytereef.org/software/mpdecimal/releases/mpdecimal-4.0.1.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - unzip

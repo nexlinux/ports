@@ -1,0 +1,13 @@
+name: c-blosc2
+version: 3.3.2
+source:
+  url: https://github.com/Blosc/c-blosc2/archive/v3.3.2.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - lz4
+  - zlib
+  - zstd

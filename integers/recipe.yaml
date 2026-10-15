@@ -1,0 +1,12 @@
+name: integers
+version: 0.8.0
+source:
+  url: https://github.com/ocamllabs/ocaml-integers/archive/0.8.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - stdlib-shims
+  runtime:
+  - stdlib-shims

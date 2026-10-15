@@ -1,0 +1,12 @@
+name: libeatmydata
+version: '131'
+source:
+  url: https://www.flamingspork.com/projects/libeatmydata/libeatmydata-131.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - strace
+  - openpgp-keys-stewartsmith
