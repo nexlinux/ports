@@ -1,0 +1,13 @@
+name: signify
+version: '31'
+source:
+  url: https://github.com/aperezdc/signify/releases/download/v31/signify-31.tar.xz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - signify-keys-signify
+  - libbsd
+  runtime:
+  - signify

@@ -1,0 +1,33 @@
+name: libgxps
+version: 0.3.2-r3
+source:
+  url: https://download.gnome.org/sources/libgxps/0.3/libgxps-0.3.2.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - docbook-xsl-stylesheets
+  - libxslt
+  - gtk-doc
+  - pkgconfig
+  - libarchive
+  - glib
+  - freetype
+  - libpng
+  - cairo
+  - gobject-introspection
+  - libjpeg-turbo
+  - lcms
+  - tiff
+  runtime:
+  - libarchive
+  - glib
+  - freetype
+  - libpng
+  - cairo
+  - gobject-introspection
+  - libjpeg-turbo
+  - lcms
+  - tiff

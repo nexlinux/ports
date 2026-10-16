@@ -1,0 +1,10 @@
+name: trurl
+version: 0.16.1
+source:
+  url: https://github.com/curl/trurl/releases/download/trurl-0.16.1/trurl-0.16.1.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - openpgp-keys-danielstenberg

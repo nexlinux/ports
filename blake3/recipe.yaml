@@ -1,0 +1,15 @@
+name: blake3
+version: 1.0.10
+source:
+  url: https://github.com/oconnor663/blake3-py/archive/1.0.10.tar.gz
+build:
+- cargo build --release
+- mkdir -p $DESTDIR$PREFIX/bin
+- cp target/release/blake3 $DESTDIR$PREFIX/bin/
+depends:
+  build:
+  - maturin
+  - setuptools
+  - wheel
+  - numpy
+  - blake3
