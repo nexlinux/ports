@@ -1,0 +1,24 @@
+name: gdk-pixbuf
+version: 2.42.12
+source:
+  url: https://download.gnome.org/sources/gdk-pixbuf/2.42/gdk-pixbuf-2.42.12.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - gi-docgen
+  - docbook-xsl-stylesheets
+  - docbook-xml-dtd
+  - glib
+  - libxslt
+  - docutils
+  - glib-utils
+  - gettext
+  - pkgconfig
+  - shared-mime-info
+  - libpng
+  - libjpeg-turbo
+  - tiff
+  - gobject-introspection

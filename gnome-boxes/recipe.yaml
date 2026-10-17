@@ -1,0 +1,38 @@
+name: gnome-boxes
+version: '50.0'
+source:
+  url: https://download.gnome.org/sources/gnome-boxes/50/gnome-boxes-50.0.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - libosinfo
+  - libsecret
+  - libsoup
+  - libvirt-glib
+  - spice-gtk
+  - vte
+  - appstream-glib
+  - itstool
+  - gettext
+  - pkgconfig
+  - libarchive
+  - glib
+  - gtk+
+  - libportal
+  - libhandy
+  - libusb
+  - libxml2
+  - webkit-gtk
+  - gobject-introspection
+  - libgudev
+  runtime:
+  - cdrtools
+  - localsearch
+  - spice
+  - libvirt
+  - qemu
+  - mtools
+  - polkit

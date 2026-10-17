@@ -1,0 +1,22 @@
+name: vdr
+version: 2.8.1
+source:
+  url: https://git.tvdr.de/?p=vdr.git;a=snapshot;h=refs/tags/2.8.1;sf=tbz2
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - gettext
+  - pkgconfig
+  - vdr
+  - fontconfig
+  - freetype
+  - libjpeg-turbo
+  - libcap
+  runtime:
+  - perl
+  - gentoo-vdr-scripts
+  - corefonts
+  - fribidi
+  - systemd

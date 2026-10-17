@@ -1,0 +1,23 @@
+name: pangomm
+version: 2.56.2
+source:
+  url: https://download.gnome.org/sources/pangomm/2.56/pangomm-2.56.2.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - pkgconfig
+  - mm-common
+  - doxygen
+  - libxslt
+  - cairomm
+  - glibmm
+  - libsigc++
+  - pango
+  runtime:
+  - cairomm
+  - glibmm
+  - libsigc++
+  - pango

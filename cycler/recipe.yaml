@@ -1,0 +1,6 @@
+name: cycler
+version: 0.12.1
+source:
+  url: https://github.com/matplotlib/cycler/archive/v0.12.1.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX

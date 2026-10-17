@@ -1,0 +1,6 @@
+name: immutables
+version: '0.21'
+source:
+  url: https://github.com/MagicStack/immutables/archive/v0.21.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX

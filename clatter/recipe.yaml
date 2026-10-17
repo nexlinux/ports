@@ -1,0 +1,7 @@
+name: clatter
+version: 0.8.1
+source:
+  url: https://github.com/parenworks/clatter.el/archive/refs/tags/v0.8.1.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
