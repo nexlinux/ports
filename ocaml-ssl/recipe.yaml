@@ -1,0 +1,16 @@
+name: ocaml-ssl
+version: 0.7.0
+source:
+  url: https://github.com/savonet/ocaml-ssl/archive/v0.7.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - dune-configurator
+  - alcotest
+  - openssl
+  - ocaml
+  runtime:
+  - openssl
+  - ocaml

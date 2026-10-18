@@ -1,0 +1,26 @@
+name: gssdp
+version: 1.6.6
+source:
+  url: https://download.gnome.org/sources/gssdp/1.6/gssdp-1.6.6.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - gi-docgen
+  - docbook-xml-dtd
+  - pkgconfig
+  - libsoup
+  - gssdp
+  - glib
+  - gtk
+  - gobject-introspection
+  - pandoc
+  runtime:
+  - gssdp
+  - glib
+  - libsoup
+  - gtk
+  - gobject-introspection
+  - pandoc

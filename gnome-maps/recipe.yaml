@@ -1,0 +1,51 @@
+name: gnome-maps
+version: '50.5'
+source:
+  url: https://download.gnome.org/sources/gnome-maps/50/gnome-maps-50.5.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - glib-utils
+  - gettext
+  - blueprint-compiler
+  - pkgconfig
+  - glib
+  - gjs
+  - gobject-introspection
+  - gtk
+  - geoclue
+  - libadwaita
+  - libgweather
+  - geocode-glib
+  - libportal
+  - libshumate
+  - libxml2
+  - rest
+  - librsvg
+  - json-glib
+  - libsecret
+  - graphene
+  - libsoup
+  - pango
+  runtime:
+  - glib
+  - gjs
+  - gobject-introspection
+  - gtk
+  - geoclue
+  - libadwaita
+  - libgweather
+  - geocode-glib
+  - libportal
+  - libshumate
+  - libxml2
+  - rest
+  - librsvg
+  - json-glib
+  - libsecret
+  - graphene
+  - libsoup
+  - pango

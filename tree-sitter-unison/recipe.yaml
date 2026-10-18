@@ -1,0 +1,8 @@
+name: tree-sitter-unison
+version: 2.1.3
+source:
+  url: https://github.com/kylegoetz/tree-sitter-unison/archive/2.1.3.tar.gz
+build:
+- cargo build --release
+- mkdir -p $DESTDIR$PREFIX/bin
+- cp target/release/tree-sitter-unison $DESTDIR$PREFIX/bin/

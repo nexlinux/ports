@@ -1,0 +1,6 @@
+name: nodeenv
+version: 1.10.0
+source:
+  url: https://github.com/ekalinin/nodeenv/archive/1.10.0.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
