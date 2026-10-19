@@ -1,0 +1,39 @@
+name: libarchive
+version: 3.8.10
+source:
+  url: https://www.libarchive.de/downloads/libarchive-3.8.10.tar.xz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - pkgconfig
+  - openpgp-keys-libarchive
+  - zlib
+  - acl
+  - libb2
+  - bzip2
+  - expat
+  - libxml2
+  - libiconv
+  - openssl
+  - lz4-0_p131
+  - xz-utils
+  - lzo
+  - nettle
+  - zstd
+  runtime:
+  - zlib
+  - acl
+  - libb2
+  - bzip2
+  - expat
+  - libxml2
+  - libiconv
+  - openssl
+  - lz4-0_p131
+  - xz-utils
+  - lzo
+  - nettle
+  - zstd

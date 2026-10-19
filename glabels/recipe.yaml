@@ -1,0 +1,34 @@
+name: glabels
+version: 3.4.1-r2
+source:
+  url: https://download.gnome.org/sources/glabels/3.4/glabels-3.4.1.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - docbook-xml-dtd
+  - itstool
+  - gtk-doc-am
+  - intltool
+  - pkgconfig
+  - glib
+  - gtk+
+  - libxml2
+  - librsvg
+  - cairo
+  - pango
+  - barcode
+  - qrencode
+  - evolution-data-server
+  runtime:
+  - glib
+  - gtk+
+  - libxml2
+  - librsvg
+  - cairo
+  - pango
+  - barcode
+  - qrencode
+  - evolution-data-server

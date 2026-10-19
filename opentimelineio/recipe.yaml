@@ -1,0 +1,13 @@
+name: opentimelineio
+version: 0.18.1
+source:
+  url: https://github.com/AcademySoftwareFoundation/OpenTimelineIO/archive/refs/tags/v0.18.1.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - imath
+  runtime:
+  - imath

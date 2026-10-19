@@ -1,0 +1,27 @@
+name: gtkada
+version: 26.0.0
+source:
+  url: https://github.com/AdaCore/gtkada/archive/refs/tags/v26.0.0.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - at-spi2-core
+  - glib
+  - fontconfig
+  - freetype
+  - cairo
+  - gdk-pixbuf
+  - gtk+
+  - pango
+  runtime:
+  - at-spi2-core
+  - glib
+  - fontconfig
+  - freetype
+  - cairo
+  - gdk-pixbuf
+  - gtk+
+  - pango

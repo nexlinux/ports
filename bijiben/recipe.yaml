@@ -1,0 +1,27 @@
+name: bijiben
+version: '40.2'
+source:
+  url: https://download.gnome.org/sources/bijiben/40/bijiben-40.2.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - appstream-glib
+  - gdbus-codegen
+  - glib-utils
+  - itstool
+  - gettext
+  - pkgconfig
+  - tinysparql
+  - glib
+  - gnome-online-accounts
+  - gtk+
+  - json-glib
+  - evolution-data-server
+  - libhandy
+  - libxml2
+  - curl
+  - util-linux
+  - webkit-gtk

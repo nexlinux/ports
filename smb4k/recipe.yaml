@@ -1,0 +1,38 @@
+name: smb4k
+version: 4.0.7
+source:
+  url: https://downloads.sourceforge.net/smb4k/smb4k-4.0.7.tar.xz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - qtkeychain
+  - qtbase-
+  - qtdeclarative-
+  - kauth-
+  - kcompletion-
+  - kconfig-
+  - kconfigwidgets-
+  - kcoreaddons-
+  - kcrash-
+  - kdbusaddons-
+  - kdnssd-
+  - ki18n-
+  - kiconthemes-
+  - kio-
+  - kjobwidgets-
+  - knotifications-
+  - kstatusnotifieritem-
+  - kwallet-
+  - kwidgetsaddons-
+  - kwindowsystem-
+  - kxmlgui-
+  - solid-
+  - samba
+  - kdsoap
+  - kdsoap-ws-discovery-client
+  runtime:
+  - kirigami-
+  - libplasma
