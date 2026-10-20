@@ -1,0 +1,19 @@
+name: qbittorrent
+version: 5.2.3
+source:
+  url: https://downloads.sourceforge.net/qbittorrent/qbittorrent-5.2.3.tar.xz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - openpgp-keys-qbittorrent
+  runtime:
+  - boost
+  - openssl
+  - qtbase
+  - libtorrent-rasterbar
+  - zlib
+  - qtsvg
+  - qbittorrent

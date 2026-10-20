@@ -1,0 +1,28 @@
+name: ghex
+version: '50.4'
+source:
+  url: https://download.gnome.org/sources/ghex/50/ghex-50.3.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - gi-docgen
+  - desktop-file-utils
+  - appstream
+  - gtk-update-icon-cache
+  - itstool
+  - gettext
+  - pkgconfig
+  - glib
+  - gtk
+  - libadwaita
+  - gobject-introspection
+  - ghex
+  runtime:
+  - glib
+  - gtk
+  - libadwaita
+  - gobject-introspection
+  - ghex

@@ -1,0 +1,29 @@
+name: grilo
+version: 0.3.19
+source:
+  url: https://download.gnome.org/sources/grilo/0.3/grilo-0.3.19.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - glib-utils
+  - gettext
+  - pkgconfig
+  - gtk-doc
+  - docbook-xml-dtd
+  - dbus
+  - glib
+  - libsoup
+  - totem-pl-parser
+  - gobject-introspection
+  - liboauth
+  - gtk+
+  runtime:
+  - glib
+  - libsoup
+  - totem-pl-parser
+  - gobject-introspection
+  - liboauth
+  - gtk+

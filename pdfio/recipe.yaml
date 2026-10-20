@@ -1,0 +1,14 @@
+name: pdfio
+version: 1.6.5
+source:
+  url: https://github.com/michaelrsweet/pdfio/releases/download/v1.6.5/pdfio-1.6.5.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - pkgconfig
+  - openpgp-keys-michaelrsweet
+  - zlib
+  - libpng

@@ -1,0 +1,17 @@
+name: polyml
+version: 5.9.1
+source:
+  url: https://github.com/polyml/polyml/archive/v5.9.1.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - libffi
+  - motif
+  - gmp
+  runtime:
+  - libffi
+  - motif
+  - gmp
