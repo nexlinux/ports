@@ -1,0 +1,32 @@
+name: gnome-sudoku
+version: '50.4'
+source:
+  url: https://download.gnome.org/sources/gnome-sudoku/50/gnome-sudoku-50.4.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - appstream-glib
+  - blueprint-compiler
+  - itstool
+  - gettext
+  - pkgconfig
+  - glib
+  - libgee
+  - gtk
+  - libadwaita
+  - json-glib
+  - qqwing
+  - gdk-pixbuf
+  - pango
+  runtime:
+  - glib
+  - libgee
+  - gtk
+  - libadwaita
+  - json-glib
+  - qqwing
+  - gdk-pixbuf
+  - pango

@@ -1,0 +1,12 @@
+name: htmldoc
+version: 1.9.24
+source:
+  url: https://github.com/michaelrsweet/htmldoc/releases/download/v1.9.24/htmldoc-1.9.24-source.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - pkgconfig
+  - openpgp-keys-michaelrsweet

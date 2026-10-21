@@ -1,0 +1,30 @@
+name: libjcat
+version: 0.2.5
+source:
+  url: https://github.com/hughsie/libjcat/releases/download/0.2.5/libjcat-0.2.5.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - pkgconfig
+  - setuptools
+  - gtk-doc
+  - help2man
+  - gnutls
+  - openpgp-keys-hughsie
+  - glib
+  - json-glib
+  - gpgme
+  - libgpg-error
+  - gobject-introspection
+  - vala
+  runtime:
+  - glib
+  - json-glib
+  - gnutls
+  - gpgme
+  - libgpg-error
+  - gobject-introspection
+  - vala

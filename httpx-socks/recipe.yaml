@@ -1,0 +1,23 @@
+name: httpx-socks
+version: 0.11.0
+source:
+  url: https://github.com/romis2012/httpx-socks/archive/v0.11.0.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - hypercorn
+  - starlette
+  - tiny-proxy
+  - trio
+  - trustme
+  - yarl
+  - httpx
+  - httpcore
+  - python-socks
+  - sniffio
+  runtime:
+  - httpx
+  - httpcore
+  - python-socks
+  - sniffio

@@ -1,0 +1,13 @@
+name: dieharder
+version: 3.31.1-r4
+source:
+  url: https://www.phy.duke.edu/~rgb/General//.tgz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - latex2html
+  - gsl
+  runtime:
+  - gsl
