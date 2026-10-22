@@ -1,0 +1,17 @@
+name: libnetfilter_queue
+version: 1.0.5
+source:
+  url: https://www.netfilter.org/projects/libnetfilter_queue/files/libnetfilter_queue-1.0.5.tar.bz2
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - doxygen
+  - pkgconfig
+  - libmnl
+  - libnfnetlink
+  runtime:
+  - libmnl
+  - libnfnetlink

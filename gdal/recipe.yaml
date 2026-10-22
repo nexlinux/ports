@@ -1,0 +1,75 @@
+name: gdal
+version: 3.13.2
+source:
+  url: https://download.osgeo.org/gdal/3.13.2/gdal-3.13.2.tar.xz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - pkgconfig
+  - ant
+  - swig
+  - numpy
+  - filelock
+  - jsonschema
+  - lxml
+  - pytest
+  - pytest-env
+  - pytest-rerunfailures
+  - pytest-xdist
+  - pyarrow
+  - unzip
+  - openpgp-keys-gdal
+  - expat
+  - json-c
+  - libxml2
+  - openssl
+  - libjpeg-turbo
+  - proj
+  - minizip
+  - libarchive
+  - armadillo
+  - libavif
+  - c-blosc
+  - crypto++
+  - curl
+  - cfitsio
+  - geos
+  - giflib
+  - xerces-c
+  - libheif
+  - hdf5
+  - jdk
+  - openjpeg
+  - libjxl
+  - lerc
+  - libaec
+  - libdeflate
+  - lz4
+  - xz-utils
+  - lzma
+  - mongo-cxx-driver
+  - muParser
+  - mysql-connector-c
+  - netcdf
+  - unixODBC
+  - openexr
+  - oracle-instantclient
+  - apache-arrow
+  - poppler
+  - libpng
+  - postgresql
+  - qhull
+  - spatialite
+  - sqlite
+  - libpcre2
+  - tiff
+  - libgeotiff
+  - libwebp
+  - freexl
+  - zstd
+  runtime:
+  - jre
+  - numpy

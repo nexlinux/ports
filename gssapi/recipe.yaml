@@ -1,0 +1,16 @@
+name: gssapi
+version: 1.11.1
+source:
+  url: https://github.com/pythongssapi/python-gssapi/releases/download/v1.11.1/python-gssapi-1.11.1.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - cython
+  - krb5
+  - k5test
+  - parameterized
+  - decorator
+  runtime:
+  - decorator
+  - krb5

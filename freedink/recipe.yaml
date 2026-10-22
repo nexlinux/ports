@@ -1,0 +1,20 @@
+name: freedink
+version: '109.6'
+source:
+  url: https://ftp.gnu.org/gnu/freedink/freedink-109.6.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - gettext
+  - pkgconfig
+  - fontconfig
+  - libsdl2
+  - sdl2-gfx
+  - sdl2-image
+  - sdl2-mixer
+  - sdl2-ttf
+  runtime:
+  - freedink-data
