@@ -1,0 +1,14 @@
+name: ppx_log
+version: 0.16.0
+source:
+  url: https://github.com/janestreet/ppx_log/archive/refs/tags/v0.16.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - ocaml
+  - base
+  - ppx_sexp_message
+  - sexplib
+  - ppxlib

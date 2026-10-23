@@ -1,0 +1,8 @@
+name: bdf2sfd
+version: 1.2.0
+source:
+  url: https://github.com/fcambus/bdf2sfd/archive/1.2.0.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build

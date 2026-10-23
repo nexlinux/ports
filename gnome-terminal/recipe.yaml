@@ -1,0 +1,36 @@
+name: gnome-terminal
+version: 3.56.3
+source:
+  url: https://download.gnome.org/sources/gnome-terminal/3.56/gnome-terminal-3.56.3.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - libxml2
+  - libxslt
+  - gdbus-codegen
+  - glib-utils
+  - itstool
+  - gettext
+  - pkgconfig
+  - glib
+  - gtk+
+  - libhandy
+  - vte
+  - libpcre2
+  - gsettings-desktop-schemas
+  - util-linux
+  - gnome-shell
+  - nautilus
+  runtime:
+  - glib
+  - gtk+
+  - libhandy
+  - vte
+  - libpcre2
+  - gsettings-desktop-schemas
+  - util-linux
+  - gnome-shell
+  - nautilus
