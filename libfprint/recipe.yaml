@@ -1,0 +1,32 @@
+name: libfprint
+version: 1.94.10
+source:
+  url: https://gitlab.freedesktop.org/libfprint/libfprint/-/archive/v1.94.10/libfprint-1.94.10.tar.bz2
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - glib-utils
+  - gettext
+  - pkgconfig
+  - gtk-doc
+  - gobject-introspection
+  - libgusb
+  - glib
+  - libgudev
+  - openssl
+  - pygobject
+  - pixman
+  - gdk-pixbuf
+  - gtk+
+  runtime:
+  - glib
+  - libgudev
+  - openssl
+  - pygobject
+  - libgusb
+  - pixman
+  - gdk-pixbuf
+  - gtk+

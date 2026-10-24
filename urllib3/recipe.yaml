@@ -1,0 +1,18 @@
+name: urllib3
+version: 2.8.0
+source:
+  url: https://github.com/urllib3/urllib3/archive/refs/tags/2.8.0.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - hatch-vcs
+  - pysocks
+  - brotlicffi
+  - h2
+  - backports-zstd
+  runtime:
+  - pysocks
+  - brotlicffi
+  - h2
+  - backports-zstd
