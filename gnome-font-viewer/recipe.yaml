@@ -1,0 +1,21 @@
+name: gnome-font-viewer
+version: '50.0'
+source:
+  url: https://download.gnome.org/sources/gnome-font-viewer/50/gnome-font-viewer-50.0.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - appstream-glib
+  - libxml2
+  - gettext
+  - pkgconfig
+  - glib
+  - gtk
+  - libadwaita
+  - harfbuzz
+  - fontconfig
+  - freetype
+  - fribidi

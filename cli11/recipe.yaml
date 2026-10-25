@@ -1,0 +1,14 @@
+name: cli11
+version: 2.7.2
+source:
+  url: https://github.com/CLIUtils/CLI11/archive/refs/tags/v2.7.2.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - doxygen
+  - graphviz
+  - catch
+  - boost

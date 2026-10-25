@@ -1,0 +1,20 @@
+name: gupnp-av
+version: 0.14.4
+source:
+  url: https://download.gnome.org/sources/gupnp-av/0.14/gupnp-av-0.14.5.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - pkgconfig
+  - gi-docgen
+  - docbook-xml-dtd
+  - glib
+  - libxml2
+  - gobject-introspection
+  runtime:
+  - glib
+  - libxml2
+  - gobject-introspection

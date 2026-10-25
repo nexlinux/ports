@@ -1,0 +1,23 @@
+name: xastir
+version: 2.2.2
+source:
+  url: https://github.com/Xastir/Xastir/archive/Release-2.2.2.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - motif
+  - libXt
+  - libX11
+  - libXpm
+  - xfontsel
+  - libpcre2
+  - curl
+  - db
+  - shapelib
+  - graphicsmagick
+  - proj
+  - libgeotiff
+  - tiff

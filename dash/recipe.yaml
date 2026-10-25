@@ -1,0 +1,10 @@
+name: dash
+version: 2.20.0
+source:
+  url: https://github.com/magnars/dash.el/archive/2.20.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - texinfo

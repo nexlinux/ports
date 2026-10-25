@@ -1,0 +1,39 @@
+name: kile
+version: 2.9.94
+source:
+  url: https://downloads.sourceforge.net/kile/kile-2.9.94.tar.bz2
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - qt5compat-
+  - qtbase-
+  - qtdeclarative-
+  - okular
+  - kcodecs-
+  - kconfig-
+  - kcoreaddons-
+  - kcrash-
+  - kdbusaddons-
+  - kdoctools-
+  - kguiaddons-
+  - ki18n-
+  - kiconthemes-
+  - kio-
+  - kparts-
+  - ktexteditor-
+  - ktextwidgets-
+  - kwindowsystem-
+  - kxmlgui-
+  - poppler
+  runtime:
+  - konsole
+  - okular
+  - latex-base
+  - tex-base
+  - ghostscript-gpl
+  - texlive-core
+  - dvipng
+  - imagemagick-tools
