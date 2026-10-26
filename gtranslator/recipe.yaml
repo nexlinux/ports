@@ -1,0 +1,25 @@
+name: gtranslator
+version: '51.0'
+source:
+  url: https://download.gnome.org/sources/gtranslator/51/gtranslator-51.0.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - meson
+  - appstream-glib
+  - glib-utils
+  - itstool
+  - gettext
+  - pkgconfig
+  - libspelling
+  - sqlite
+  - glib
+  - gtk
+  - libadwaita
+  - gsettings-desktop-schemas
+  - gtksourceview
+  - libsoup
+  - json-glib

@@ -1,0 +1,15 @@
+name: nettop
+version: 0.2.3-r2
+source:
+  url: https://web.archive.org/web/20060705095248if_/http://srparish.net:80/software/nettop-0.2.3.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - slang
+  - libpcap
+  runtime:
+  - slang
+  - libpcap

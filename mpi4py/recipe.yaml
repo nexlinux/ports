@@ -1,0 +1,17 @@
+name: mpi4py
+version: 4.1.2
+source:
+  url: https://github.com/mpi4py/mpi4py/archive/refs/tags/4.1.2.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - cython
+  - meson
+  - mpi
+  - numpy
+  runtime:
+  - numpy
+  - mpi

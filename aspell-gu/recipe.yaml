@@ -1,0 +1,8 @@
+name: aspell-gu
+version: 0.03.0-r1
+source:
+  url: https://downloads.sourceforge.net/aspell-gu/aspell6-gu-0.03-0.tar.bz2
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install

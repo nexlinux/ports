@@ -1,0 +1,8 @@
+name: mm-common
+version: 1.0.8
+source:
+  url: https://download.gnome.org/sources/mm-common/1.0/mm-common-1.0.8.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build

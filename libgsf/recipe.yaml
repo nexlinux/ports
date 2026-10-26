@@ -1,0 +1,25 @@
+name: libgsf
+version: 1.14.53-r1
+source:
+  url: https://download.gnome.org/sources/libgsf/1.14/libgsf-1.14.58.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - glib
+  - libxml2
+  - zlib
+  - bzip2
+  - gdk-pixbuf
+  - imagemagick-tools
+  - gobject-introspection
+  runtime:
+  - glib
+  - libxml2
+  - zlib
+  - bzip2
+  - gdk-pixbuf
+  - imagemagick-tools
+  - gobject-introspection

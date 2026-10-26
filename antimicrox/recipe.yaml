@@ -1,0 +1,26 @@
+name: antimicrox
+version: 3.6.1
+source:
+  url: https://github.com/AntiMicroX/antimicrox/archive/3.6.1.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - qttools
+  - extra-cmake-modules
+  - doxygen
+  - qtbase
+  - libsdl2
+  - udev
+  - libX11
+  - libXi
+  - libXtst
+  runtime:
+  - qtbase
+  - libsdl2
+  - udev
+  - libX11
+  - libXi
+  - libXtst

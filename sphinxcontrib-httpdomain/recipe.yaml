@@ -1,0 +1,14 @@
+name: sphinxcontrib-httpdomain
+version: 2.2.1
+source:
+  url: https://github.com/sphinx-contrib/httpdomain/archive/2.2.1.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - bottle
+  - flask
+  - tornado
+  - sphinx
+  runtime:
+  - sphinx
