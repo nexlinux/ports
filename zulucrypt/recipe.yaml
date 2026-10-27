@@ -1,0 +1,23 @@
+name: zulucrypt
+version: 7.1.1
+source:
+  url: https://github.com/mhogomchungu/zulucrypt/releases/download/7.1.1/zulucrypt-7.1.1.tar.xz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - pkgconfig
+  - openpgp-keys-zulucrypt
+  - libgcrypt
+  - util-linux
+  - cryptsetup
+  - lvm2
+  - libsecret
+  - libpwquality
+  - qtbase
+  - knotifications
+  - kwallet
+  runtime:
+  - libudev

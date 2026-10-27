@@ -1,0 +1,7 @@
+name: s6-portable-utils-man-pages
+version: 2.3.0.4.1
+source:
+  url: https://git.sr.ht/~flexibeast/s6-portable-utils-man-pages/archive/v2.3.0.4.1.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install

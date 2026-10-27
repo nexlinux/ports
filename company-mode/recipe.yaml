@@ -1,0 +1,7 @@
+name: company-mode
+version: 1.0.2
+source:
+  url: https://github.com/company-mode/company-mode/archive/refs/tags/1.0.2.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install

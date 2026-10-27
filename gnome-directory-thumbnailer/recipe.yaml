@@ -1,0 +1,21 @@
+name: gnome-directory-thumbnailer
+version: 0.1.11-r1
+source:
+  url: https://download.gnome.org/sources/gnome-directory-thumbnailer/0.1/gnome-directory-thumbnailer-0.1.11.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - intltool
+  - pkgconfig
+  - glib
+  - gdk-pixbuf
+  - gnome-desktop
+  - gtk+
+  runtime:
+  - glib
+  - gdk-pixbuf
+  - gnome-desktop
+  - gtk+

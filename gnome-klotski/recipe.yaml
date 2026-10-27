@@ -1,0 +1,25 @@
+name: gnome-klotski
+version: 3.38.2-r1
+source:
+  url: https://download.gnome.org/sources/gnome-klotski/3.38/gnome-klotski-3.38.2.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - appstream-glib
+  - itstool
+  - gettext
+  - pkgconfig
+  - libgee
+  - glib
+  - libgnome-games-support
+  - gtk+
+  - librsvg
+  runtime:
+  - libgee
+  - glib
+  - libgnome-games-support
+  - gtk+
+  - librsvg

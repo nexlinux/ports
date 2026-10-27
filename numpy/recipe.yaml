@@ -1,0 +1,21 @@
+name: numpy
+version: 2.5.1
+source:
+  url: https://github.com/numpy/numpy/archive/refs/tags/v2.5.1.tar.gz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - meson
+  - cython
+  - pkgconfig
+  - cffi
+  - charset-normalizer
+  - pytz
+  - cblas
+  - lapack
+  runtime:
+  - cblas
+  - lapack

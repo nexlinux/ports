@@ -1,0 +1,16 @@
+name: stow
+version: 2.4.1
+source:
+  url: https://ftp.gnu.org/gnu/stow/stow-2.4.1.tar.bz2
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - IO-stringy
+  - Test-Output
+  - openpgp-keys-adamspiers
+  - perl
+  runtime:
+  - perl

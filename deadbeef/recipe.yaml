@@ -1,0 +1,48 @@
+name: deadbeef
+version: 1.10.2
+source:
+  url: https://sourceforge.net/projects/deadbeef/files/Builds/1.10.2/linux/deadbeef-1.10.2.tar.bz2/download
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - intltool
+  - clang
+  - gettext
+  - llvm
+  - pkgconfig
+  - at-spi2-core
+  - glib
+  - jansson
+  - libdispatch
+  - harfbuzz
+  - curl
+  - cairo
+  - gdk-pixbuf
+  - gtk+
+  - libX11
+  - pango
+  - faad2
+  - alsa-lib
+  - libcdio
+  - libcddb
+  - cdparanoia
+  - libdca
+  - ffmpeg
+  - flac
+  - libogg
+  - libsamplerate
+  - mpg123-base
+  - musepack-tools
+  - libintl
+  - dbus
+  - opusfile
+  - libpulse
+  - pipewire
+  - libvorbis
+  - wavpack
+  - libzip
+  runtime:
+  - deadbeef-mpris2-plugin
