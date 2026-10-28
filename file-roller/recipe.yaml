@@ -1,0 +1,36 @@
+name: file-roller
+version: '44.6'
+source:
+  url: https://download.gnome.org/sources/file-roller/44/file-roller-44.7.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - glib-utils
+  - itstool
+  - gettext
+  - pkgconfig
+  - gi-docgen
+  - glib
+  - gtk
+  - libadwaita
+  - nautilus
+  - json-glib
+  - libarchive
+  - gobject-introspection
+  - cairo
+  - gdk-pixbuf
+  - pango
+  runtime:
+  - glib
+  - gtk
+  - libadwaita
+  - nautilus
+  - json-glib
+  - libarchive
+  - gobject-introspection
+  - cairo
+  - gdk-pixbuf
+  - pango

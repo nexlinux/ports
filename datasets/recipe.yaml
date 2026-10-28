@@ -1,0 +1,54 @@
+name: datasets
+version: 4.8.5
+source:
+  url: https://github.com/huggingface/datasets/archive/refs/tags/4.8.5.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - torchvision
+  - absl-py
+  - decorator
+  - elasticsearch
+  - h5py
+  - lz4
+  - moto
+  - protobuf
+  - pytest-datadir
+  - pytest-xdist
+  - soundfile
+  - sqlalchemy
+  - zstandard
+  - huggingface_hub
+  - dill
+  - filelock
+  - fsspec
+  - multiprocess
+  - numpy
+  - packaging
+  - pandas
+  - pyarrow
+  - pyyaml
+  - requests
+  - tqdm
+  - xxhash
+  - pillow
+  - caffe2
+  - pytorch
+  runtime:
+  - huggingface_hub
+  - dill
+  - filelock
+  - fsspec
+  - multiprocess
+  - numpy
+  - packaging
+  - pandas
+  - pyarrow
+  - pyyaml
+  - requests
+  - tqdm
+  - xxhash
+  - pillow
+  - caffe2
+  - pytorch

@@ -1,0 +1,26 @@
+name: gnome-connections
+version: '50.0'
+source:
+  url: https://download.gnome.org/sources/gnome-connections/50/gnome-connections-50.0.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - glib
+  - glib-utils
+  - itstool
+  - gettext
+  - pkgconfig
+  - appstream-glib
+  - desktop-file-utils
+  - gobject-introspection
+  - gtk+
+  - fuse
+  - gtk-vnc
+  - libhandy
+  - libxml2
+  - libsecret
+  - freerdp
+  - spice-gtk

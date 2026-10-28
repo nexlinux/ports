@@ -1,0 +1,16 @@
+name: mastodon
+version: 2.0.7
+source:
+  url: https://codeberg.org/martianh/mastodon.el/archive/2.0.7.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - persist
+  - request
+  - tp
+  runtime:
+  - persist
+  - request
+  - tp

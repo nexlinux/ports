@@ -1,0 +1,8 @@
+name: libunistring
+version: 1.4.2
+source:
+  url: https://ftp.gnu.org/gnu/libunistring/libunistring-1.4.2.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install

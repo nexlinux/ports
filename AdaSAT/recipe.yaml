@@ -1,0 +1,11 @@
+name: AdaSAT
+version: 25.0.0
+source:
+  url: https://github.com/AdaCore/AdaSAT/archive/refs/tags/v25.0.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - e3-testsuite
+  - gprbuild
