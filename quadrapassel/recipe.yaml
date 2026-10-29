@@ -1,0 +1,32 @@
+name: quadrapassel
+version: '49.3'
+source:
+  url: https://download.gnome.org/sources/quadrapassel/49/quadrapassel-49.3.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - appstream-glib
+  - blueprint-compiler
+  - itstool
+  - gettext
+  - pkgconfig
+  - gsound
+  - libmanette
+  - librsvg
+  - libgee
+  - gtk
+  - libadwaita
+  - libgnome-games-support
+  - pango
+  runtime:
+  - libgee
+  - gsound
+  - gtk
+  - libadwaita
+  - libgnome-games-support
+  - libmanette
+  - pango
+  - librsvg

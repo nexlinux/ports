@@ -1,0 +1,12 @@
+name: emacs-wttrin
+version: 0.3.2
+source:
+  url: https://github.com/cjennings/emacs-wttrin/archive/refs/tags/v0.3.2.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - xterm-color
+  runtime:
+  - xterm-color

@@ -1,0 +1,39 @@
+name: incus
+version: 7.0.2
+source:
+  url: https://linuxcontainers.org/downloads/incus/incus-7.0.2.tar.xz
+build:
+- go build -o incus
+- mkdir -p $DESTDIR$PREFIX/bin
+- cp incus $DESTDIR$PREFIX/bin/
+depends:
+  build:
+  - go
+  - gettext
+  - openpgp-keys-linuxcontainers
+  - incus
+  - incus-admin
+  - xz-utils
+  - lxc
+  - sqlite
+  - cowsql
+  - lzo
+  - raft
+  - xdelta
+  - dnsmasq
+  - libcap
+  - udev
+  runtime:
+  - lxd
+  - ebtables
+  - nftables
+  - iproute2
+  - fuse
+  - lxcfs
+  - squashfs-tools
+  - acl
+  - apparmor-profiles
+  - cdrtools
+  - qemu
+  - gptfdisk
+  - selinux-incus

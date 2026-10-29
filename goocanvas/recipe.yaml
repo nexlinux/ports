@@ -1,0 +1,23 @@
+name: goocanvas
+version: 2.0.4-r2
+source:
+  url: https://download.gnome.org/sources/goocanvas/2.0/goocanvas-2.0.4.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - glib-utils
+  - gtk-doc-am
+  - gettext
+  - pkgconfig
+  - cairo
+  - glib
+  - gtk+
+  - gobject-introspection
+  runtime:
+  - cairo
+  - glib
+  - gtk+
+  - gobject-introspection
