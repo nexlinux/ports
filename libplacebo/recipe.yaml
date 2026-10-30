@@ -1,0 +1,25 @@
+name: libplacebo
+version: 7.360.1
+source:
+  url: https://code.videolan.org/videolan/libplacebo/-/archive/v7.360.1/libplacebo-v7.360.1.tar.bz2
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - jinja2
+  - pkgconfig
+  - lcms
+  - libdovi
+  - libglvnd
+  - shaderc
+  - libunwind
+  - vulkan-loader
+  runtime:
+  - lcms
+  - libdovi
+  - libglvnd
+  - shaderc
+  - libunwind
+  - vulkan-loader
