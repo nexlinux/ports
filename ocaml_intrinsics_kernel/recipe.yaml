@@ -1,0 +1,11 @@
+name: ocaml_intrinsics_kernel
+version: 0.17.0
+source:
+  url: https://github.com/janestreet/ocaml_intrinsics_kernel/archive/refs/tags/v0.17.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - dune
+  - ocaml

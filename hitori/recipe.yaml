@@ -1,0 +1,21 @@
+name: hitori
+version: '44.0'
+source:
+  url: https://download.gnome.org/sources/hitori/44/hitori-44.0.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - appstream-glib
+  - itstool
+  - gettext
+  - pkgconfig
+  - glib
+  - gtk+
+  - cairo
+  runtime:
+  - glib
+  - gtk+
+  - cairo

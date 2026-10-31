@@ -1,0 +1,28 @@
+name: libsoup
+version: 3.6.6
+source:
+  url: https://download.gnome.org/sources/libsoup/3.6/libsoup-3.6.6.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - glib
+  - glib-utils
+  - gi-docgen
+  - docbook-xml-dtd
+  - gettext
+  - pkgconfig
+  - gnutls
+  - nghttp2
+  - sqlite
+  - brotli
+  - libpsl
+  - sysprof-capture
+  - zlib
+  - krb5
+  - gobject-introspection
+  - samba
+  runtime:
+  - glib-networking

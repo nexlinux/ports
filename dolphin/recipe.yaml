@@ -1,0 +1,85 @@
+name: dolphin
+version: 2606a
+source:
+  url: https://github.com/dolphin-emu/dolphin/archive/2606a.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - gettext
+  - pkgconfig
+  - bzip2
+  - lz4
+  - xz-utils
+  - zstd
+  - hidapi
+  - libfmt
+  - glslang
+  - lzo
+  - pugixml
+  - xxhash
+  - cubeb
+  - libsfml
+  - libspng
+  - enet
+  - mbedtls
+  - curl
+  - minizip-ng
+  - libX11
+  - libXi
+  - libXrandr
+  - libusb
+  - opengl
+  - zlib
+  - alsa-lib
+  - bluez
+  - libevdev
+  - libudev
+  - ffmpeg
+  - qtbase
+  - qtsvg
+  - llvm
+  - mgba
+  - libpulse
+  - libsdl3
+  - systemd
+  - miniupnpc
+  runtime:
+  - bzip2
+  - lz4
+  - xz-utils
+  - zstd
+  - hidapi
+  - libfmt
+  - glslang
+  - lzo
+  - pugixml
+  - xxhash
+  - cubeb
+  - libsfml
+  - libspng
+  - enet
+  - mbedtls
+  - curl
+  - minizip-ng
+  - libX11
+  - libXi
+  - libXrandr
+  - libusb
+  - opengl
+  - zlib
+  - alsa-lib
+  - bluez
+  - libevdev
+  - libudev
+  - ffmpeg
+  - qtbase
+  - qtsvg
+  - llvm
+  - mgba
+  - libpulse
+  - libsdl3
+  - systemd
+  - miniupnpc

@@ -1,0 +1,34 @@
+name: hugin
+version: '9999'
+source:
+  url: https://downloads.sourceforge.net/hugin/hugin-2025.0.1.tar.bz2
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - sqlite
+  - boost
+  - enblend
+  - exiv2
+  - freeglut
+  - glew
+  - libjpeg-turbo
+  - libpano13
+  - libpng
+  - openexr
+  - tiff
+  - vigra
+  - fftw
+  - flann
+  - zlib
+  - glu
+  - opengl
+  - wxGTK
+  - blas
+  - lapack
+  - autopano-sift-C
+  runtime:
+  - exiftool
+  - dcraw

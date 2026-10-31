@@ -1,0 +1,11 @@
+name: gnome-user-docs
+version: '50.5'
+source:
+  url: https://download.gnome.org/sources/gnome-user-docs/50/gnome-user-docs-50.5.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - libxml2

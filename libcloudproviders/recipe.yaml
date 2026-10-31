@@ -1,0 +1,17 @@
+name: libcloudproviders
+version: 0.4.1
+source:
+  url: https://download.gnome.org/sources/libcloudproviders/0.4/libcloudproviders-0.4.1.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - meson
+  - gdbus-codegen
+  - glib-utils
+  - pkgconfig
+  - gi-docgen
+  - glib
+  - gobject-introspection
