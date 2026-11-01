@@ -1,0 +1,10 @@
+name: proper
+version: '1.4'
+source:
+  url: https://github.com/proper-testing/proper/archive/v1.4.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - erlang

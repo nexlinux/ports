@@ -1,0 +1,11 @@
+name: bigstringaf
+version: 0.10.0
+source:
+  url: https://github.com/inhabitedtype/bigstringaf/archive/0.10.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - dune-configurator
+  - alcotest

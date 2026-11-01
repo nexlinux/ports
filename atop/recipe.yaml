@@ -1,0 +1,21 @@
+name: atop
+version: 2.12.1
+source:
+  url: https://www.atoptool.nl/download/atop-2.12.1.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - pkgconfig
+  - glib
+  - ncurses
+  - zlib
+  - acct
+  - nvidia-ml-py
+  runtime:
+  - glib
+  - ncurses
+  - zlib
+  - acct
+  - nvidia-ml-py

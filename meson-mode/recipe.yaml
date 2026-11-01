@@ -1,0 +1,7 @@
+name: meson-mode
+version: '0.4'
+source:
+  url: https://github.com/wentasah/meson-mode/archive/v0.4.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install

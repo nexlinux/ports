@@ -1,0 +1,13 @@
+name: avro-c
+version: 1.12.0
+source:
+  url: https://archive.apache.org/dist/avro/avro-1.12.0/c/avro-c-1.12.0.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - snappy
+  - jansson
+  - zlib
