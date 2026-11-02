@@ -1,0 +1,17 @@
+name: markup
+version: 1.0.3
+source:
+  url: https://github.com/aantron/markup.ml/archive/1.0.3.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - ounit2
+  - lwt
+  - uchar
+  - uutf
+  runtime:
+  - lwt
+  - uchar
+  - uutf

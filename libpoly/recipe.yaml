@@ -1,0 +1,16 @@
+name: libpoly
+version: 0.1.11
+source:
+  url: https://github.com/SRI-CSL/libpoly/archive/v0.1.11.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - patchelf
+  - gmp
+  - sympy
+  runtime:
+  - gmp
+  - sympy

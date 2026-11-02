@@ -1,0 +1,16 @@
+name: pcsc-tools
+version: 1.7.4
+source:
+  url: https://pcsc-tools.apdu.fr/pcsc-tools-1.7.4.tar.bz2
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - openpgp-keys-ludovicrousseau
+  - pcsc-lite
+  runtime:
+  - libintl-perl
+  - pcsc-perl
+  - Gtk3

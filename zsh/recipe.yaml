@@ -1,0 +1,20 @@
+name: zsh
+version: 5.9.2
+source:
+  url: https://www.zsh.org/pub/zsh-5.9.2.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - groff
+  - ncurses
+  - libcap
+  - libpcre2
+  - gdbm
+  runtime:
+  - ncurses
+  - libcap
+  - libpcre2
+  - gdbm
