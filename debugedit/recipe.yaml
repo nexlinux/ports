@@ -1,0 +1,19 @@
+name: debugedit
+version: '5.4'
+source:
+  url: https://sourceware.org/ftp/debugedit/5.4/debugedit-5.4.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - help2man
+  - pkgconfig
+  - cpio
+  - gdb
+  - dwz
+  - openpgp-keys-debugedit
+  - elfutils
+  - xxhash
+  - error-standalone

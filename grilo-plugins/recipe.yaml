@@ -1,0 +1,59 @@
+name: grilo-plugins
+version: 0.3.18-r2
+source:
+  url: https://download.gnome.org/sources/grilo-plugins/0.3/grilo-plugins-0.3.18.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - docbook-xml-dtd
+  - itstool
+  - gettext
+  - gdbus-codegen
+  - pkgconfig
+  - gperf
+  - glib
+  - grilo
+  - avahi
+  - gom
+  - gstreamer
+  - gst-plugins-base
+  - gst-plugins-chromaprint
+  - json-glib
+  - libdmapsharing
+  - libmediaart
+  - libsoup
+  - libxml2
+  - liboauth
+  - sqlite
+  - totem-pl-parser
+  - localsearch
+  - tinysparql
+  - dleyna
+  - libarchive
+  - rest
+  - gnome-online-accounts
+  runtime:
+  - glib
+  - grilo
+  - avahi
+  - gom
+  - gstreamer
+  - gst-plugins-base
+  - gst-plugins-chromaprint
+  - json-glib
+  - libdmapsharing
+  - libmediaart
+  - libsoup
+  - libxml2
+  - liboauth
+  - sqlite
+  - totem-pl-parser
+  - localsearch
+  - tinysparql
+  - dleyna
+  - libarchive
+  - rest
+  - gnome-online-accounts

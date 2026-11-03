@@ -1,0 +1,45 @@
+name: krusader
+version: 2.9.0
+source:
+  url: https://download.kde.org/stable/stable/krusader/2.9.0/krusader-2.9.0.tar.xz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - qt5compat-
+  - qtbase-
+  - karchive-
+  - kbookmarks-
+  - kcodecs-
+  - kcompletion-
+  - kconfig-
+  - kconfigwidgets-
+  - kcoreaddons-
+  - kcrash-
+  - kglobalaccel-
+  - kguiaddons-
+  - ki18n-
+  - kiconthemes-
+  - kio-
+  - kitemviews-
+  - kjobwidgets-
+  - knotifications-
+  - kparts-
+  - kservice-
+  - kstatusnotifieritem-
+  - ktextwidgets-
+  - kwallet-
+  - kwidgetsaddons-
+  - kwindowsystem-
+  - kxmlgui-
+  - solid-
+  - acl
+  - attr
+  - zlib
+  runtime:
+  - kio-extras
+  - thumbnailers
+  - ktexteditor-
+  - kdesu-gui

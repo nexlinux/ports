@@ -1,0 +1,42 @@
+name: accerciser
+version: 3.48.0
+source:
+  url: https://download.gnome.org/sources/accerciser/3.48/accerciser-3.48.0.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - itstool
+  - gettext
+  - pkgconfig
+  - at-spi2-core
+  - gtk+
+  - pygobject
+  - ipython
+  - pyatspi
+  - pycairo
+  - python-xlib
+  - atk
+  - glib
+  - gobject-introspection
+  - gdk-pixbuf
+  - libwnck
+  - pango
+  - librsvg
+  runtime:
+  - at-spi2-core
+  - gtk+
+  - pygobject
+  - ipython
+  - pyatspi
+  - pycairo
+  - python-xlib
+  - atk
+  - glib
+  - gobject-introspection
+  - gdk-pixbuf
+  - libwnck
+  - pango
+  - librsvg

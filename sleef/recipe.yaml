@@ -1,0 +1,12 @@
+name: sleef
+version: 3.9.0
+source:
+  url: https://github.com/shibatch/sleef/archive/refs/tags/3.9.0.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - mpfr
+  - tlfloat

@@ -1,0 +1,27 @@
+name: fcft
+version: 3.3.1
+source:
+  url: https://codeberg.org/dnkl/fcft/releases/download/3.3.1/fcft-3.3.1.tar.gz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - scdoc
+  - pkgconfig
+  - wayland-scanner
+  - openpgp-keys-dnkl
+  - fontconfig
+  - freetype
+  - pixman
+  - libutf8proc
+  - wayland
+  - harfbuzz
+  runtime:
+  - fontconfig
+  - freetype
+  - pixman
+  - libutf8proc
+  - wayland
+  - harfbuzz
