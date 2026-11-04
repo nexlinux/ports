@@ -1,0 +1,45 @@
+name: vcmi
+version: 1.7.5
+source:
+  url: https://github.com/vcmi/vcmi/archive/1.7.5.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - pkgconfig
+  - qttools
+  - tbb
+  - boost
+  - fuzzylite
+  - libsdl2
+  - libsquish
+  - sdl2-image
+  - sdl2-mixer
+  - sdl2-ttf
+  - minizip
+  - zlib
+  - libfmt
+  - qtbase
+  - qtsvg
+  - xz-utils
+  - sqlite
+  - ffmpeg
+  runtime:
+  - tbb
+  - boost
+  - fuzzylite
+  - libsdl2
+  - libsquish
+  - sdl2-image
+  - sdl2-mixer
+  - sdl2-ttf
+  - minizip
+  - zlib
+  - libfmt
+  - qtbase
+  - qtsvg
+  - xz-utils
+  - sqlite
+  - ffmpeg

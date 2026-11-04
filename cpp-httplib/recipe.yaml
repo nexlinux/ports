@@ -1,0 +1,22 @@
+name: cpp-httplib
+version: 0.58.0
+source:
+  url: https://github.com/yhirose/cpp-httplib/archive/v0.58.0.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - pkgconfig
+  - brotli
+  - mbedtls
+  - openssl
+  - zlib
+  - zstd
+  runtime:
+  - brotli
+  - mbedtls
+  - openssl
+  - zlib
+  - zstd

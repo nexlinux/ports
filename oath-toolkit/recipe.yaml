@@ -1,0 +1,15 @@
+name: oath-toolkit
+version: 2.6.14
+source:
+  url: https://codeberg.org/oath-toolkit/oath-toolkit/releases/download/v2.6.14/oath-toolkit-2.6.14.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - gtk-doc-am
+  - libxml2
+  - openpgp-keys-oath-toolkit
+  - xmlsec
+  - pam

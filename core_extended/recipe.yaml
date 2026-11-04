@@ -1,0 +1,25 @@
+name: core_extended
+version: 0.17.0
+source:
+  url: https://github.com/janestreet/core_extended/archive/refs/tags/v0.17.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - dune
+  - ocaml
+  - core
+  - core_kernel
+  - core_unix
+  - ppx_jane
+  - re
+  - record_builder
+  runtime:
+  - ocaml
+  - core
+  - core_kernel
+  - core_unix
+  - ppx_jane
+  - re
+  - record_builder

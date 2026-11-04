@@ -1,0 +1,22 @@
+name: ppxlib
+version: 0.39.0
+source:
+  url: https://github.com/ocaml-ppx/ppxlib/archive/0.39.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - dune
+  - cinaps
+  - cmdliner
+  - ocaml-compiler-libs
+  - ppx_derivers
+  - sexplib0
+  - yojson
+  runtime:
+  - cmdliner
+  - ocaml-compiler-libs
+  - ppx_derivers
+  - sexplib0
+  - yojson

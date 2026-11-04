@@ -1,0 +1,61 @@
+name: metacity
+version: 3.54.0-r1
+source:
+  url: https://download.gnome.org/sources/metacity/3.54/metacity-3.54.0.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - vulkan-headers
+  - glib-utils
+  - gettext
+  - pkgconfig
+  - glib
+  - gtk+
+  - pango
+  - libXcomposite
+  - libXres
+  - gsettings-desktop-schemas
+  - libXfixes
+  - libXrender
+  - libXdamage
+  - libXpresent
+  - libcanberra-gtk3
+  - libcanberra
+  - startup-notification
+  - libXcursor
+  - libgtop
+  - libX11
+  - libXinerama
+  - libXrandr
+  - libXext
+  - libICE
+  - libSM
+  - zenity
+  - vulkan-loader
+  runtime:
+  - glib
+  - gtk+
+  - pango
+  - libXcomposite
+  - libXres
+  - gsettings-desktop-schemas
+  - libXfixes
+  - libXrender
+  - libXdamage
+  - libXpresent
+  - libcanberra-gtk3
+  - libcanberra
+  - startup-notification
+  - libXcursor
+  - libgtop
+  - libX11
+  - libXinerama
+  - libXrandr
+  - libXext
+  - libICE
+  - libSM
+  - zenity
+  - vulkan-loader
