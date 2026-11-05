@@ -1,0 +1,13 @@
+name: ml-dtypes
+version: 0.5.4
+source:
+  url: https://gitlab.com/libeigen/eigen/-/archive/7bf2968fed5f246c0589e1111004cb420fcd7c71/eigen-7bf2968fed5f246c0589e1111004cb420fcd7c71.tar.bz2
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - pybind11
+  - absl-py
+  - numpy

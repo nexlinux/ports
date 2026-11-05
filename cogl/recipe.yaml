@@ -1,0 +1,31 @@
+name: cogl
+version: 1.22.8-r3
+source:
+  url: https://download.gnome.org/sources/cogl/1.22/cogl-1.22.8.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - glib-utils
+  - gettext
+  - pkgconfig
+  - glib
+  - cairo
+  - gdk-pixbuf
+  - libX11
+  - libXcomposite
+  - libXdamage
+  - libXext
+  - libXfixes
+  - libXrandr
+  - opengl
+  - libglvnd
+  - gstreamer
+  - gst-plugins-base
+  - gobject-introspection
+  - mesa
+  - libdrm
+  - pango
+  - wayland

@@ -1,0 +1,112 @@
+name: pytorch
+version: 2.14.1
+source:
+  url: https://github.com/pytorch/pytorch/archive/refs/tags/v2.14.1.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - cmake
+  - caffe2
+  - abseil-cpp
+  - gflags
+  - glog
+  - cpuinfo
+  - libfmt
+  - protobuf
+  - sleef
+  - onnx
+  - networkx
+  - sympy
+  - typing-extensions
+  - blas
+  - cudnn
+  - cudnn-frontend
+  - nvidia-cuda-toolkit
+  - cusparselt
+  - tensorpipe
+  - cpp-httplib
+  - FBGEMM
+  - gloo
+  - kineto
+  - mimalloc
+  - mkl
+  - mpi
+  - NNPACK
+  - pthreadpool
+  - numpy
+  - oneDNN
+  - openblas
+  - opencl
+  - QNNPACK
+  - gemmlowp
+  - rccl
+  - hip
+  - roctracer
+  - hipBLAS
+  - hipBLASLt
+  - hipFFT
+  - hipRAND
+  - hipSOLVER
+  - hipSPARSE
+  - miopen
+  - rocBLAS
+  - rocRAND
+  - rocSOLVER
+  - aotriton-bin
+  - amdsmi
+  - hipsparselt
+  - XNNPACK
+  runtime:
+  - caffe2
+  - abseil-cpp
+  - gflags
+  - glog
+  - cpuinfo
+  - libfmt
+  - protobuf
+  - sleef
+  - onnx
+  - networkx
+  - sympy
+  - typing-extensions
+  - blas
+  - cudnn
+  - cudnn-frontend
+  - nvidia-cuda-toolkit
+  - cusparselt
+  - tensorpipe
+  - cpp-httplib
+  - FBGEMM
+  - gloo
+  - kineto
+  - mimalloc
+  - mkl
+  - mpi
+  - NNPACK
+  - pthreadpool
+  - numpy
+  - oneDNN
+  - openblas
+  - opencl
+  - QNNPACK
+  - gemmlowp
+  - rccl
+  - hip
+  - roctracer
+  - hipBLAS
+  - hipBLASLt
+  - hipFFT
+  - hipRAND
+  - hipSOLVER
+  - hipSPARSE
+  - miopen
+  - rocBLAS
+  - rocRAND
+  - rocSOLVER
+  - aotriton-bin
+  - amdsmi
+  - hipsparselt
+  - XNNPACK

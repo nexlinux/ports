@@ -1,0 +1,10 @@
+name: luerl
+version: '1.2'
+source:
+  url: https://github.com/rvirding/luerl/archive/v1.2.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - erlang

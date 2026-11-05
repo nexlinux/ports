@@ -1,0 +1,22 @@
+name: bmaptool
+version: 3.9.0
+source:
+  url: https://github.com/yoctoproject/bmaptool/archive/refs/tags/v3.9.0.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - bzip2
+  - gzip
+  - lz4
+  - lzop
+  - pbzip2
+  - pigz
+  - unzip
+  - xz-utils
+  - zstd
+  - gpgmepy
+  - six
+  - tar
+  runtime:
+  - tar

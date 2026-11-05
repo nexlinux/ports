@@ -1,0 +1,31 @@
+name: gobject-introspection
+version: 1.86.0
+source:
+  url: https://download.gnome.org/sources/gobject-introspection/1.86/gobject-introspection-1.86.0.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - gtk-doc
+  - docbook-xml-dtd
+  - meson
+  - bison
+  - lex
+  - cairo
+  - mako
+  - markdown
+  - gobject-introspection-common-
+  - glib
+  - libffi
+  - setuptools
+  - pkgconfig
+  runtime:
+  - gobject-introspection-common-
+  - glib
+  - libffi
+  - setuptools
+  - mako
+  - markdown
+  - pkgconfig

@@ -1,0 +1,21 @@
+name: libgrss
+version: 0.7.0-r2
+source:
+  url: https://download.gnome.org/sources/libgrss/0.7/libgrss-0.7.0.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - gtk-doc-am
+  - pkgconfig
+  - glib
+  - libxml2
+  - libsoup
+  - gobject-introspection
+  runtime:
+  - glib
+  - libxml2
+  - libsoup
+  - gobject-introspection
