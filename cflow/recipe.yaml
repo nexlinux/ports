@@ -1,0 +1,19 @@
+name: cflow
+version: '1.8'
+source:
+  url: https://ftp.gnu.org/gnu/cflow/cflow-1.8.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - lex
+  - emacs
+  - gettext
+  - libintl
+  - libiconv
+  runtime:
+  - emacs
+  - libintl
+  - libiconv

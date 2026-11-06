@@ -1,0 +1,11 @@
+name: libart_lgpl
+version: 2.3.21-r3
+source:
+  url: https://download.gnome.org/sources/libart_lgpl/2.3/libart_lgpl-2.3.21.tar.bz2
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - pkgconfig

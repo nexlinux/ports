@@ -1,0 +1,36 @@
+name: easycrypt
+version: '2026.06'
+source:
+  url: https://github.com/EasyCrypt/easycrypt/archive/r2026.06.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - why3
+  - batteries
+  - camlp-streams
+  - pcre2-ocaml
+  - zarith
+  - camlzip
+  - dune-build-info
+  - dune-site
+  - num
+  - ocaml-inifiles
+  - ocaml-markdown
+  - tyxml
+  - yojson
+  runtime:
+  - why3
+  - batteries
+  - camlp-streams
+  - pcre2-ocaml
+  - zarith
+  - camlzip
+  - dune-build-info
+  - dune-site
+  - num
+  - ocaml-inifiles
+  - ocaml-markdown
+  - tyxml
+  - yojson
