@@ -1,0 +1,32 @@
+name: snappy
+version: 1.0_p20200428
+source:
+  url: https://gitlab.gnome.org/GNOME/snappy/-/archive/ebf8e3ed30013e6577fa8994db40743d2ec05e94/snappy-ebf8e3ed30013e6577fa8994db40743d2ec05e94.tar.bz2
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - pkgconfig
+  - glib
+  - clutter
+  - clutter-gst
+  - clutter-gtk
+  - gtk+
+  - libXtst
+  - gstreamer
+  - gst-plugins-base
+  - gst-plugins-meta
+  - spice-gtk
+  runtime:
+  - glib
+  - clutter
+  - clutter-gst
+  - clutter-gtk
+  - gtk+
+  - libXtst
+  - gstreamer
+  - gst-plugins-base
+  - gst-plugins-meta
+  - spice-gtk

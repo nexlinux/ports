@@ -1,0 +1,19 @@
+name: jumpnbump
+version: 1.61_p20210421
+source:
+  url: https://gitlab.com/LibreGames/jumpnbump/-/archive/73c5fe86fd831dec45a22077e8d63dd2b6a6349e/.tar.bz2
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - bzip2
+  - libsdl2
+  - sdl2-mixer
+  - sdl2-net
+  - zlib
+  runtime:
+  - pillow
+  - pygobject
+  - gdk-pixbuf
+  - gtk+

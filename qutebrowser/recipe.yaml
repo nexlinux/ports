@@ -1,0 +1,38 @@
+name: qutebrowser
+version: 3.7.0
+source:
+  url: https://github.com/qutebrowser/qutebrowser/releases/download/v3.7.0/qutebrowser-3.7.0.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - pyqt6
+  - beautifulsoup4
+  - cheroot
+  - flask
+  - pillow
+  - tldextract
+  - pyqt6-webengine
+  - colorama
+  - jinja2
+  - markupsafe
+  - pygments
+  - pyyaml
+  - zipp
+  - qtbase
+  - adblock
+  - pdfjs
+  - chrome-binary-plugins
+  runtime:
+  - pyqt6-webengine
+  - pyqt6
+  - colorama
+  - jinja2
+  - markupsafe
+  - pygments
+  - pyyaml
+  - zipp
+  - qtbase
+  - adblock
+  - pdfjs
+  - chrome-binary-plugins

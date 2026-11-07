@@ -1,0 +1,14 @@
+name: libvoikko
+version: 4.3.3
+source:
+  url: https://www.puimula.org/voikko-sources/libvoikko/libvoikko-4.3.3.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - pkgconfig
+  - autoconf
+  - openpgp-keys-voikko
+  - hfstospell

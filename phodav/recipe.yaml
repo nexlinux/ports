@@ -1,0 +1,28 @@
+name: phodav
+version: '3.2'
+source:
+  url: https://download.gnome.org/sources/phodav/3.2/phodav-3.2.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - scdoc
+  - gettext
+  - pkgconfig
+  - gi-docgen
+  - dconf
+  - glib
+  - libsoup
+  - libxml2
+  - gobject-introspection
+  - avahi
+  - phodav
+  runtime:
+  - glib
+  - libsoup
+  - libxml2
+  - gobject-introspection
+  - avahi
+  - phodav

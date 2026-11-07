@@ -1,0 +1,12 @@
+name: miniupnpc
+version: 2.3.3
+source:
+  url: https://miniupnp.tuxfamily.org/files/miniupnpc-2.3.3.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - openpgp-keys-miniupnp
+  - miniupnpc-
