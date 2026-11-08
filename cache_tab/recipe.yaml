@@ -1,0 +1,12 @@
+name: cache_tab
+version: 1.0.34
+source:
+  url: https://github.com/processone/cache_tab/archive/1.0.34.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - erlang
+  - p1_utils

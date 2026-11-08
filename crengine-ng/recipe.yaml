@@ -1,0 +1,25 @@
+name: crengine-ng
+version: 0.9.15
+source:
+  url: https://gitlab.com/coolreader-ng/crengine-ng/-/archive/0.9.15/crengine-ng-0.9.15.tar.bz2
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - cmake
+  - pkgconfig
+  - zlib
+  - libpng
+  - libjpeg-turbo
+  - libwebp
+  - libjxl
+  - freetype
+  - harfbuzz
+  - libunibreak
+  - fribidi
+  - zstd
+  - xxhash
+  - libutf8proc
+  - fontconfig

@@ -1,0 +1,11 @@
+name: ppx_disable_unused_warnings
+version: 0.16.0
+source:
+  url: https://github.com/janestreet/ppx_disable_unused_warnings/archive/refs/tags/v0.16.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - base
+  - ppxlib

@@ -1,0 +1,25 @@
+name: gnome-sound-recorder
+version: '42.0'
+source:
+  url: https://download.gnome.org/sources/gnome-sound-recorder/42/gnome-sound-recorder-42.0.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - gettext
+  - pkgconfig
+  - gjs
+  - glib
+  - gtk
+  - gst-plugins-bad
+  - libadwaita
+  - gobject-introspection
+  - gstreamer
+  - gst-plugins-base
+  - gdk-pixbuf
+  runtime:
+  - gst-plugins-good
+  - gst-plugins-flac
+  - gst-plugins-pulse

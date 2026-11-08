@@ -1,0 +1,27 @@
+name: swell-foop
+version: '48.1'
+source:
+  url: https://download.gnome.org/sources/swell-foop/48/swell-foop-48.1.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - appstream
+  - itstool
+  - gettext
+  - pkgconfig
+  - glib
+  - gtk
+  - libadwaita
+  - libgnome-games-support
+  - librsvg
+  - libgee
+  runtime:
+  - glib
+  - gtk
+  - libadwaita
+  - libgnome-games-support
+  - librsvg
+  - libgee

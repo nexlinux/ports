@@ -1,0 +1,30 @@
+name: tepl
+version: 6.8.0
+source:
+  url: https://download.gnome.org/sources/tepl/6.8/tepl-6.8.0.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - glib-utils
+  - gtk-doc
+  - docbook-xml-dtd
+  - gettext
+  - pkgconfig
+  - glib
+  - gtk+
+  - libgedit-gtksourceview
+  - libgedit-amtk
+  - icu
+  - gsettings-desktop-schemas
+  - gobject-introspection
+  runtime:
+  - glib
+  - gtk+
+  - libgedit-gtksourceview
+  - libgedit-amtk
+  - icu
+  - gsettings-desktop-schemas
+  - gobject-introspection
