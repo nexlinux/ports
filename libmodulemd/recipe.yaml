@@ -1,0 +1,19 @@
+name: libmodulemd
+version: 2.15.2
+source:
+  url: https://github.com/fedora-modularity/libmodulemd/archive/refs/tags/2.15.2.tar.gz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - gobject-introspection
+  - glib-utils
+  - glib
+  - gtk-doc
+  - libmodulemd
+  - rpm
+  - file
+  - libyaml
+  - pygobject

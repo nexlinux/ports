@@ -1,0 +1,21 @@
+name: atomix
+version: '44.0'
+source:
+  url: https://download.gnome.org/sources/atomix/44/atomix-44.0.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - gettext
+  - pkgconfig
+  - gtk+
+  - gdk-pixbuf
+  - glib
+  - libgnome-games-support
+  runtime:
+  - gtk+
+  - gdk-pixbuf
+  - glib
+  - libgnome-games-support

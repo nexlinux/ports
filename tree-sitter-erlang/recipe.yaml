@@ -1,0 +1,8 @@
+name: tree-sitter-erlang
+version: '0.20'
+source:
+  url: https://github.com/whatsapp/tree-sitter-erlang/archive/0.20.tar.gz
+build:
+- cargo build --release
+- mkdir -p $DESTDIR$PREFIX/bin
+- cp target/release/tree-sitter-erlang $DESTDIR$PREFIX/bin/

@@ -1,0 +1,19 @@
+name: libapparmor
+version: 5.0.2
+source:
+  url: https://gitlab.com/apparmor/apparmor/-/archive/v5.0.2/apparmor-v5.0.2.tar.bz2
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - autoconf-archive
+  - which
+  - bison
+  - flex
+  - perl
+  - swig
+  - openpgp-keys-apparmor
+  - dejagnu
+  runtime:
+  - perl

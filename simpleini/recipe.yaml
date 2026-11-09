@@ -1,0 +1,11 @@
+name: simpleini
+version: '4.27'
+source:
+  url: https://github.com/brofield/simpleini/archive/refs/tags/v4.27.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - gtest

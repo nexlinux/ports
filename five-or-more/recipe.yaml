@@ -1,0 +1,26 @@
+name: five-or-more
+version: '48.1'
+source:
+  url: https://download.gnome.org/sources/five-or-more/48/five-or-more-48.1.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - librsvg
+  - appstream
+  - libxml2
+  - itstool
+  - gettext
+  - pkgconfig
+  - libgee
+  - glib
+  - gtk+
+  - libgnome-games-support
+  runtime:
+  - libgee
+  - glib
+  - gtk+
+  - libgnome-games-support
+  - librsvg

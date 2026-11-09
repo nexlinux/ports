@@ -1,0 +1,15 @@
+name: prettier-ada
+version: 26.0.0
+source:
+  url: https://github.com/AdaCore/prettier-ada/archive/refs/tags/v26.0.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - e3-testsuite
+  - vss-text
+  - gnatcoll-core
+  runtime:
+  - vss-text
+  - gnatcoll-core

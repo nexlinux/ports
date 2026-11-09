@@ -1,0 +1,12 @@
+name: ryzen_monitor
+version: 1.0.6_pre20220901
+source:
+  url: https://gitlab.com/leogx9r/ryzen_smu/-/archive/v0.1.5/ryzen_smu-v0.1.5.tar.bz2
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - ryzen_smu
+  runtime:
+  - ryzen_smu

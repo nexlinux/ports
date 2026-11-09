@@ -1,0 +1,15 @@
+name: gnome-devel-docs
+version: '40.3'
+source:
+  url: https://download.gnome.org/sources/gnome-devel-docs/40/gnome-devel-docs-40.3.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - docbook-xml-dtd
+  - libxslt
+  - itstool
+  - gettext
+  - pkgconfig
