@@ -1,0 +1,14 @@
+name: libnetfilter_cttimeout
+version: 1.0.1
+source:
+  url: https://www.netfilter.org/projects/libnetfilter_cttimeout/files/libnetfilter_cttimeout-1.0.1.tar.bz2
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - pkgconfig
+  - libmnl
+  runtime:
+  - libmnl

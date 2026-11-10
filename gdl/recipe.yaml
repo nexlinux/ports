@@ -1,0 +1,21 @@
+name: gdl
+version: 3.40.0-r2
+source:
+  url: https://download.gnome.org/sources/gdl/3.40/gdl-3.40.0.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - intltool
+  - pkgconfig
+  - glib
+  - gtk+
+  - libxml2
+  - gobject-introspection
+  runtime:
+  - glib
+  - gtk+
+  - libxml2
+  - gobject-introspection

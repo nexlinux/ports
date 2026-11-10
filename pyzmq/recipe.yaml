@@ -1,0 +1,14 @@
+name: pyzmq
+version: 27.2.0
+source:
+  url: https://github.com/zeromq/pyzmq/archive/v27.2.0.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - packaging
+  - cython
+  - tornado
+  - zeromq

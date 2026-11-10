@@ -1,0 +1,11 @@
+name: leancrypto
+version: 1.8.0
+source:
+  url: https://leancrypto.org/leancrypto/releases/leancrypto-1.8.0/leancrypto-1.8.0.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - openpgp-keys-leancrypto
