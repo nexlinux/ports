@@ -1,0 +1,8 @@
+name: lzallright
+version: 0.3.0
+source:
+  url: https://github.com/vlaci/lzallright/archive/refs/tags/v0.3.0.tar.gz
+build:
+- cargo build --release
+- mkdir -p $DESTDIR$PREFIX/bin
+- cp target/release/lzallright $DESTDIR$PREFIX/bin/

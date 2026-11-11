@@ -1,0 +1,17 @@
+name: aspell
+version: 0.60.8.2
+source:
+  url: https://ftp.gnu.org/gnu/aspell/aspell-0.60.8.2.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - pkgconfig
+  - gettext
+  - ncurses
+  - libintl
+  runtime:
+  - ncurses
+  - libintl
