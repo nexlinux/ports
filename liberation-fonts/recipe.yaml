@@ -1,0 +1,11 @@
+name: liberation-fonts
+version: 2.1.5
+source:
+  url: https://github.com/liberationfonts/liberation-fonts/files/7261483/liberation-fonts-2.1.5.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - fontforge
+  - fonttools

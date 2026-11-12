@@ -1,0 +1,13 @@
+name: libbson
+version: 1.30.15
+source:
+  url: https://github.com/mongodb/mongo-c-driver/releases/download/1.30.15/mongo-c-driver-1.30.15.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - docutils
+  - sphinx
+  - openpgp-keys-mongo-c-driver

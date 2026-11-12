@@ -1,0 +1,21 @@
+name: eselect-repository
+version: '15'
+source:
+  url: https://github.com/gentoo/eselect-repository/archive/v15.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - pytest
+  - eselect
+  - lxml
+  - wget
+  - git
+  - mercurial
+  runtime:
+  - eselect
+  - lxml
+  - wget
+  - git
+  - mercurial

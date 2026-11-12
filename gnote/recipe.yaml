@@ -1,0 +1,24 @@
+name: gnote
+version: '49.4'
+source:
+  url: https://download.gnome.org/sources/gnote/49/gnote-49.4.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - appstream
+  - itstool
+  - pkgconfig
+  - glib
+  - glibmm
+  - gtkmm
+  - libadwaita
+  - libsecret
+  - libxml2
+  - libxslt
+  - util-linux
+  - unittest++
+  runtime:
+  - gsettings-desktop-schemas

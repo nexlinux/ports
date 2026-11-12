@@ -1,0 +1,17 @@
+name: adwaita-icon-theme-legacy
+version: 46.2-r1
+source:
+  url: https://download.gnome.org/sources/adwaita-icon-theme-legacy/46/adwaita-icon-theme-legacy-46.2.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - gtk-update-icon-cache
+  - gettext
+  - pkgconfig
+  - hicolor-icon-theme
+  runtime:
+  - gtk
+  - librsvg

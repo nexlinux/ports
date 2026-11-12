@@ -1,0 +1,36 @@
+name: gucharmap
+version: 17.0.2
+source:
+  url: https://download.gnome.org/sources/gucharmap/17.0/gucharmap-17.0.2.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - docbook-xml-dtd
+  - glib
+  - glib-utils
+  - itstool
+  - gettext
+  - pkgconfig
+  - gtk-doc
+  - gobject-introspection
+  - freetype
+  - gtk+
+  - libpcre2
+  - unicode-data-
+  - pango
+  - cairo
+  - at-spi2-core
+  - gucharmap
+  runtime:
+  - freetype
+  - glib
+  - gtk+
+  - libpcre2
+  - unicode-data-
+  - pango
+  - cairo
+  - at-spi2-core
+  - gucharmap

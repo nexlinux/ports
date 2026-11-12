@@ -1,0 +1,8 @@
+name: libsigsegv
+version: '2.15'
+source:
+  url: https://ftp.gnu.org/gnu/libsigsegv/libsigsegv-2.15.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install

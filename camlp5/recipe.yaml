@@ -1,0 +1,29 @@
+name: camlp5
+version: 8.04.00
+source:
+  url: https://github.com/camlp5/camlp5/archive/refs/tags/8.04.00.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - ocaml
+  - bos
+  - camlp-streams
+  - fmt
+  - fpath
+  - logs
+  - pcre2-ocaml
+  - re
+  - rresult
+  runtime:
+  - ocaml
+  - bos
+  - camlp-streams
+  - fmt
+  - fpath
+  - logs
+  - pcre2-ocaml
+  - re
+  - rresult
