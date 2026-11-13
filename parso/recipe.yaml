@@ -1,0 +1,6 @@
+name: parso
+version: 0.8.7
+source:
+  url: https://github.com/davidhalter/parso/archive/v0.8.7.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX

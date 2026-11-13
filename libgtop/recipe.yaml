@@ -1,0 +1,18 @@
+name: libgtop
+version: 2.41.3
+source:
+  url: https://download.gnome.org/sources/libgtop/2.41/libgtop-2.41.3.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - gtk-doc-am
+  - gettext
+  - pkgconfig
+  - glib
+  - gobject-introspection
+  runtime:
+  - glib
+  - gobject-introspection

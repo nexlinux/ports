@@ -1,0 +1,30 @@
+name: gnome-bluetooth
+version: '47.1'
+source:
+  url: https://download.gnome.org/sources/gnome-bluetooth/47/gnome-bluetooth-47.2.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - libxml2
+  - gdbus-codegen
+  - glib-utils
+  - gtk-doc
+  - pkgconfig
+  - python-dbusmock
+  - dbus-python
+  - glib
+  - gtk
+  - gsound
+  - libadwaita
+  - libnotify
+  - libudev
+  - upower
+  - gobject-introspection
+  runtime:
+  - plugdev
+  - udev
+  - bluez
+  - gnome-bluetooth

@@ -1,0 +1,12 @@
+name: affine
+version: 3.0.1
+source:
+  url: https://github.com/rasterio/affine/archive/refs/tags/3.0.1.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - numpy
+  - attrs
+  runtime:
+  - attrs

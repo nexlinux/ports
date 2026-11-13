@@ -1,0 +1,19 @@
+name: imageio
+version: 2.38.0
+source:
+  url: https://github.com/imageio/imageio/archive/v2.38.0.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - imageio-ffmpeg
+  - psutil
+  - tifffile
+  - ffmpeg
+  - numpy
+  - pillow
+  - freeimage
+  runtime:
+  - numpy
+  - pillow
+  - freeimage

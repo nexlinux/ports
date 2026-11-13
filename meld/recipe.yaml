@@ -1,0 +1,29 @@
+name: meld
+version: 3.24.1
+source:
+  url: https://download.gnome.org/sources/meld/3.24/meld-3.24.1.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - intltool
+  - itstool
+  - gettext
+  - distro
+  - gtk+
+  - glib
+  - gtksourceview
+  - pygobject
+  - gsettings-desktop-schemas
+  - pango
+  - hicolor-icon-theme
+  runtime:
+  - gtk+
+  - glib
+  - gtksourceview
+  - pygobject
+  - gsettings-desktop-schemas
+  - pango
+  - hicolor-icon-theme

@@ -1,0 +1,19 @@
+name: ccid
+version: 1.8.3
+source:
+  url: https://ccid.apdu.fr/files/ccid-1.8.3.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - lex
+  - perl
+  - pkgconfig
+  - openpgp-keys-ludovicrousseau
+  - pcsc-lite
+  - libusb
+  runtime:
+  - pcsc-lite
+  - libusb
