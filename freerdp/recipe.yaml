@@ -1,0 +1,14 @@
+name: freerdp
+version: 3.32.2
+source:
+  url: https://pub.freerdp.com/releases/freerdp-3.32.2.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - openpgp-keys-akallabeth
+  runtime:
+  - freerdp
+  - p11-kit

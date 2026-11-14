@@ -1,0 +1,19 @@
+name: gnome-autoar
+version: 0.4.5
+source:
+  url: https://download.gnome.org/sources/gnome-autoar/0.4/gnome-autoar-0.4.5.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - pkgconfig
+  - glib-utils
+  - gtk-doc
+  - docbook-xml-dtd
+  runtime:
+  - libarchive
+  - glib
+  - gtk+
+  - gobject-introspection

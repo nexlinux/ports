@@ -1,0 +1,17 @@
+name: anjuta
+version: 3.34.0-r3
+source:
+  url: https://download.gnome.org/sources/anjuta/3.34/anjuta-3.34.0.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - pkgconfig
+  - gdl
+  - glib
+  - libxml2
+  - gdk-pixbuf
+  - gtk+
+  - pango

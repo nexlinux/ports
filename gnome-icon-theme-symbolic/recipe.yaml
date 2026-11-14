@@ -1,0 +1,16 @@
+name: gnome-icon-theme-symbolic
+version: 3.12.0-r1
+source:
+  url: https://download.gnome.org/sources/gnome-icon-theme-symbolic/3.12/gnome-icon-theme-symbolic-3.12.0.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - icon-naming-utils
+  - pkgconfig
+  - hicolor-icon-theme
+  runtime:
+  - librsvg
+  - gnome-power-manager

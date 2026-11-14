@@ -1,0 +1,29 @@
+name: cgal
+version: 5.6.1
+source:
+  url: https://github.com/CGAL/cgal/releases/download/v5.6.1/cgal-5.6.1.tar.xz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - xz-utils
+  - pkgconfig
+  - eigen
+  - boost
+  - gmp
+  - mpfr
+  - zlib
+  - libX11
+  - glu
+  - opengl
+  runtime:
+  - eigen
+  - boost
+  - gmp
+  - mpfr
+  - zlib
+  - libX11
+  - glu
+  - opengl

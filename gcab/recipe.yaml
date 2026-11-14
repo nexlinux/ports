@@ -1,0 +1,22 @@
+name: gcab
+version: '1.6'
+source:
+  url: https://download.gnome.org/sources/gcab/1.6/gcab-1.6.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - glib-utils
+  - gtk-doc
+  - docbook-xml-dtd
+  - gettext
+  - pkgconfig
+  - glib
+  - zlib
+  - gobject-introspection
+  runtime:
+  - glib
+  - zlib
+  - gobject-introspection

@@ -1,0 +1,29 @@
+name: torchvision
+version: 0.29.2
+source:
+  url: https://github.com/pytorch/vision/archive/refs/tags/v0.29.2.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - filelock
+  - lmdb
+  - sympy
+  - networkx
+  - numpy
+  - pillow
+  - libjpeg-turbo
+  - libpng
+  - libwebp
+  - ffmpeg
+  - pytorch
+  runtime:
+  - numpy
+  - pillow
+  - libjpeg-turbo
+  - libpng
+  - libwebp
+  - ffmpeg
+  - pytorch

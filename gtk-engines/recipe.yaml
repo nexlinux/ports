@@ -1,0 +1,15 @@
+name: gtk-engines
+version: 2.20.2-r102
+source:
+  url: https://download.gnome.org/sources/gtk-engines/2.20/gtk-engines-2.20.2.tar.bz2
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - intltool
+  - pkgconfig
+  - gtk+
+  runtime:
+  - gtk+
