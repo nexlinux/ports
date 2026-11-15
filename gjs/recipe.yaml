@@ -1,0 +1,24 @@
+name: gjs
+version: 1.88.1
+source:
+  url: https://download.gnome.org/sources/gjs/1.88/gjs-1.88.1.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - pkgconfig
+  - glib
+  - libffi
+  - gobject-introspection
+  - spidermonkey
+  - cairo
+  - readline
+  runtime:
+  - glib
+  - libffi
+  - gobject-introspection
+  - spidermonkey
+  - cairo
+  - readline

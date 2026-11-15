@@ -1,0 +1,14 @@
+name: lfe
+version: 2.2.2
+source:
+  url: https://github.com/rvirding/lfe/archive/2.2.2.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - erlang
+  - emacs
+  runtime:
+  - erlang
+  - emacs

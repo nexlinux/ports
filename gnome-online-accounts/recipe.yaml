@@ -1,0 +1,38 @@
+name: gnome-online-accounts
+version: 3.56.5
+source:
+  url: https://download.gnome.org/sources/gnome-online-accounts/3.56/gnome-online-accounts-3.56.5.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - gi-docgen
+  - glib
+  - dbus
+  - gobject-introspection
+  - libadwaita
+  - gtk
+  - json-glib
+  - libsecret
+  - libsoup
+  - keyutils
+  - libxml2
+  - rest
+  - gcr
+  - mit-krb5
+  runtime:
+  - glib
+  - dbus
+  - gobject-introspection
+  - libadwaita
+  - gtk
+  - json-glib
+  - libsecret
+  - libsoup
+  - keyutils
+  - libxml2
+  - rest
+  - gcr
+  - mit-krb5

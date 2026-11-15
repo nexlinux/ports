@@ -1,0 +1,13 @@
+name: zstandard
+version: 0.25.0
+source:
+  url: https://github.com/indygreg/python-zstandard/archive/0.25.0.tar.gz
+build:
+- cargo build --release
+- mkdir -p $DESTDIR$PREFIX/bin
+- cp target/release/zstandard $DESTDIR$PREFIX/bin/
+depends:
+  build:
+  - zstd
+  runtime:
+  - cffi

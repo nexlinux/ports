@@ -1,0 +1,15 @@
+name: restic
+version: 0.19.1
+source:
+  url: https://github.com/restic/restic/archive/v0.19.1.tar.gz
+build:
+- go build -o restic
+- mkdir -p $DESTDIR$PREFIX/bin
+- cp restic $DESTDIR$PREFIX/bin/
+depends:
+  build:
+  - go
+  - openpgp-keys-alexanderneumann
+  - fuse
+  runtime:
+  - fuse

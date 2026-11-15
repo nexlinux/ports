@@ -1,0 +1,50 @@
+name: imagemagick
+version: 7.1.2.32
+source:
+  url: https://downloads.sourceforge.net/imagemagick/ImageMagick-7.1.2-32.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - openpgp-keys-imagemagick
+  runtime:
+  - graphicsmagick
+  - libltdl
+  - bzip2
+  - corefonts
+  - djvu
+  - fftw
+  - fontconfig
+  - libfpx
+  - graphviz
+  - libheif
+  - jbigkit
+  - libjpeg-turbo
+  - openjpeg
+  - libjxl
+  - lcms
+  - liblqr
+  - opencl
+  - openexr
+  - pango
+  - perl
+  - libpng
+  - ghostscript-gpl
+  - libraw
+  - librsvg
+  - potrace
+  - tiff
+  - urw-fonts
+  - freetype
+  - libwebp
+  - libwmf
+  - libICE
+  - libSM
+  - libXext
+  - libXt
+  - libxml2
+  - xz-utils
+  - libzip
+  - zlib

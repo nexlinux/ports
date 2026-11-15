@@ -1,0 +1,15 @@
+name: libusb
+version: 1.0.30
+source:
+  url: https://github.com/libusb/libusb/releases/download/v1.0.30/libusb-1.0.30.tar.bz2
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - doxygen
+  - openpgp-keys-libusb
+  - libudev
+  runtime:
+  - libudev
