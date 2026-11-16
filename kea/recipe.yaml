@@ -1,0 +1,27 @@
+name: kea
+version: 3.2.0
+source:
+  url: https://downloads.isc.org/isc/kea/3.2.0/kea-3.2.0.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - meson
+  - pkgconfig
+  - sphinx
+  - sphinx-rtd-theme
+  - openpgp-keys-isc
+  - boost
+  - log4cplus
+  - krb5
+  - zstd
+  - mysql-connector-c
+  - openssl
+  - zlib
+  - botan
+  - postgresql
+  runtime:
+  - dhcp
+  - selinux-dhcp

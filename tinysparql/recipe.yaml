@@ -1,0 +1,43 @@
+name: tinysparql
+version: 3.12.0
+source:
+  url: https://download.gnome.org/sources/tinysparql/3.12/tinysparql-3.12.0.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - glib-utils
+  - asciidoc
+  - libxslt
+  - gettext
+  - pkgconfig
+  - gi-docgen
+  - graphviz
+  - xmlto
+  - pygobject
+  - tap-py
+  - glib
+  - gobject-introspection
+  - icu
+  - json-glib
+  - libsoup
+  - libxml2
+  - sqlite
+  - snowball-stemmer
+  - dbus
+  - avahi
+  - systemd
+  runtime:
+  - glib
+  - gobject-introspection
+  - icu
+  - json-glib
+  - libsoup
+  - libxml2
+  - sqlite
+  - snowball-stemmer
+  - dbus
+  - avahi
+  - systemd

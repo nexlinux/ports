@@ -1,0 +1,35 @@
+name: gnome-network-displays
+version: 0.99.0
+source:
+  url: https://download.gnome.org/sources/gnome-network-displays/0.99/gnome-network-displays-0.99.0.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - gettext
+  - pkgconfig
+  - protobuf-c
+  - appstream-glib
+  - desktop-file-utils
+  - glib
+  - json-glib
+  - libportal
+  - gtk
+  - libadwaita
+  - gst-rtsp-server
+  - libpulse
+  - gst-plugins-faac
+  - gst-plugins-x264
+  - gst-plugins-ximagesrc
+  - avahi
+  - dnsmasq
+  - libsoup
+  - wpa_supplicant
+  - xdg-desktop-portal
+  - firewalld
+  runtime:
+  - gnome-desktop
+  - networkmanager
+  - mutter

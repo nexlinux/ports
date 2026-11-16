@@ -1,0 +1,14 @@
+name: abseil-cpp
+version: '20250127.1'
+source:
+  url: https://github.com/abseil/abseil-cpp/archive/20250127.1.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - timezone-data
+  - gtest
+  runtime:
+  - gtest

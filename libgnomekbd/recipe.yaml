@@ -1,0 +1,24 @@
+name: libgnomekbd
+version: 3.28.1
+source:
+  url: https://download.gnome.org/sources/libgnomekbd/3.28/libgnomekbd-3.28.1.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - glib-utils
+  - gettext
+  - pkgconfig
+  - glib
+  - gtk+
+  - libX11
+  - libxklavier
+  - gobject-introspection
+  runtime:
+  - glib
+  - gtk+
+  - libX11
+  - libxklavier
+  - gobject-introspection

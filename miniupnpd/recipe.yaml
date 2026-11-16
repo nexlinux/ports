@@ -1,0 +1,29 @@
+name: miniupnpd
+version: 2.3.10
+source:
+  url: https://miniupnp.tuxfamily.org/files/miniupnpd-2.3.10.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - lsb-release
+  - openpgp-keys-miniupnp
+  - gmp
+  - util-linux
+  - openssl
+  - iptables
+  - libnfnetlink
+  - libmnl
+  - nftables
+  - libnftnl
+  runtime:
+  - gmp
+  - util-linux
+  - openssl
+  - iptables
+  - libnfnetlink
+  - libmnl
+  - nftables
+  - libnftnl

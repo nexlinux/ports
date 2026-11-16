@@ -1,0 +1,12 @@
+name: coq-stdlib
+version: 9.1.0
+source:
+  url: https://github.com/coq/stdlib/archive/V9.1.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - coq-
+  runtime:
+  - coq-
