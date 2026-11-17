@@ -1,0 +1,16 @@
+name: apparmor-utils
+version: 4.1.8
+source:
+  url: https://gitlab.com/apparmor/apparmor/-/archive/v4.1.8/apparmor-v4.1.8.tar.bz2
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - openpgp-keys-apparmor
+  - libapparmor-
+  runtime:
+  - notify2
+  - psutil
+  - apparmor-
+  - libapparmor-

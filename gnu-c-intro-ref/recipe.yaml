@@ -1,0 +1,14 @@
+name: gnu-c-intro-ref
+version: '0.1'
+source:
+  url: https://ftp.gnu.org/gnu/c-intro-and-ref/c-intro-and-ref-0.1.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - texinfo
+  - ghostscript-gpl
+  - texlive-core
+  - texi2dvi

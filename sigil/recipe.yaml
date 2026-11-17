@@ -1,0 +1,50 @@
+name: sigil
+version: 2.8.6
+source:
+  url: https://github.com/Sigil-Ebook/Sigil/archive/2.8.6.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - pkgconfig
+  - qttools
+  - openpgp-keys-dougmassay
+  - hunspell
+  - libpcre2
+  - qtbase
+  - qtwebengine
+  - qtsvg
+  - minizip
+  - css-parser
+  - dulwich
+  - lxml
+  - unidecode
+  - chardet
+  - cssselect
+  - html5lib
+  - pillow
+  - regex
+  - pyqt6
+  - pyqt6-webengine
+  - mathjax
+  runtime:
+  - hunspell
+  - libpcre2
+  - qtbase
+  - qtwebengine
+  - qtsvg
+  - minizip
+  - css-parser
+  - dulwich
+  - lxml
+  - unidecode
+  - chardet
+  - cssselect
+  - html5lib
+  - pillow
+  - regex
+  - pyqt6
+  - pyqt6-webengine
+  - mathjax

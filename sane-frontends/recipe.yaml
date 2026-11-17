@@ -1,0 +1,15 @@
+name: sane-frontends
+version: 1.0.14-r7
+source:
+  url: https://salsa.debian.org/debian/sane-frontends/-/archive/upstream//-upstream-.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - sane-backends
+  - gimp
+  - '2'
+  - glib
+  - gtk+
