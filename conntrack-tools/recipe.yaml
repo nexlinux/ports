@@ -1,0 +1,32 @@
+name: conntrack-tools
+version: 1.4.9
+source:
+  url: https://www.netfilter.org/projects/conntrack-tools/files/conntrack-tools-1.4.9.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - yacc
+  - lex
+  - pkgconfig
+  - docbook-xml-dtd
+  - xmlto
+  - libmnl
+  - libnetfilter_conntrack
+  - libnetfilter_queue
+  - libnfnetlink
+  - libtirpc
+  - libnetfilter_cthelper
+  - libnetfilter_cttimeout
+  - systemd
+  runtime:
+  - libmnl
+  - libnetfilter_conntrack
+  - libnetfilter_queue
+  - libnfnetlink
+  - libtirpc
+  - libnetfilter_cthelper
+  - libnetfilter_cttimeout
+  - systemd

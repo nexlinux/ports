@@ -1,0 +1,14 @@
+name: tcpslice
+version: '1.8'
+source:
+  url: https://www.tcpdump.org/release/tcpslice-1.8.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - openpgp-keys-tcpdump
+  - libpcap
+  runtime:
+  - libpcap

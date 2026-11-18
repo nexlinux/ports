@@ -1,0 +1,12 @@
+name: pylibmc
+version: 1.7.1
+source:
+  url: https://github.com/lericson/pylibmc/archive/1.7.1.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - memcached
+  - libmemcached-awesome
+  - libmemcached
+  - zlib
