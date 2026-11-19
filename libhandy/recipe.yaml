@@ -1,0 +1,25 @@
+name: libhandy
+version: 1.8.3
+source:
+  url: https://download.gnome.org/sources/libhandy/1.8/libhandy-1.8.3.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - libxml2
+  - glib-utils
+  - gettext
+  - pkgconfig
+  - gi-docgen
+  - docbook-xml-dtd
+  - glib
+  - gtk+
+  - glade
+  - gobject-introspection
+  runtime:
+  - glib
+  - gtk+
+  - glade
+  - gobject-introspection

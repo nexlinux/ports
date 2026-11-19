@@ -1,0 +1,19 @@
+name: libwlembed
+version: 0.0.0_pre20250715
+source:
+  url: https://gitlab.freedesktop.org/wlroots/wlr-protocols/-/archive/4264185db3b7e961e7f157e1cc4fd0ab75137568/wlr-protocols-4264185db3b7e961e7f157e1cc4fd0ab75137568.tar.bz2
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - xfce4-dev-tools
+  - pkgconfig
+  - gtk-doc
+  - glib
+  - wayland
+  - wayland-scanner
+  - libxkbcommon
+  - gtk-layer-shell
+  - gtk+
+  - gobject-introspection

@@ -1,0 +1,47 @@
+name: xf86-video-intel
+version: 2.99.917_p20230201
+source:
+  url: https://gitlab.freedesktop.org/xorg/driver/xf86-video-intel/-/archive/b74b67f0f321875492968f7097b9d6e82a66d7df/.tar.bz2
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - libXext
+  - libXfixes
+  - libXScrnSaver
+  - pixman
+  - libdrm
+  - xorg-server
+  - libX11
+  - libxcb
+  - libXcursor
+  - libXdamage
+  - libXinerama
+  - libXrandr
+  - libXrender
+  - libxshmfence
+  - libXtst
+  - libudev
+  - libXvMC
+  - xcb-util
+  runtime:
+  - libXext
+  - libXfixes
+  - libXScrnSaver
+  - pixman
+  - libdrm
+  - xorg-server
+  - libX11
+  - libxcb
+  - libXcursor
+  - libXdamage
+  - libXinerama
+  - libXrandr
+  - libXrender
+  - libxshmfence
+  - libXtst
+  - libudev
+  - libXvMC
+  - xcb-util

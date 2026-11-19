@@ -1,0 +1,13 @@
+name: docstring-to-markdown
+version: '0.17'
+source:
+  url: https://github.com/python-lsp/docstring-to-markdown/archive/v0.17.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - importlib-metadata
+  - typing-extensions
+  runtime:
+  - importlib-metadata
+  - typing-extensions
