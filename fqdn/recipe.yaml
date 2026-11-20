@@ -1,0 +1,6 @@
+name: fqdn
+version: 1.6.0
+source:
+  url: https://github.com/ypcrts/fqdn/archive/v1.6.0.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX

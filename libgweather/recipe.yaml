@@ -1,0 +1,28 @@
+name: libgweather
+version: 4.4.4
+source:
+  url: https://download.gnome.org/sources/libgweather/4.4/libgweather-4.4.4.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - glib-utils
+  - gi-docgen
+  - gettext
+  - pkgconfig
+  - pygobject
+  - glib
+  - libsoup
+  - geocode-glib
+  - libxml2
+  - json-glib
+  - gobject-introspection
+  runtime:
+  - glib
+  - libsoup
+  - geocode-glib
+  - libxml2
+  - json-glib
+  - gobject-introspection

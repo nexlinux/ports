@@ -1,0 +1,19 @@
+name: xdg-user-dirs-gtk
+version: '0.16'
+source:
+  url: https://download.gnome.org/sources/xdg-user-dirs-gtk/0.16/xdg-user-dirs-gtk-0.16.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - gettext
+  - pkgconfig
+  - glib
+  - gtk+
+  - xdg-user-dirs
+  runtime:
+  - glib
+  - gtk+
+  - xdg-user-dirs

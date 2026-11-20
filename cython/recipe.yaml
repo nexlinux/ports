@@ -1,0 +1,9 @@
+name: cython
+version: 3.2.9
+source:
+  url: https://github.com/cython/cython/archive/refs/tags/3.2.9.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - numpy

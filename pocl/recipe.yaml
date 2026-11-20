@@ -1,0 +1,25 @@
+name: pocl
+version: '7.1'
+source:
+  url: https://github.com/pocl/pocl/archive/v7.1.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - pkgconfig
+  - openpgp-keys-franz
+  - libltdl
+  - opencl-headers
+  - opencl
+  - lttng-ust
+  - nvidia-cuda-toolkit
+  - hwloc
+  runtime:
+  - libltdl
+  - opencl-headers
+  - opencl
+  - lttng-ust
+  - nvidia-cuda-toolkit
+  - hwloc

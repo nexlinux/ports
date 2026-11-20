@@ -1,0 +1,36 @@
+name: wsjtx_improved
+version: 3.2.0_p260818-r1
+source:
+  url: https://downloads.sourceforge.net/wsjt-x-improved/wsjtx-3.2.0_improved_PLUS_260818_qt6.tgz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - qttools
+  - boost
+  - qtbase
+  - qtmultimedia
+  - qtserialport
+  - qtwebsockets
+  - libusb
+  - hamlib
+  - portaudio
+  - fftw
+  - fortran
+  - asciidoc
+  - asciidoctor
+  runtime:
+  - boost
+  - qtbase
+  - qtmultimedia
+  - qtserialport
+  - qtwebsockets
+  - libusb
+  - hamlib
+  - portaudio
+  - fftw
+  - fortran
+  - asciidoc
+  - asciidoctor

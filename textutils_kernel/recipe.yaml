@@ -1,0 +1,13 @@
+name: textutils_kernel
+version: 0.16.0
+source:
+  url: https://github.com/janestreet/textutils_kernel/archive/refs/tags/v0.16.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - ocaml
+  - core
+  - ppx_jane
+  - uutf

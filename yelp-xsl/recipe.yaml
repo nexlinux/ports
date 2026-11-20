@@ -1,0 +1,14 @@
+name: yelp-xsl
+version: '49.0'
+source:
+  url: https://download.gnome.org/sources/yelp-xsl/49/yelp-xsl-49.0.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - libxslt
+  - itstool
+  - gettext
+  - pkgconfig
