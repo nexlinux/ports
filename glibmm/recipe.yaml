@@ -1,0 +1,20 @@
+name: glibmm
+version: 2.88.0
+source:
+  url: https://download.gnome.org/sources/glibmm/2.88/glibmm-2.88.1.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - perl
+  - XML-Parser
+  - pkgconfig
+  - doxygen
+  - libxslt
+  - glib
+  - libsigc++
+  runtime:
+  - glib
+  - libsigc++

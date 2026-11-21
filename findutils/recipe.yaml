@@ -1,0 +1,18 @@
+name: findutils
+version: 4.10.0
+source:
+  url: https://ftp.gnu.org/gnu/findutils/findutils-4.10.0.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - gettext
+  - dejagnu
+  - openpgp-keys-findutils
+  - libselinux
+  - libintl
+  runtime:
+  - libselinux
+  - libintl

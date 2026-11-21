@@ -1,0 +1,12 @@
+name: outline-indent
+version: 1.2.4
+source:
+  url: https://github.com/jamescherti/outline-indent.el/archive/refs/tags/1.2.4.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - kirigami
+  runtime:
+  - kirigami

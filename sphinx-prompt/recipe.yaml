@@ -1,0 +1,13 @@
+name: sphinx-prompt
+version: 1.10.2
+source:
+  url: https://github.com/sbrunner/sphinx-prompt/archive/1.10.2.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - sphinx
+  - pygments
+  runtime:
+  - sphinx
+  - pygments

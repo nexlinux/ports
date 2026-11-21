@@ -1,0 +1,8 @@
+name: geographiclib
+version: '2.1'
+source:
+  url: https://github.com/geographiclib/geographiclib/archive/refs/tags/v2.1.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build

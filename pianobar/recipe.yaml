@@ -1,0 +1,22 @@
+name: pianobar
+version: 2024.12.21
+source:
+  url: https://6xq.net/pianobar/pianobar-2024.12.21.tar.bz2
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - pkgconfig
+  - openpgp-keys-ldbraun
+  - json-c
+  - libgcrypt
+  - libao
+  - ffmpeg
+  - curl
+  runtime:
+  - json-c
+  - libgcrypt
+  - libao
+  - ffmpeg
+  - curl
