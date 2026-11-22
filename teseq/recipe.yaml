@@ -1,0 +1,8 @@
+name: teseq
+version: 1.1.1
+source:
+  url: https://ftp.gnu.org/gnu/teseq/teseq-1.1.1.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install

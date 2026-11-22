@@ -1,0 +1,21 @@
+name: pykeepass
+version: 4.2.0
+source:
+  url: https://github.com/libkeepass/pykeepass/archive/refs/tags/v4.2.0.tar.gz
+build:
+- pip install . --root=$DESTDIR --prefix=$PREFIX
+depends:
+  build:
+  - argon2-cffi
+  - construct
+  - importlib-metadata
+  - lxml
+  - pycryptodome
+  - pyotp
+  runtime:
+  - argon2-cffi
+  - construct
+  - importlib-metadata
+  - lxml
+  - pycryptodome
+  - pyotp

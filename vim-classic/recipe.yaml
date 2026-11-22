@@ -1,0 +1,27 @@
+name: vim-classic
+version: 8.3.0
+source:
+  url: https://git.sr.ht/~sircmpwn/vim-classic/archive/v8.3.0.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - openpgp-keys-ddevault
+  runtime:
+  - vim
+  - vim-classic-core-
+  - eselect-vi
+  - ncurses
+  - acl
+  - cscope
+  - gpm
+  - libintl
+  - perl
+  - racket
+  - libselinux
+  - libcanberra
+  - tcl
+  - vim-classic-core
+  - libXt

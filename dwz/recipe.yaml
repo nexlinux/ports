@@ -1,0 +1,16 @@
+name: dwz
+version: '0.17'
+source:
+  url: https://sourceware.org/ftp/dwz/releases/dwz-0.17.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - openpgp-keys-dwz
+  runtime:
+  - elfutils
+  - xxhash
+  - error-standalone
+  - obstack-standalone

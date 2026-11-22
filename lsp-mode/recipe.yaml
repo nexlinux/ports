@@ -1,0 +1,28 @@
+name: lsp-mode
+version: 10.0.0
+source:
+  url: https://github.com/emacs-lsp/lsp-mode/archive/10.0.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - deferred
+  - ecukes
+  - el-mock
+  - espuds
+  - flycheck
+  - undercover
+  - dash
+  - f
+  - ht
+  - lv
+  - markdown-mode
+  - spinner
+  runtime:
+  - dash
+  - f
+  - ht
+  - lv
+  - markdown-mode
+  - spinner

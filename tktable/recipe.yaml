@@ -1,0 +1,11 @@
+name: tktable
+version: 2.10.8
+source:
+  url: https://github.com/wjoye/tktable/archive/refs/tags/v2.10.8.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - tk

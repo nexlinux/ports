@@ -1,0 +1,40 @@
+name: epiphany
+version: '50.6'
+source:
+  url: https://download.gnome.org/sources/epiphany/50/epiphany-50.6.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - appstream-glib
+  - blueprint-compiler
+  - docutils
+  - gdbus-codegen
+  - glib-utils
+  - itstool
+  - gettext
+  - pkgconfig
+  - cairo
+  - gcr
+  - gdk-pixbuf
+  - glib
+  - gsettings-desktop-schemas
+  - gstreamer
+  - gtk
+  - iso-codes
+  - json-glib
+  - libarchive
+  - libadwaita
+  - libsecret
+  - libsoup
+  - libxml2
+  - nettle
+  - libportal
+  - sqlite
+  - webkit-gtk
+  - gmp
+  runtime:
+  - adwaita-icon-theme
+  - selinux-mozilla
