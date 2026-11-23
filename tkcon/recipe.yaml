@@ -1,0 +1,11 @@
+name: tkcon
+version: 2.7.10
+source:
+  url: https://github.com/wjoye/tkcon/archive/v2.7.10.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - tk

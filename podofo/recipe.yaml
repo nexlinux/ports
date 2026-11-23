@@ -1,0 +1,29 @@
+name: podofo
+version: 1.1.2
+source:
+  url: https://github.com/podofo/podofo/archive/refs/tags/1.1.2.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - pkgconfig
+  - liberation-fonts
+  - libxml2
+  - openssl
+  - freetype
+  - zlib
+  - fontconfig
+  - libjpeg-turbo
+  - libpng
+  - tiff
+  runtime:
+  - libxml2
+  - openssl
+  - freetype
+  - zlib
+  - fontconfig
+  - libjpeg-turbo
+  - libpng
+  - tiff

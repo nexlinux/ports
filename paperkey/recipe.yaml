@@ -1,0 +1,11 @@
+name: paperkey
+version: '1.6'
+source:
+  url: https://www.jabberwocky.com/software/paperkey/paperkey-1.6.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - openpgp-keys-dshaw

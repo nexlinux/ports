@@ -1,0 +1,19 @@
+name: eigen
+version: '9999'
+source:
+  url: https://gitlab.com/libeigen/eigen/-/archive/9999/eigen-9999.tar.bz2
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - doxygen
+  - texlive-bibtexextra
+  - texlive-fontsextra
+  - texlive-fontutils
+  - texlive-latex
+  - texlive-latexextra
+  - mathjax
+  - pkgconfig
+  - fortran

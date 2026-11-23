@@ -1,0 +1,13 @@
+name: zlib
+version: '1.4'
+source:
+  url: https://zlib.net/zlib-1.4.tar.xz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - openpgp-keys-madler
+  runtime:
+  - zlib-ng

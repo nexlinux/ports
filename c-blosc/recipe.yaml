@@ -1,0 +1,14 @@
+name: c-blosc
+version: 1.21.7
+source:
+  url: https://github.com/Blosc/c-blosc/archive/v1.21.7.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - lz4
+  - snappy
+  - zlib
+  - zstd
