@@ -1,0 +1,33 @@
+name: lightdm
+version: 1.33.0
+source:
+  url: https://github.com/canonical/lightdm/releases/download/1.33.0/lightdm-1.33.0.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - yelp-tools
+  - gtk-doc
+  - libxml2
+  - intltool
+  - gettext
+  - pkgconfig
+  - glib
+  - libgcrypt
+  - pam
+  - libX11
+  - libxcb
+  - libXdmcp
+  - libxklavier
+  - audit
+  - gobject-introspection
+  - qtbase
+  - xorg-drivers
+  runtime:
+  - lightdm
+  - video
+  - pambase-20101024-r2
+  - elogind
+  - systemd

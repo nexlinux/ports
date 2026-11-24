@@ -1,0 +1,7 @@
+name: dape
+version: 0.28.0
+source:
+  url: https://github.com/svaante/dape/archive/refs/tags/0.28.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install

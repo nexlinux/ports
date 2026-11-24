@@ -1,0 +1,13 @@
+name: libgamin
+version: 0.1.10-r7
+source:
+  url: https://pkgconfig.freedesktop.org/releases/pkg-config-0.28.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - fam
+  runtime:
+  - fam

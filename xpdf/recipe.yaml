@@ -1,0 +1,15 @@
+name: xpdf
+version: '4.06'
+source:
+  url: https://dl.xpdfreader.com/xpdf-4.06.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - librsvg
+  - openpgp-keys-xpdf
+  runtime:
+  - qtsvg
+  - urw-fonts

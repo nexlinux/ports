@@ -1,0 +1,17 @@
+name: gocryptfs
+version: 2.7.0
+source:
+  url: https://github.com/rfjakob/gocryptfs/releases/download/v2.7.0/gocryptfs_v2.7.0_src-deps.tar.gz
+build:
+- go build -o gocryptfs
+- mkdir -p $DESTDIR$PREFIX/bin
+- cp gocryptfs $DESTDIR$PREFIX/bin/
+depends:
+  build:
+  - go
+  - pkgconfig
+  - fuse
+  - openpgp-keys-gocryptfs
+  - openssl
+  runtime:
+  - openssl

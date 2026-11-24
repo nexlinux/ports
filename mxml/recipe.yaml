@@ -1,0 +1,12 @@
+name: mxml
+version: 4.0.6
+source:
+  url: https://github.com/michaelrsweet/mxml/releases/download/v4.0.6/mxml-4.0.6.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - pkgconfig
+  - openpgp-keys-michaelrsweet

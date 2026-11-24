@@ -1,0 +1,17 @@
+name: contourpy
+version: 1.4.0
+source:
+  url: https://github.com/contourpy/contourpy/archive/v1.4.0.tar.gz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - pybind11
+  - matplotlib
+  - pillow
+  - wurlitzer
+  - numpy
+  runtime:
+  - numpy
