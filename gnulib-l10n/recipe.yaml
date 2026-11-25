@@ -1,0 +1,8 @@
+name: gnulib-l10n
+version: '20241231'
+source:
+  url: https://ftp.gnu.org/gnu/gnulib/gnulib-l10n-20241231.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install

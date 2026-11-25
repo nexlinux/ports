@@ -1,0 +1,33 @@
+name: gnome-disk-utility
+version: 46.1-r1
+source:
+  url: https://download.gnome.org/sources/gnome-disk-utility/46/gnome-disk-utility-46.1.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - libxml2
+  - docbook-xsl-stylesheets
+  - libxslt
+  - glib-utils
+  - gettext
+  - pkgconfig
+  - libdvdread
+  - glib
+  - gtk+
+  - libcanberra-gtk3
+  - libcanberra
+  - libhandy
+  - xz-utils
+  - libnotify
+  - libsecret
+  - libpwquality
+  - udisks
+  - elogind
+  - systemd
+  runtime:
+  - adwaita-icon-theme
+  - dosfstools
+  - gnome-settings-daemon

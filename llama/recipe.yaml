@@ -1,0 +1,12 @@
+name: llama
+version: 1.0.6
+source:
+  url: https://github.com/tarsius/llama/archive/refs/tags/v1.0.6.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - compat
+  runtime:
+  - compat

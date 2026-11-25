@@ -1,0 +1,29 @@
+name: gupnp-tools
+version: 0.12.2
+source:
+  url: https://download.gnome.org/sources/gupnp-tools/0.12/gupnp-tools-0.12.4.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - gettext
+  - pkgconfig
+  - gssdp
+  - gupnp
+  - libsoup
+  - gupnp-av
+  - gtk+
+  - glib
+  - libxml2
+  - gtksourceview
+  runtime:
+  - gssdp
+  - gupnp
+  - libsoup
+  - gupnp-av
+  - gtk+
+  - glib
+  - libxml2
+  - gtksourceview
