@@ -1,0 +1,22 @@
+name: yelp-tools
+version: 42.1-r1
+source:
+  url: https://download.gnome.org/sources/yelp-tools/42/yelp-tools-42.1.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - pkgconfig
+  - lxml
+  - libxml2
+  - libxslt
+  - itstool
+  - yelp-xsl
+  runtime:
+  - lxml
+  - libxml2
+  - libxslt
+  - itstool
+  - yelp-xsl

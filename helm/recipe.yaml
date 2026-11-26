@@ -1,0 +1,14 @@
+name: helm
+version: 4.0.7
+source:
+  url: https://github.com/emacs-helm/helm/archive/v4.0.7.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - async
+  - wfnames
+  runtime:
+  - async
+  - wfnames

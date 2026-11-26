@@ -1,0 +1,24 @@
+name: gnome-nettool
+version: 42.0-r1
+source:
+  url: https://download.gnome.org/sources/gnome-nettool/42/gnome-nettool-42.0.tar.xz
+build:
+- meson setup build --prefix=$PREFIX
+- meson compile -C build
+- DESTDIR=$DESTDIR meson install -C build
+depends:
+  build:
+  - yelp-tools
+  - pkgconfig
+  - gettext
+  - gtk+
+  - glib
+  - libgtop
+  runtime:
+  - iputils
+  - tcptraceroute
+  - traceroute
+  - nmap
+  - bind
+  - netkit-fingerd
+  - whois

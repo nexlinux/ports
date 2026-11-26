@@ -1,0 +1,37 @@
+name: lighttpd
+version: 1.4.85
+source:
+  url: https://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.85.tar.xz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - pkgconfig
+  - openpgp-keys-lighttpd
+  - lighttpd
+  - xxhash
+  - libcrypt
+  - brotli
+  - libdbi
+  - gnutls
+  - krb5
+  - openldap
+  - libdeflate
+  - libmaxminddb
+  - mbedtls
+  - nettle
+  - nss
+  - libpcre2
+  - php
+  - cyrus-sasl
+  - openssl
+  - libunwind
+  - libxml2
+  - sqlite
+  - attr
+  - zlib
+  - zstd
+  runtime:
+  - selinux-apache

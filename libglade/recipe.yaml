@@ -1,0 +1,21 @@
+name: libglade
+version: 2.6.4-r5
+source:
+  url: https://download.gnome.org/sources/libglade/2.6/libglade-2.6.4.tar.bz2
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - gtk-doc-am
+  - pkgconfig
+  - glib
+  - gtk+
+  - atk
+  - libxml2
+  runtime:
+  - glib
+  - gtk+
+  - atk
+  - libxml2

@@ -1,0 +1,42 @@
+name: mate-panel
+version: 1.28.7
+source:
+  url: https://github.com/mate-desktop/mate-panel/archive/refs/tags/v1.28.7.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - docbook-xml-dtd
+  - yelp-tools
+  - perl
+  - glib-utils
+  - gdbus-codegen
+  - gtk-doc
+  - gtk-doc-am
+  - gettext
+  - pkgconfig
+  - at-spi2-core
+  - glib
+  - libmateweather
+  - libxml2
+  - dconf
+  - dconf-editor
+  - mate-desktop-
+  - mate-menus
+  - dbus
+  - cairo
+  - gdk-pixbuf
+  - gtk+
+  - libICE
+  - libSM
+  - libwnck
+  - pango
+  - libX11
+  - libXau
+  - libXrandr
+  - gobject-introspection
+  - gtk-layer-shell
+  runtime:
+  - libintl

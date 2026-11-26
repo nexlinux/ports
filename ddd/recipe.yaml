@@ -1,0 +1,23 @@
+name: ddd
+version: 3.4.1
+source:
+  url: https://ftp.gnu.org/gnu/ddd/ddd-3.4.1.tar.gz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - gdb
+  - freetype
+  - ncurses
+  - libX11
+  - libXaw
+  - libXmu
+  - libXpm
+  - libXt
+  - motif
+  - elfutils
+  - readline
+  runtime:
+  - xfontsel
