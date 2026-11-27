@@ -1,0 +1,56 @@
+name: openmw
+version: 0.51.0
+source:
+  url: https://github.com/OpenMW/openmw/archive/openmw-0.51.0.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - pkgconfig
+  - doxygen
+  - sphinx
+  - qttools
+  - gtest
+  - lz4
+  - yaml-cpp
+  - sqlite
+  - recastnavigation
+  - collada-dom
+  - mygui
+  - boost
+  - icu
+  - tinyxml
+  - libsdl2
+  - openal
+  - ffmpeg
+  - bullet
+  - zlib
+  - opengl
+  - openscenegraph-openmw
+  - openscenegraph
+  - unshield
+  - qtbase
+  - qtsvg
+  runtime:
+  - lz4
+  - yaml-cpp
+  - sqlite
+  - recastnavigation
+  - collada-dom
+  - mygui
+  - boost
+  - icu
+  - tinyxml
+  - libsdl2
+  - openal
+  - ffmpeg
+  - bullet
+  - zlib
+  - opengl
+  - openscenegraph-openmw
+  - openscenegraph
+  - unshield
+  - qtbase
+  - qtsvg

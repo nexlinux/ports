@@ -1,0 +1,11 @@
+name: fann
+version: '9999'
+source:
+  url: https://downloads.sourceforge.net/fann/FANN-2.2.0-Source.zip
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - gtest

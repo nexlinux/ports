@@ -1,0 +1,12 @@
+name: cyclone
+version: 0.36.0
+source:
+  url: https://github.com/justinethier/cyclone-bootstrap/archive/v0.36.0.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - concurrencykit
+  runtime:
+  - concurrencykit

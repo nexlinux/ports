@@ -1,0 +1,27 @@
+name: fig2dev
+version: 3.2.9a
+source:
+  url: https://downloads.sourceforge.net/mcj/fig2dev-3.2.9a.tar.xz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - rman
+  - gcc
+  - libpng
+  - libjpeg-turbo
+  - rgb
+  - libXpm
+  - transfig
+  - ghostscript-gpl
+  - imagemagick-tools
+  runtime:
+  - libpng
+  - libjpeg-turbo
+  - rgb
+  - libXpm
+  - transfig
+  - ghostscript-gpl
+  - imagemagick-tools

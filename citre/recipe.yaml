@@ -1,0 +1,14 @@
+name: citre
+version: 0.4.2
+source:
+  url: https://github.com/universal-ctags/citre/archive/refs/tags/v0.4.2.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install
+depends:
+  build:
+  - global
+  - ctags
+  runtime:
+  - global
+  - ctags
