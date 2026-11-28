@@ -1,0 +1,17 @@
+name: war1gus
+version: 3.3.2
+source:
+  url: https://github.com/Wargus/war1gus/archive/v3.3.2.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - imagemagick-tools
+  - pkgconfig
+  - stratagus-
+  - libpng
+  - zlib
+  - gtk+
+  - libX11

@@ -1,0 +1,21 @@
+name: ncnn
+version: '20250503'
+source:
+  url: https://github.com/Tencent/ncnn/archive/refs/tags/20250503.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - protobuf
+  - abseil-cpp
+  - glslang
+  - spirv-tools
+  - vulkan-loader
+  runtime:
+  - abseil-cpp
+  - protobuf
+  - glslang
+  - spirv-tools
+  - vulkan-loader

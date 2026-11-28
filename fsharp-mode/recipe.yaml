@@ -1,0 +1,7 @@
+name: fsharp-mode
+version: '9999'
+source:
+  url: https://github.com/fsharp/emacs-fsharp-mode/archive/9999.tar.gz
+build:
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR PREFIX=$PREFIX install

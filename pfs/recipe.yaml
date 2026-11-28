@@ -1,0 +1,8 @@
+name: pfs
+version: 0.10.0
+source:
+  url: https://github.com/dtrugman/pfs/archive/refs/tags/v0.10.0.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build

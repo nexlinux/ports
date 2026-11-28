@@ -1,0 +1,28 @@
+name: mod_perl
+version: 2.0.14
+source:
+  url: https://archive.apache.org/dist/perl/mod_perl-2.0.14.tar.gz
+build:
+- perl Makefile.PL PREFIX=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - Module-Build
+  - CGI
+  - Chatbot-Eliza
+  - Devel-Symdump
+  - HTML-Parser
+  - IPC-Run3
+  - libwww-perl
+  - apache
+  - mpm_itk
+  - openpgp-keys-apache-perl
+  - perl
+  - Apache-Test
+  - apr-util
+  runtime:
+  - perl
+  - Apache-Test
+  - apache
+  - apr-util

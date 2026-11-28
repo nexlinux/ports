@@ -1,0 +1,13 @@
+name: pedro
+version: '1.14'
+source:
+  url: https://staff.itee.uq.edu.au/pjr/HomePages/PedroFiles/pedro-1.14.tgz
+build:
+- ./configure --prefix=$PREFIX
+- make -j$(nproc)
+- make DESTDIR=$DESTDIR install
+depends:
+  build:
+  - glib
+  runtime:
+  - glib

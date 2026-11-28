@@ -1,0 +1,12 @@
+name: corrosion
+version: 0.5.2
+source:
+  url: https://github.com/corrosion-rs/corrosion/archive/refs/tags/v0.5.2.tar.gz
+build:
+- cmake -B build -DCMAKE_INSTALL_PREFIX=$PREFIX
+- cmake --build build -j$(nproc)
+- DESTDIR=$DESTDIR cmake --install build
+depends:
+  build:
+  - cbindgen
+  - cmake
